@@ -17,12 +17,9 @@
 ## Install
 From Logseq store - `Plugins -> Marketplace`.
 
-![](./screenshots/market.pn)
+![](./screenshots/market.png)
 
 ## Features
-![](./screenshots/settings-features.png)
-
-
 
 ### ⭐ Auto favicons for external links
 
