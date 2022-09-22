@@ -1,0 +1,98 @@
+:root {
+    --icon-font: 'Fira Code Nerd Font';
+}
+
+@font-face {
+    font-family: "Fira Code Nerd Font";
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/fira-code-nerd-regular.ttf') format('truetype');
+}
+
+/*
+  >>> BEGIN: External links
+*/
+.is-awesome-favicons .external-link-img {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: -3px 5px 0 0;
+    border-radius: 3px;
+}
+.is-awesome-favicons .external-link::before,
+.is-awesome-favicons .external-link::after {
+    display: none !important;
+}
+/*
+<<<< END: External links
+*/
+
+
+/*
+  >>> BEGIN: Page icons
+*/
+/* title & fav & recent */
+.title .page-icon,
+.title .link-icon {
+    display: inline-block;
+    margin-right: 0.34em !important;
+    font-family: var(--icon-font);
+    text-align: center;
+    line-height: 1.2em;
+    width: 1.4em;
+}
+/* content */
+.is-awesome-icons .link-icon {
+    display: inline-block;
+    margin-right: 0.34em !important;
+    font-family: var(--icon-font);
+    text-align: center;
+    line-height: 1em;
+    width: 1.2em;
+}
+/*
+<<<< END: Page icons
+*/
+
+
+/*
+  >>> BEGIN: Journal icon
+*/
+body:not(.is-banner-active).is-awesome-journal-icon .journal-item h1.title::before,
+body:not(.is-banner-active).is-awesome-journal-icon .is-journals h1.title::before {
+    content: var(--awesome-journal-icon);
+    display: inline-block;
+    margin-right: 0.24em !important;
+    font-family: var(--icon-font);
+    text-align: center;
+    line-height: 1.2em;
+    width: 1.4em;
+}
+/*
+<<<< END: External links
+*/
+
+
+/*
+  >>> BEGIN: Nerd icons
+*/
+.desc-item[data-key="featureJournalIcon"] .form-input,
+.page-icon,
+.is-icon-active .page>.relative>.flex-row>.flex-1::before {
+    font-family: var(--icon-font);
+}
+/*
+<<<< END: Nerd icons
+*/
+
+
+
+/*
+>>> BEGIN: Settigns
+*/
+.desc-item[data-key="featureJournalIcons"] .form-input {
+    font-family: var(--icon-font);
+}
+/*
+<<<< END: Settings
+*/

@@ -1,0 +1,47 @@
+{
+  "name": "logseq-awesome-links",
+  "description": "Favicons for external links, page icons for internal",
+  "version": "0.1.0",
+  "author": "yoyurec <yoyurec@gmail.com>",
+  "main": "dist/index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && cp -f -r src/css dist/assets",
+    "preinstall": "npx only-allow pnpm",
+    "semantic-release": "semantic-release"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@logseq/libs": "0.0.8"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^9.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^8.23.1",
+    "semantic-release": "^19.0.5",
+    "typescript": "^4.8.3",
+    "vite": "3.1.0",
+    "vite-plugin-logseq": "^1.1.2"
+  },
+  "license": "MIT",
+  "logseq": {
+    "title": "Awesome links",
+    "icon": "./icon.png",
+    "id": "logseq-awesome-links"
+  },
+  "repository": "https://github.com/yoyurec/logseq-awesome-links.git",
+  "effect": true,
+  "sponsors": [
+    "https://www.buymeacoffee.com/yoyurec"
+  ]
+}
