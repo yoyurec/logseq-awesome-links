@@ -9,7 +9,7 @@
 * **Pages icons** for internal links
 * Custom **Journal icons**
 * Emoji `icon::`extended to hundreds icons set via Nerd fonts support
-
+![Nerd font](screenshots/nerd.png)
 
 ## If you ❤ what i'm doing - you can support my work! ☕
 <a href="https://www.buymeacoffee.com/yoyurec" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 178px !important;" ></a>
@@ -49,8 +49,6 @@ Native Logseq props `icon::` extended with Nerd icons font:
 Banners & Tabs plugin support included 😎
 
 ![Nerd icons](screenshots/nerd-icons.png)
-
-![Nerd font](screenshots/nerd.png)
 
 ### ✨ Journal icon
 
