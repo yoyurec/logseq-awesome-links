@@ -16,6 +16,13 @@ let pluginConfig: LSPluginBaseInfo['settings'];
 
 const settingSchema: SettingSchemaDesc[] = [
     {
+        key: 'promoSolext',
+        title: '',
+        description: '⚡ Also try "Solarized Extended" theme with lots of UI changes and more features! ⚡ https://github.com/yoyurec/logseq-solarized-extended-theme',
+        type: 'boolean',
+        default: false,
+    },
+    {
         key: 'featureFaviconsEnabled',
         title: '',
         description: 'Show site favicon for external links?',
@@ -44,7 +51,6 @@ const settingSchema: SettingSchemaDesc[] = [
         default: '',
     }
 ];
-
 
 const toggleFaviconsFeature = () => {
     if (pluginConfig.featureFaviconsEnabled) {
@@ -86,7 +92,7 @@ const setFavicons = (extLinkList: NodeListOf<HTMLAnchorElement>) => {
             extLinkList[i].insertAdjacentElement('afterbegin', fav);
         }
     }
-    body.classList.add('is-awesome-favicons');
+    body.classList.add('is-awesomelinks-ext');
 }
 const removeFavicons = () => {
     const favicons = doc.querySelectorAll('.external-link-img');
@@ -95,7 +101,7 @@ const removeFavicons = () => {
             favicons[i].remove();
         }
     }
-    body.classList.remove('is-awesome-favicons');
+    body.classList.remove('is-awesomelinks-ext');
 }
 
 
@@ -169,7 +175,7 @@ const setPageIcons = async (linkList: NodeListOf<HTMLAnchorElement>) => {
             linkItem.insertAdjacentHTML('afterbegin', `<span class="link-icon">${pageIcon}</span>`);
         }
     }
-    body.classList.add('is-awesome-icons');
+    body.classList.add('is-awesomelinks-int');
 }
 const removePageIcons = () => {
     const pageIcons = doc.querySelectorAll('.link-icon');
@@ -178,7 +184,7 @@ const removePageIcons = () => {
             pageIcons[i].remove();
         }
     }
-    body.classList.remove('is-awesome-icons');
+    body.classList.remove('is-awesomelinks-int');
 }
 
 // const setTitleInheritedIcons = async (titleList: NodeListOf<HTMLAnchorElement>) => {
@@ -294,11 +300,9 @@ const runLinksObserver = () => {
     if (!appContainer) {
         return;
     }
-    console.log(`AwesomeIcons: links observer started`);
     linksObserver.observe(appContainer, linksObserverConfig);
 }
 const stopLinksObserver = () => {
-    console.log(`AwesomeIcons: links observer stopped`);
     linksObserver.disconnect();
 }
 
@@ -313,6 +317,7 @@ const runStuff = () => {
         if (pluginConfig.featureFaviconsEnabled || pluginConfig.featurePageIconsEnabled) {
             runLinksObserver();
         }
+        body.classList.add('is-awesomelinks');
     }, 1000)
 }
 const stopStuff = () => {
@@ -321,16 +326,14 @@ const stopStuff = () => {
     faviconsUnload();
     journalIconsUnload();
     stopLinksObserver();
+    body.classList.remove('is-awesomelinks');
 }
 
 // Setting changed
 const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSettings: LSPluginBaseInfo['settings']) => {
     oldPluginConfig = { ...oldSettings };
     pluginConfig = { ...settings };
-    console.log(`AwesomeIcons: settings changed`);
     const settingsDiff = objectDiff(oldPluginConfig, pluginConfig)
-    console.log(`AwesomeIcons: settings changed:`, settingsDiff);
-
     if (settingsDiff.includes('featureFaviconsEnabled')) {
         toggleFaviconsFeature();
     }
@@ -372,9 +375,8 @@ const registerPlugin = async () => {
                     ${tabsPluginStyles}
                 </style>`
             );
-            console.log(`AwesomeIcons: Tabs css inject`);
         }
-    }, 500)
+    }, 500);
 }
 
 const unregisterPlugin = () => {

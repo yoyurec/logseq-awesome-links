@@ -12,15 +12,15 @@
 /*
   >>> BEGIN: External links
 */
-.is-awesome-favicons .external-link-img {
+.is-awesomelinks-ext .external-link-img {
     display: inline-block;
     width: 16px;
     height: 16px;
     margin: -3px 5px 0 0;
     border-radius: 3px;
 }
-.is-awesome-favicons .external-link::before,
-.is-awesome-favicons .external-link::after {
+.is-awesomelinks-ext .external-link::before,
+.is-awesomelinks-ext .external-link::after {
     display: none !important;
 }
 /*
@@ -42,7 +42,7 @@
     width: 1.4em;
 }
 /* content */
-.is-awesome-icons .link-icon {
+.is-awesomelinks-int .link-icon {
     display: inline-block;
     margin-right: 0.34em !important;
     font-family: var(--icon-font);
@@ -86,13 +86,25 @@ body:not(.is-banner-active).is-awesome-journal-icon .is-journals h1.title::befor
 */
 
 
-
 /*
 >>> BEGIN: Settigns
 */
-.desc-item[data-key="featureJournalIcons"] .form-input {
-    font-family: var(--icon-font);
+.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="featureInheritPageIcons"] {
+    margin-left: 46px;
 }
 /*
 <<<< END: Settings
 */
+
+/* promo */
+.is-solext .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="promoSolext"] {
+    display: none;
+}
+
+.desc-item[data-key="promoSolext"] {
+    margin: 1em 0;
+    font-size: 1.3em;
+}
+.desc-item[data-key="promoSolext"] .form-checkbox {
+    display: none;
+}
