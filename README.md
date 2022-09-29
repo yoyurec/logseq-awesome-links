@@ -58,7 +58,9 @@ Can be customized in settings.
 ![Journal icon](screenshots/journal-icon.png)
 
 ## Recommended plugins/themes
-* [Solarized Extended](https://github.com/yoyurec/logseq-solarized-extended-theme)
+* 🐱‍👤 [Solarized Extended](https://github.com/yoyurec/logseq-solarized-extended-theme) theme
+* 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
+* 📰 [Banners](https://github.com/yoyurec/logseq-banners-plugin)
 
 ## What is Logseq?
 Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.
