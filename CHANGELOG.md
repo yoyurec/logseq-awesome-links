@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.0.2...v1.1.0) (2022-09-30)
+
+
+### Features
+
+* **inherits:** add alias query ([e641595](https://github.com/yoyurec/logseq-awesome-links/commit/e6415957248e12f59e4e5277b7b5d2f861df8769))
+
 ## [1.0.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.0.1...v1.0.2) (2022-09-30)
 
 
