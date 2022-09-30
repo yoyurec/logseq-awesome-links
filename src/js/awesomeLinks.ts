@@ -92,7 +92,7 @@ const setFavicons = (extLinkList: NodeListOf<HTMLAnchorElement>) => {
             extLinkList[i].insertAdjacentElement('afterbegin', fav);
         }
     }
-    body.classList.add('is-awesomelinks-ext');
+    body.classList.add('is-awesomeLinks-ext');
 }
 const removeFavicons = () => {
     const favicons = doc.querySelectorAll('.external-link-img');
@@ -101,7 +101,7 @@ const removeFavicons = () => {
             favicons[i].remove();
         }
     }
-    body.classList.remove('is-awesomelinks-ext');
+    body.classList.remove('is-awesomeLinks-ext');
 }
 
 
@@ -175,7 +175,7 @@ const setPageIcons = async (linkList: NodeListOf<HTMLAnchorElement>) => {
             linkItem.insertAdjacentHTML('afterbegin', `<span class="link-icon">${pageIcon}</span>`);
         }
     }
-    body.classList.add('is-awesomelinks-int');
+    body.classList.add('is-awesomeLinks-int');
 }
 const removePageIcons = () => {
     const pageIcons = doc.querySelectorAll('.link-icon');
@@ -184,7 +184,7 @@ const removePageIcons = () => {
             pageIcons[i].remove();
         }
     }
-    body.classList.remove('is-awesomelinks-int');
+    body.classList.remove('is-awesomeLinks-int');
 }
 
 // const setTitleInheritedIcons = async (titleList: NodeListOf<HTMLAnchorElement>) => {
@@ -252,11 +252,12 @@ const journalIconsLoad = () => {
     if (!pluginConfig.featureJournalIcon) {
         return;
     }
-    root.style.setProperty('--awesome-journal-icon', `"${pluginConfig.featureJournalIcon}"`);
-    body.classList.add('is-awesome-journal-icon');
+    root.style.setProperty('--awesomeLinks-journal-icon', `"${pluginConfig.featureJournalIcon}"`);
+    body.classList.add('is-awesomeLinks-journal');
 }
 const journalIconsUnload = () => {
-    body.classList.remove('is-awesome-journal-icon');
+    root.style.removeProperty('--awesomeLinks-journal-icon');
+    body.classList.remove('is-awesomeLinks-journal');
 }
 
 // Links observer
@@ -317,7 +318,7 @@ const runStuff = () => {
         if (pluginConfig.featureFaviconsEnabled || pluginConfig.featurePageIconsEnabled) {
             runLinksObserver();
         }
-        body.classList.add('is-awesomelinks');
+        body.classList.add('is-awesomeLinks');
     }, 1000)
 }
 const stopStuff = () => {
@@ -326,7 +327,7 @@ const stopStuff = () => {
     faviconsUnload();
     journalIconsUnload();
     stopLinksObserver();
-    body.classList.remove('is-awesomelinks');
+    body.classList.remove('is-awesomeLinks');
 }
 
 // Setting changed
@@ -365,7 +366,7 @@ const onPluginUnloadCallback = () => {
 const registerPlugin = async () => {
     setTimeout(() => {
         if (doc.head) {
-            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="awesome-links-css" href="lsp://logseq.io/${pluginID}/dist/assets/css/awesomeLinks.css">`)
+            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="css-awesomeLinks" href="lsp://logseq.io/${pluginID}/dist/assets/css/awesomeLinks.css">`)
         }
         const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
         if (tabsPluginIframe) {
@@ -380,7 +381,7 @@ const registerPlugin = async () => {
 }
 
 const unregisterPlugin = () => {
-    doc.getElementById('awesome-links-css')?.remove();
+    doc.getElementById('css-awesomeLinks')?.remove();
 }
 
 // Get main containers

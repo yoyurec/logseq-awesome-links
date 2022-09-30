@@ -12,15 +12,15 @@
 /*
   >>> BEGIN: External links
 */
-.is-awesomelinks-ext .external-link-img {
+.is-awesomeLinks-ext .external-link-img {
     display: inline-block;
     width: 16px;
     height: 16px;
     margin: -3px 5px 0 0;
     border-radius: 3px;
 }
-.is-awesomelinks-ext .external-link::before,
-.is-awesomelinks-ext .external-link::after {
+.is-awesomeLinks-ext .external-link::before,
+.is-awesomeLinks-ext .external-link::after {
     display: none !important;
 }
 /*
@@ -42,7 +42,7 @@
     width: 1.4em;
 }
 /* content */
-.is-awesomelinks-int .link-icon {
+.is-awesomeLinks-int .link-icon {
     display: inline-block;
     margin-right: 0.34em !important;
     font-family: var(--icon-font);
@@ -58,9 +58,9 @@
 /*
   >>> BEGIN: Journal icon
 */
-body:not(.is-banner-active).is-awesome-journal-icon .journal-item h1.title::before,
-body:not(.is-banner-active).is-awesome-journal-icon .is-journals h1.title::before {
-    content: var(--awesome-journal-icon);
+body:not(.is-banner-active).is-awesomeLinks-journal .journal-item h1.title::before,
+body:not(.is-banner-active).is-awesomeLinks-journal .is-journals h1.title::before {
+    content: var(--awesomeLinks-journal-icon);
     display: inline-block;
     margin-right: 0.24em !important;
     font-family: var(--icon-font);
@@ -96,13 +96,14 @@ body:not(.is-banner-active).is-awesome-journal-icon .is-journals h1.title::befor
 <<<< END: Settings
 */
 
+
 /* promo */
-.is-solext .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="promoSolext"] {
+.is-solext .desc-item[data-key="promoSolext"] {
     display: none;
 }
 
 .desc-item[data-key="promoSolext"] {
-    margin: 1em 0;
+    margin: 1em 0 !important;
     font-size: 1.3em;
 }
 .desc-item[data-key="promoSolext"] .form-checkbox {
