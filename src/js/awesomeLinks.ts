@@ -149,6 +149,20 @@ const getInheritedPageTitle = async (title: string, prop: string) => {
     const titleArr = await logseq.DB.datascriptQuery(inheritedTitleQuery);
     if (titleArr.length) {
         inheritedPageTitle = titleArr[0][0][0];
+        const inheritedAliasQuery = `
+        [
+          :find ?origtitle
+          :where
+              [?id :block/name "${inheritedPageTitle}"]
+              [?origid :block/alias ?id]
+              [?origid :block/name ?origtitle]
+        ]
+        `;
+        const aliasArr = await logseq.DB.datascriptQuery(inheritedAliasQuery);
+        if (aliasArr.length) {
+            inheritedPageTitle = aliasArr[0][0];
+            console.log(inheritedPageTitle);
+        }
     }
     return inheritedPageTitle;
 }
