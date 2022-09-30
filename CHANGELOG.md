@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.0.1...v1.0.2) (2022-09-30)
+
+
+### Bug Fixes
+
+* **naming:** css classes and vars ([a77b161](https://github.com/yoyurec/logseq-awesome-links/commit/a77b1611ed4ef5d0a54e02e985d4aac58f625c7e))
+
 ## [1.0.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.0.0...v1.0.1) (2022-09-27)
 
 
