@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.1.0...v1.2.0) (2022-10-01)
+
+
+### Features
+
+* **aliases:** more aliases - page, page props ([33ef02f](https://github.com/yoyurec/logseq-awesome-links/commit/33ef02f2f3bbc2e9890c34e744ac531b9d9404a4))
+
 # [1.1.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.0.2...v1.1.0) (2022-09-30)
 
 
