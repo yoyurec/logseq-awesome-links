@@ -107,6 +107,7 @@ const removeFavicons = () => {
 
 const getPageIcon = async (title: string) => {
     let pageIcon = '';
+    title = title.toLowerCase();
     const iconQuery = `
     [
       :find ?icon
@@ -135,7 +136,8 @@ const getPageIcon = async (title: string) => {
     return pageIcon;
 }
 
-const getInheritedPageTitle = async (title: string, prop: string) => {
+const getInheritedPropsTitle = async (title: string, prop: string) => {
+    title = title.toLowerCase();
     let inheritedPageTitle = '';
     const inheritedTitleQuery = `
     [
@@ -149,22 +151,27 @@ const getInheritedPageTitle = async (title: string, prop: string) => {
     const titleArr = await logseq.DB.datascriptQuery(inheritedTitleQuery);
     if (titleArr.length) {
         inheritedPageTitle = titleArr[0][0][0];
-        const inheritedAliasQuery = `
-        [
-          :find ?origtitle
-          :where
-              [?id :block/name "${inheritedPageTitle}"]
-              [?origid :block/alias ?id]
-              [?origid :block/name ?origtitle]
-        ]
-        `;
-        const aliasArr = await logseq.DB.datascriptQuery(inheritedAliasQuery);
-        if (aliasArr.length) {
-            inheritedPageTitle = aliasArr[0][0];
-            console.log(inheritedPageTitle);
-        }
     }
     return inheritedPageTitle;
+}
+
+const getAliasedPageTitle = async (title: string) => {
+    title = title.toLowerCase();
+    let aliasedPageTitle = '';
+    const inheritedAliasQuery = `
+    [
+        :find ?origtitle
+        :where
+            [?id :block/name "${title}"]
+            [?origid :block/alias ?id]
+            [?origid :block/name ?origtitle]
+    ]
+    `;
+    const aliasArr = await logseq.DB.datascriptQuery(inheritedAliasQuery);
+    if (aliasArr.length) {
+        aliasedPageTitle = aliasArr[0][0];
+    }
+    return aliasedPageTitle;
 }
 
 const setPageIcons = async (linkList: NodeListOf<HTMLAnchorElement>) => {
@@ -174,15 +181,44 @@ const setPageIcons = async (linkList: NodeListOf<HTMLAnchorElement>) => {
         if (oldPageIcon) {
             oldPageIcon.remove();
         }
-        const pageTitle = linkItem.getAttribute('data-ref');
+        let pageTitle = linkItem.getAttribute('data-ref');
         if (!pageTitle) {
             continue;
         }
+        // get from page
         let pageIcon = await getPageIcon(pageTitle);
+        if (!pageIcon) {
+            // get from aliased page
+            const aliasedPageTitle = await getAliasedPageTitle(pageTitle);
+            if (aliasedPageTitle) {
+                pageIcon = await getPageIcon(aliasedPageTitle);
+            }
+        }
+
         if (!pageIcon && pluginConfig.featureInheritPageIcons) {
-            const inheritedTitle = await getInheritedPageTitle(pageTitle, pluginConfig.featureInheritPageIcons);
-            if (inheritedTitle) {
-                pageIcon = await getPageIcon(inheritedTitle.toLowerCase());
+            if (!pageIcon) {
+                // inherited from aliased page props, when props linked to page
+                const aliasedPageTitle = await getAliasedPageTitle(pageTitle);
+                if (aliasedPageTitle) {
+                    const inheritedPageTitle = await getInheritedPropsTitle(aliasedPageTitle, pluginConfig.featureInheritPageIcons);
+                    if (inheritedPageTitle) {
+                        pageIcon = await getPageIcon(inheritedPageTitle);
+                    }
+                }
+            }
+            if (!pageIcon) {
+                // inherited from page props, when props linked to page
+                const inheritedPropsTitle = await getInheritedPropsTitle(pageTitle, pluginConfig.featureInheritPageIcons);
+                if (inheritedPropsTitle) {
+                    pageIcon = await getPageIcon(inheritedPropsTitle);
+                    if (!pageIcon) {
+                        // inherited from page props, when props linked to aliased
+                        const aliasedPageTitle = await getAliasedPageTitle(inheritedPropsTitle);
+                        if (aliasedPageTitle) {
+                            pageIcon = await getPageIcon(aliasedPageTitle);
+                        }
+                    }
+                }
             }
         }
         if (pageIcon) {
