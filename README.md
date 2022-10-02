@@ -19,7 +19,7 @@ From Logseq store - `Plugins -> Marketplace`.
 ![](./screenshots/market.png)
 
 ## Recommended plugins/themes
-* 🐱‍👤 [Solarized Extended](https://github.com/yoyurec/logseq-solarized-extended-theme) theme
+* 🐱‍👤 [Awesome Styler](https://github.com/yoyurec/logseq-awesome-styler) theme
 * ⚡ [Awesome UI](https://github.com/yoyurec/logseq-awesome-ui)
 * 📰 [Banners](https://github.com/yoyurec/logseq-banners-plugin)
 * 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
