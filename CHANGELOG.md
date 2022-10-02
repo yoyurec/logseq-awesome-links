@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.2.0...v1.2.1) (2022-10-02)
+
+
+### Bug Fixes
+
+* **aliases:** simplify logic ([2c2394d](https://github.com/yoyurec/logseq-awesome-links/commit/2c2394d0d3c54d5a685610d10d0d1fc6ba4b2111))
+
 # [1.2.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.1.0...v1.2.0) (2022-10-01)
 
 
