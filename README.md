@@ -33,7 +33,7 @@ From Logseq store - `Plugins -> Marketplace`.
 ### ✨ Page icons
 
 Enable feature to show Logseq page (or aliased page) icon for internal links in content.
-In addition you can config icon inheriting from related page (or its alias) proprty, to avoid manual setting `icon::` for common pages.
+In addition you can config icon inheriting from related page proprty, to avoid manual setting `icon::` for common pages.
 For ex.:
 * create "Projects" page, set `icon::` for it
 * create "Some project" page, set `page-type:: [[Projects]]`

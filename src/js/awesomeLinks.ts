@@ -197,26 +197,26 @@ const setPageIcons = async (linkList: NodeListOf<HTMLAnchorElement>) => {
 
         if (!pageIcon && pluginConfig.featureInheritPageIcons) {
             if (!pageIcon) {
+                // inherited from page props, when props linked to page
+                const inheritedPropsTitle = await getInheritedPropsTitle(pageTitle, pluginConfig.featureInheritPageIcons);
+                if (inheritedPropsTitle) {
+                    pageIcon = await getPageIcon(inheritedPropsTitle);
+                    // if (!pageIcon) {
+                    //     // inherited from page props, when props linked to aliased
+                    //     const aliasedPageTitle = await getAliasedPageTitle(inheritedPropsTitle);
+                    //     if (aliasedPageTitle) {
+                    //         pageIcon = await getPageIcon(aliasedPageTitle);
+                    //     }
+                    // }
+                }
+            }
+            if (!pageIcon) {
                 // inherited from aliased page props, when props linked to page
                 const aliasedPageTitle = await getAliasedPageTitle(pageTitle);
                 if (aliasedPageTitle) {
                     const inheritedPageTitle = await getInheritedPropsTitle(aliasedPageTitle, pluginConfig.featureInheritPageIcons);
                     if (inheritedPageTitle) {
                         pageIcon = await getPageIcon(inheritedPageTitle);
-                    }
-                }
-            }
-            if (!pageIcon) {
-                // inherited from page props, when props linked to page
-                const inheritedPropsTitle = await getInheritedPropsTitle(pageTitle, pluginConfig.featureInheritPageIcons);
-                if (inheritedPropsTitle) {
-                    pageIcon = await getPageIcon(inheritedPropsTitle);
-                    if (!pageIcon) {
-                        // inherited from page props, when props linked to aliased
-                        const aliasedPageTitle = await getAliasedPageTitle(inheritedPropsTitle);
-                        if (aliasedPageTitle) {
-                            pageIcon = await getPageIcon(aliasedPageTitle);
-                        }
                     }
                 }
             }
