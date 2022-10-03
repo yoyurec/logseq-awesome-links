@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.2.1...v1.2.2) (2022-10-03)
+
+
+### Bug Fixes
+
+* **props:** missed pre block styles ([bf00c2c](https://github.com/yoyurec/logseq-awesome-links/commit/bf00c2c84c838ecc978bb3d0a59ec8ca24f4ee3b))
+
 ## [1.2.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.2.0...v1.2.1) (2022-10-02)
 
 
