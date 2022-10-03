@@ -6,7 +6,7 @@
     font-family: "Fira Code Nerd Font";
     font-style: normal;
     font-weight: 400;
-    src: url('fonts/fira-code-nerd-regular.ttf') format('truetype');
+    src: url('/fonts/fira-code-nerd-regular.ttf') format('truetype');
 }
 
 /*
@@ -87,7 +87,23 @@ body:not(.is-banner-active).is-awesomeLinks-journal .is-journals h1.title::befor
 
 
 /*
->>> BEGIN: Settigns
+>>> BEGIN: Props
+*/
+.pre-block > .flex-row .editor-wrapper textarea,
+.page-properties,
+.block-properties {
+    font-family: var(--icon-font);
+    font-size: 0.9rem;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+}
+/*
+<<<< END: Props
+*/
+
+
+/*
+>>> BEGIN: Settings
 */
 .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="featureInheritPageIcons"] {
     margin-left: 46px;
@@ -98,7 +114,7 @@ body:not(.is-banner-active).is-awesomeLinks-journal .is-journals h1.title::befor
 
 
 /* promo */
-.is-solext .desc-item[data-key="promoSolext"] {
+.is-awesomeStyler-loaded .desc-item[data-key="promoSolext"] {
     display: none;
 }
 

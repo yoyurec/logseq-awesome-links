@@ -1,7 +1,7 @@
 <h1 align="center">"Awesome Links" plugin for Logseq</h1>
 <p align="center">
     <a href="https://github.com/yoyurec/logseq-awesome-links">
-        <img src="icon.png" alt="logo" width="128" height="128" />
+        <img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/icon.png" alt="logo" width="128" height="128" />
     </a>
 </p>
 
@@ -16,7 +16,7 @@
 ## Install
 From Logseq store - `Plugins -> Marketplace`.
 
-![](./screenshots/market.png)
+![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/market.png)
 
 ## Recommended plugins/themes
 * 🐱‍👤 [Awesome Styler](https://github.com/yoyurec/logseq-awesome-styler) theme
@@ -28,7 +28,7 @@ From Logseq store - `Plugins -> Marketplace`.
 
 ### ⭐ Auto favicons for external links
 
-<img src="screenshots/favicons.png" width="640">
+<img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/favicons.png" width="640">
 
 ### ✨ Page icons
 
@@ -40,7 +40,7 @@ For ex.:
 * set in plugin settings "Inherit icon from..." `page-type`
 * ...and all pages with `page-type:: [[Projects]]` will have inherited "Projects" page icon!
 
-![Page icons](screenshots/page-icons.png)
+![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/page-icons.png)
 
 ### ✨ Custom page icons
 
@@ -53,15 +53,15 @@ Native Logseq props `icon::` extended with Nerd icons font:
 
 Banners & Tabs plugin support included 😎
 
-![Nerd icons](screenshots/nerd-icons.png)
+![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/nerd-icons.png)
 
-![Nerd font](screenshots/nerd.png)
+![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/nerd.png)
 
 ### ✨ Journal icon
 
 Can be customized in settings.
 
-![Journal icon](screenshots/journal-icon.png)
+![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/journal-icon.png)
 
 ## What is Logseq?
 Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.

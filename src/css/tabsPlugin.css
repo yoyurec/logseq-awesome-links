@@ -2,7 +2,7 @@
     font-family: "Fira Code Nerd Font";
     font-style: normal;
     font-weight: 400;
-    src: url('lsp://logseq.io/logseq-awesome-links/dist/assets/css/fonts/fira-code-nerd-regular.ttf') format('truetype');
+    src: url('lsp://logseq.io/logseq-awesome-links/dist/fonts/fira-code-nerd-regular.ttf') format('truetype');
 }
 
 .logseq-tab .text-xs {

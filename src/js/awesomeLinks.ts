@@ -2,7 +2,9 @@ import '@logseq/libs';
 import { SettingSchemaDesc, LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
 import { logseq as PL } from '../../package.json';
 
-import tabsPluginStyles from '../css/tabsPlugin.css';
+import '../css/awesomeLinks.css';
+
+import tabsPluginStyles from '../css/tabsPlugin.css?inline';
 
 const pluginID = PL.id;
 
@@ -181,7 +183,7 @@ const setPageIcons = async (linkList: NodeListOf<HTMLAnchorElement>) => {
         if (oldPageIcon) {
             oldPageIcon.remove();
         }
-        let pageTitle = linkItem.getAttribute('data-ref');
+        const pageTitle = linkItem.getAttribute('data-ref');
         if (!pageTitle) {
             continue;
         }
@@ -416,7 +418,7 @@ const onPluginUnloadCallback = () => {
 const registerPlugin = async () => {
     setTimeout(() => {
         if (doc.head) {
-            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="css-awesomeLinks" href="lsp://logseq.io/${pluginID}/dist/assets/css/awesomeLinks.css">`)
+            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="css-awesomeLinks" href="lsp://logseq.io/${pluginID}/dist/assets/awesomeLinks.css">`)
         }
         const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
         if (tabsPluginIframe) {
@@ -455,7 +457,7 @@ const main = async () => {
 
     initLinksObserver();
 
-    // First thme run
+    // First run
     runStuff();
 
     // Later listeners
