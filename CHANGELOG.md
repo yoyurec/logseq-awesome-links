@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.2.2...v1.3.0) (2022-10-05)
+
+
+### Features
+
+* **title:** add icon for page title and active tab ([ec00add](https://github.com/yoyurec/logseq-awesome-links/commit/ec00add2209d5a1dfd12927fb156b3b8d02b4a6b))
+
 ## [1.2.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.2.1...v1.2.2) (2022-10-03)
 
 
