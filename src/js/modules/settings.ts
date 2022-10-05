@@ -32,8 +32,15 @@ export const settingsConfig: SettingSchemaDesc[] = [
     {
         key: 'featureJournalIcon',
         title: '',
-        description: 'Journal item icon: emoji or Nerd icon (https://www.nerdfonts.com/cheat-sheet). Delete value to disable feature',
+        description: 'Journal item icon: emoji or Nerd icon. Delete value to disable feature',
         type: 'string',
         default: '',
+    },
+    {
+        key: 'featureNerdFontEnabled',
+        title: '',
+        description: 'Enable Nerd font with tons of icons (https://www.nerdfonts.com/cheat-sheet)',
+        type: 'boolean',
+        default: true,
     }
 ];

@@ -1,0 +1,40 @@
+:root {
+    --icon-font: 'Fira Code Nerd Font', 'Fira Code', 'Fira Sans';
+}
+
+@font-face {
+    font-family: "Fira Code Nerd Font";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/fira-code-nerd-regular.ttf') format('truetype');
+}
+
+
+/*
+  >>> BEGIN: Nerd icons
+*/
+.desc-item[data-key="featureJournalIcon"] .form-input,
+.page-icon,
+.is-icon-active .page>.relative>.flex-row>.flex-1::before {
+    font-family: var(--icon-font);
+}
+/*
+<<<< END: Nerd icons
+*/
+
+
+/*
+>>> BEGIN: Props
+*/
+.pre-block > .flex-row .editor-wrapper textarea,
+.page-properties,
+.block-properties {
+    font-family: var(--icon-font);
+    font-size: 0.9rem;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+}
+/*
+<<<< END: Props
+*/

@@ -4,10 +4,11 @@ import { LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
 import { settingsConfig } from './modules/settings'
 
 import globalContext from './modules/globals';
-import { doc, body, getDOMContainers as setDOMContainers } from './modules/DOMContainers';
+import { doc, body, getDOMContainers } from './modules/DOMContainers';
 import { objectDiff } from './modules/utils';
 
 import { pageIconsLoad, pageIconsUnload, toggleIconsFeature } from './modules/internal';
+import { nerdFontLoad, nerdFontUnload, toggleNerdFonFeature } from './modules/internal';
 import { faviconsLoad, faviconsUnload, toggleFaviconsFeature } from './modules/internal';
 import { journalIconsLoad, journalIconsUnload, toggleJournalIconFeature } from './modules/internal';
 import { stopLinksObserver, runLinksObserver, initLinksObserver } from './modules/internal';
@@ -19,32 +20,16 @@ const registerPlugin = async () => {
         if (doc.head) {
             doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="css-awesomeLinks" href="lsp://logseq.io/${globalContext.pluginID}/dist/assets/awesomeLinks.css">`)
         }
-        const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
-        if (tabsPluginIframe) {
-            tabsPluginIframe.contentDocument?.head.insertAdjacentHTML(
-                'beforeend',
-                `<style>
-                    @font-face {
-                        font-family: "Fira Code Nerd Font";
-                        font-style: normal;
-                        font-weight: 400;
-                        src: url('lsp://logseq.io/${globalContext.pluginID}/dist/fonts/fira-code-nerd-regular.ttf') format('truetype');
-                    }
-                    .logseq-tab .text-xs {
-                        font-family: "Fira Code Nerd Font";
-                    }
-                </style>`
-            );
-        }
     }, 500);
 }
 
 // Main logic runners
 const runStuff = async () => {
     initLinksObserver();
-    setDOMContainers();
+    getDOMContainers();
     setTimeout(() => {
         pageIconsLoad();
+        nerdFontLoad();
         faviconsLoad();
         journalIconsLoad();
         if (globalContext.pluginConfig?.featureFaviconsEnabled || globalContext.pluginConfig?.featurePageIconsEnabled) {
@@ -55,6 +40,7 @@ const runStuff = async () => {
 }
 const stopStuff = () => {
     pageIconsUnload();
+    nerdFontUnload();
     faviconsUnload();
     journalIconsUnload();
     stopLinksObserver();
@@ -87,6 +73,9 @@ const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSe
     }
     if (settingsDiff.includes('featureJournalIcon')) {
         toggleJournalIconFeature();
+    }
+    if (settingsDiff.includes('featureNerdFontEnabled')) {
+        toggleNerdFonFeature();
     }
 }
 
