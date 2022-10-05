@@ -8,8 +8,10 @@
 * **Favicons** for external links! <a href="#-auto-favicons-for-external-links">🡖</a>
 * **Pages icons** for internal links<a href="#-page-icons">🡖</a>
     * Common page `icon::`
-    * Aliased page icon
-    * Inherited from props page (+ place icon on page title & current tab)
+    * Icon for cases when the page is an alias
+    * Inherit icon from page prop
+    * Inherit icons for cases when the prop is an alias
+    * Show inherited page icons on content links, sidebar, page title & tabs
 * Page icons`icon::`extended from Emoji to hundreds icons set via Nerd fonts support <a href="#-custom-page-icons">🡖</a>
 * Custom **Journal icons** <a href="#-journal-icon">🡖</a>
 
