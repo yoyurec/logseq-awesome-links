@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.3.0...v1.3.1) (2022-10-05)
+
+
+### Bug Fixes
+
+* **promo:** solExt rename ([a110bff](https://github.com/yoyurec/logseq-awesome-links/commit/a110bffebc096ccc3452fe7cd483748771d07747))
+
 # [1.3.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.2.2...v1.3.0) (2022-10-05)
 
 
