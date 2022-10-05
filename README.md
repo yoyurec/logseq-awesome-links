@@ -6,7 +6,10 @@
 </p>
 
 * **Favicons** for external links! <a href="#-auto-favicons-for-external-links">🡖</a>
-* **Pages icons** for internal links <a href="#-page-icons">🡖</a>
+* **Pages icons** for internal links<a href="#-page-icons">🡖</a>
+    * Common page `icon::`
+    * Aliased page icon
+    * Inherited from props page (+ place icon on page title & current tab)
 * Page icons`icon::`extended from Emoji to hundreds icons set via Nerd fonts support <a href="#-custom-page-icons">🡖</a>
 * Custom **Journal icons** <a href="#-journal-icon">🡖</a>
 
@@ -14,7 +17,7 @@
 <a href="https://www.buymeacoffee.com/yoyurec" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 178px !important;" ></a>
 
 ## Install
-From Logseq store - `Plugins -> Marketplace`.
+From Logseq store - `Plugins -> Marketplace`
 
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/market.png)
 
@@ -33,18 +36,20 @@ From Logseq store - `Plugins -> Marketplace`.
 ### ✨ Page icons
 
 Enable feature to show Logseq page (or aliased page) icon for internal links in content.
-In addition you can config icon inheriting from related page proprty, to avoid manual setting `icon::` for common pages.
+In addition you can config icon inheriting from page property referenced page, to avoid manual setting `icon::` for common pages.
 For ex.:
 * create "Projects" page, set `icon::` for it
 * create "Some project" page, set `page-type:: [[Projects]]`
 * set in plugin settings "Inherit icon from..." `page-type`
 * ...and all pages with `page-type:: [[Projects]]` will have inherited "Projects" page icon!
 
+Inherited icons also will be shown on current page title, current tab (if "Tabs" plugin installed) and sidebar.
+
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/page-icons.png)
 
 ### ✨ Custom page icons
 
-3600+ icons combined from popular sets (Font Awesome, Material Design, Seti-UI, etc...)!
+3600+ icons combined from popular sets (Font Awesome, Material Design, SetiUI, etc...)!
 Native Logseq props `icon::` extended with Nerd icons font:
 * Search in collection ([Icons Cheat Sheet](https://www.nerdfonts.com/cheat-sheet)),
 * select
@@ -52,6 +57,7 @@ Native Logseq props `icon::` extended with Nerd icons font:
 * paste to `icon::` props
 
 Banners & Tabs plugin support included 😎
+Feature can be disabled.
 
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/nerd-icons.png)
 
@@ -60,6 +66,7 @@ Banners & Tabs plugin support included 😎
 ### ✨ Journal icon
 
 Can be customized in settings.
+Delete value to disable feature.
 
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/journal-icon.png)
 

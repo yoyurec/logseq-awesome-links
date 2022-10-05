@@ -30,6 +30,10 @@
     line-height: 1.2em;
     width: 1.4em;
 }
+/* sidebar */
+.awLinks-sidebar-icon + .page-icon {
+    display: none !important;
+}
 /* content */
 .is-awesomeLinks-int .page-icon.awLinks-page-icon {
     display: inline-block;

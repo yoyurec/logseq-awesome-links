@@ -3,7 +3,10 @@ import { doc, body } from './DOMContainers';
 import { stopLinksObserver } from './internal';
 
 // External links favicons
-export const setFavicons = async (extLinkList: NodeListOf<HTMLAnchorElement>) => {
+export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement> | HTMLAnchorElement[]) => {
+    if (!extLinkList) {
+        extLinkList = doc.querySelectorAll('.external-link');
+    }
     for (let i = 0; i < extLinkList.length; i++) {
         const oldFav = extLinkList[i].querySelector('.page-icon.awLinks-link-icon');
         if (oldFav) {
@@ -36,8 +39,7 @@ const removeFavicons = () => {
 export const faviconsLoad = async () => {
     if (globalContext.pluginConfig?.featureFaviconsEnabled) {
         setTimeout(() => {
-            const extLinkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.external-link');
-            setFavicons(extLinkList);
+            setFavicons();
         }, 500);
     }
 }

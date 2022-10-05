@@ -4,7 +4,10 @@ import { searchIcon } from './queries';
 import { setTitleIcon, removeTitleIcon } from './internal';
 import { stopLinksObserver } from './internal';
 
-export const setPageIcons = async (linkList: NodeListOf<HTMLAnchorElement>) => {
+export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement> | HTMLAnchorElement[]) => {
+    if (!linkList) {
+        linkList = doc.querySelectorAll('.ls-block .page-ref:not(.page-property-key)');
+    }
     for (let i = 0; i < linkList.length; i++) {
         const linkItem = linkList[i];
         const oldPageIcon = linkItem.querySelector('.page-icon.awLinks-page-icon');
@@ -34,8 +37,7 @@ const removePageIcons = () => {
 }
 
 export const pageIconsLoad = async () => {
-    const linkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.ls-block .page-ref:not(.page-property-key)');
-    setPageIcons(linkList);
+    setPageIcons();
     setTitleIcon();
 }
 

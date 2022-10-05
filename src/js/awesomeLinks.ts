@@ -11,6 +11,7 @@ import { pageIconsLoad, pageIconsUnload, toggleIconsFeature } from './modules/in
 import { nerdFontLoad, nerdFontUnload, toggleNerdFonFeature } from './modules/internal';
 import { faviconsLoad, faviconsUnload, toggleFaviconsFeature } from './modules/internal';
 import { journalIconsLoad, journalIconsUnload, toggleJournalIconFeature } from './modules/internal';
+import { sidebarIconsLoad, sidebarIconsUnload } from './modules/internal';
 import { stopLinksObserver, runLinksObserver, initLinksObserver } from './modules/internal';
 
 import '../css/awesomeLinks.css';
@@ -32,6 +33,7 @@ const runStuff = async () => {
         nerdFontLoad();
         faviconsLoad();
         journalIconsLoad();
+        sidebarIconsLoad();
         if (globalContext.pluginConfig?.featureFaviconsEnabled || globalContext.pluginConfig?.featurePageIconsEnabled) {
             runLinksObserver();
         }
@@ -43,6 +45,7 @@ const stopStuff = () => {
     nerdFontUnload();
     faviconsUnload();
     journalIconsUnload();
+    sidebarIconsUnload();
     stopLinksObserver();
     body.classList.remove('is-awesomeLinks');
 }

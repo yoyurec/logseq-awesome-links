@@ -1,14 +1,16 @@
 import { doc } from './DOMContainers';
 import { getInheritedPropsIcon } from './queries';
 
-export const setTitleIcon = async (pageNameEl?: Element) => {
-    const title = pageNameEl || doc.querySelector('.ls-page-title');
-    if (title && !title.querySelector('.page-icon')) {
-        const pageName = title.textContent;
+export const setTitleIcon = async (pageTitleEl?: Element | null) => {
+    if (!pageTitleEl) {
+        pageTitleEl = doc.querySelector('.ls-page-title');
+    }
+    if (pageTitleEl && !pageTitleEl.querySelector('.page-icon')) {
+        const pageName = pageTitleEl.textContent;
         if (pageName) {
             const titleIcon = await getInheritedPropsIcon(pageName);
             if (titleIcon) {
-                title.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-title-icon">${titleIcon}</span>`);
+                pageTitleEl.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-title-icon">${titleIcon}</span>`);
                 setTabIcon(titleIcon);
             }
         }

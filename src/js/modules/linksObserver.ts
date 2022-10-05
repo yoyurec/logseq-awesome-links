@@ -1,5 +1,5 @@
 import { appContainer } from './DOMContainers';
-import { setFavicons, setPageIcons, setTitleIcon } from './internal';
+import { setFavicons, setPageIcons, setSidebarIcons, setTitleIcon } from './internal';
 
 let linksObserver: MutationObserver, linksObserverConfig: MutationObserverInit;
 
@@ -20,15 +20,23 @@ const linksObserverCallback: MutationCallback = function (mutationsList) {
             if (titleEl) {
                 setTitleIcon(titleEl);
             }
+            // sidebar icon
+            console.log(addedNode);
+            if (addedNode.classList.contains('favorite-item') || addedNode.classList.contains('recent-item')) {
+                const sidebarLink = addedNode.querySelector('a') as HTMLAnchorElement;
+                if (sidebarLink) {
+                    setSidebarIcons([sidebarLink]);
+                }
+            }
             // favicons
-            const extLinkList = addedNode.querySelectorAll('.external-link') as NodeListOf<HTMLAnchorElement>;
-            if (extLinkList.length) {
-                setFavicons(extLinkList);
+            const extLink = addedNode.querySelector('.external-link') as HTMLAnchorElement;
+            if (extLink) {
+                setFavicons([extLink]);
             }
             // page icons
-            const linkList = addedNode.querySelectorAll('.ls-block .page-ref:not(.page-property-key)') as NodeListOf<HTMLAnchorElement>;
-            if (linkList.length) {
-                setPageIcons(linkList);
+            const pageLink = addedNode.querySelector('.ls-block .page-ref:not(.page-property-key)') as HTMLAnchorElement;
+            if (pageLink) {
+                setPageIcons([pageLink]);
             }
         }
     }

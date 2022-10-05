@@ -5,3 +5,4 @@ export * from './nerdFont';
 export * from './journalIcons';
 export * from './favIcons';
 export * from './titleIcon';
+export * from './sidebarIcon';
