@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.3.1...v1.4.0) (2022-10-05)
+
+
+### Features
+
+* **settings:** nerd font feature toggeler ([ca9b155](https://github.com/yoyurec/logseq-awesome-links/commit/ca9b1556873ebc2c21c09897f784887c9af16173))
+
 ## [1.3.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.3.0...v1.3.1) (2022-10-05)
 
 
