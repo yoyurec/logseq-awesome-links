@@ -2,9 +2,9 @@ import { SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
 
 export const settingsConfig: SettingSchemaDesc[] = [
     {
-        key: 'promoSolext',
+        key: 'promoAwesomeStyler',
         title: '',
-        description: '⚡ Also try "Solarized Extended" theme with lots of UI changes and more features! ⚡ https://github.com/yoyurec/logseq-solarized-extended-theme',
+        description: '⚡ Also try "Awesome Styler" theme with lots of UI changes and more features! ⚡ https://github.com/yoyurec/logseq-awesome-styler',
         type: 'boolean',
         default: false,
     },

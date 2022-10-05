@@ -116,14 +116,14 @@ body:not(.is-banner-active).is-awesomeLinks-journal .is-journals h1.title::befor
 
 
 /* promo */
-.is-awesomeStyler-loaded .desc-item[data-key="promoSolext"] {
+.is-awesomeStyler-loaded .desc-item[data-key="promoAwesomeStyler"] {
     display: none;
 }
 
-.desc-item[data-key="promoSolext"] {
+.desc-item[data-key="promoAwesomeStyler"] {
     margin: 1em 0 !important;
     font-size: 1.3em;
 }
-.desc-item[data-key="promoSolext"] .form-checkbox {
+.desc-item[data-key="promoAwesomeStyler"] .form-checkbox {
     display: none;
 }
