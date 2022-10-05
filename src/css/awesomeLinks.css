@@ -1,27 +1,30 @@
 :root {
-    --icon-font: 'Fira Code Nerd Font';
+    --icon-font: 'Fira Code Nerd Font', 'Fira Code', 'Fira Sans';
 }
 
 @font-face {
     font-family: "Fira Code Nerd Font";
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
     src: url('/fonts/fira-code-nerd-regular.ttf') format('truetype');
 }
+
 
 /*
   >>> BEGIN: External links
 */
-.is-awesomeLinks-ext .external-link-img {
+/* hide other themes icons at first */
+.is-awesomeLinks-ext .external-link::before,
+.is-awesomeLinks-ext .external-link::after {
+    display: none !important;
+}
+.is-awesomeLinks-ext .awLinks-link-icon {
     display: inline-block;
     width: 16px;
     height: 16px;
     margin: -3px 5px 0 0;
     border-radius: 3px;
-}
-.is-awesomeLinks-ext .external-link::before,
-.is-awesomeLinks-ext .external-link::after {
-    display: none !important;
 }
 /*
 <<<< END: External links
@@ -32,8 +35,7 @@
   >>> BEGIN: Page icons
 */
 /* title & fav & recent */
-.title .page-icon,
-.title .link-icon {
+.title .page-icon {
     display: inline-block;
     margin-right: 0.34em !important;
     font-family: var(--icon-font);
@@ -42,7 +44,7 @@
     width: 1.4em;
 }
 /* content */
-.is-awesomeLinks-int .link-icon {
+.is-awesomeLinks-int .page-icon.awLinks-page-icon {
     display: inline-block;
     margin-right: 0.34em !important;
     font-family: var(--icon-font);
