@@ -21,7 +21,6 @@ const linksObserverCallback: MutationCallback = function (mutationsList) {
                 setTitleIcon(titleEl);
             }
             // sidebar icon
-            console.log(addedNode);
             if (addedNode.classList.contains('favorite-item') || addedNode.classList.contains('recent-item')) {
                 const sidebarLink = addedNode.querySelector('a') as HTMLAnchorElement;
                 if (sidebarLink) {
