@@ -4,7 +4,7 @@ import { searchIcon } from './queries';
 import { setTitleIcon, removeTitleIcon } from './internal';
 import { stopLinksObserver } from './internal';
 
-export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement> | HTMLAnchorElement[]) => {
+export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => {
     if (!linkList) {
         linkList = doc.querySelectorAll('.ls-block .page-ref:not(.page-property-key)');
     }

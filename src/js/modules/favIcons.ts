@@ -3,7 +3,7 @@ import { doc, body } from './DOMContainers';
 import { stopLinksObserver } from './internal';
 
 // External links favicons
-export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement> | HTMLAnchorElement[]) => {
+export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement>) => {
     if (!extLinkList) {
         extLinkList = doc.querySelectorAll('.external-link');
     }

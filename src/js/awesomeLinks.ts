@@ -12,7 +12,7 @@ import { nerdFontLoad, nerdFontUnload, toggleNerdFonFeature } from './modules/in
 import { faviconsLoad, faviconsUnload, toggleFaviconsFeature } from './modules/internal';
 import { journalIconsLoad, journalIconsUnload, toggleJournalIconFeature } from './modules/internal';
 import { sidebarIconsLoad, sidebarIconsUnload } from './modules/internal';
-import { stopLinksObserver, runLinksObserver, initLinksObserver } from './modules/internal';
+import { initLinksObserver, stopLinksObserver, runLinksObserver } from './modules/internal';
 
 import '../css/awesomeLinks.css';
 

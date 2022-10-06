@@ -28,14 +28,14 @@ const linksObserverCallback: MutationCallback = function (mutationsList) {
                 }
             }
             // favicons
-            const extLink = addedNode.querySelector('.external-link') as HTMLAnchorElement;
-            if (extLink) {
-                setFavicons([extLink]);
+            const extLinkList = addedNode.querySelectorAll('.external-link') as NodeListOf<HTMLAnchorElement>;
+            if (extLinkList.length) {
+                setFavicons(extLinkList);
             }
             // page icons
-            const pageLink = addedNode.querySelector('.ls-block .page-ref:not(.page-property-key)') as HTMLAnchorElement;
-            if (pageLink) {
-                setPageIcons([pageLink]);
+            const pageLinkList = addedNode.querySelectorAll('.ls-block .page-ref:not(.page-property-key)') as NodeListOf<HTMLAnchorElement>;
+            if (pageLinkList.length) {
+                setPageIcons(pageLinkList);
             }
         }
     }
