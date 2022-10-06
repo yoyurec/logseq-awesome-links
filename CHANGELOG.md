@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.0...v1.5.1) (2022-10-06)
+
+
+### Bug Fixes
+
+* **linksobserver:** roll back links  array ([dd78748](https://github.com/yoyurec/logseq-awesome-links/commit/dd7874864b797d13a445a8430de4ca3c62327e6a))
+
 # [1.5.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.4.0...v1.5.0) (2022-10-05)
 
 
