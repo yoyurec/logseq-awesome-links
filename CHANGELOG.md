@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.2...v1.5.3) (2022-10-11)
+
+
+### Bug Fixes
+
+* **props:** nerd font size tune ([c7161c5](https://github.com/yoyurec/logseq-awesome-links/commit/c7161c562abaed19d239234bf759c289f95fed14))
+
 ## [1.5.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.1...v1.5.2) (2022-10-11)
 
 
