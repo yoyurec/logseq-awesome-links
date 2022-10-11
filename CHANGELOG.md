@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.1...v1.5.2) (2022-10-11)
+
+
+### Bug Fixes
+
+* **favicons:** add observer confitions ([62e0612](https://github.com/yoyurec/logseq-awesome-links/commit/62e0612a8af70e01c31c5a2c64cd18ca5e09cce0))
+
 ## [1.5.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.0...v1.5.1) (2022-10-06)
 
 
