@@ -36,6 +36,14 @@ const removeFavicons = () => {
     body.classList.remove('is-awesomeLinks-ext');
 }
 
+export const toggleFaviconsFeature = () => {
+    if (globalContext.pluginConfig?.featureFaviconsEnabled) {
+        faviconsLoad();
+    } else {
+        faviconsUnload();
+    }
+}
+
 export const faviconsLoad = async () => {
     if (globalContext.pluginConfig?.featureFaviconsEnabled) {
         setTimeout(() => {
@@ -48,13 +56,5 @@ export const faviconsUnload = () => {
     removeFavicons();
     if (!globalContext.pluginConfig?.featurePageIconsEnabled && !globalContext.pluginConfig?.featureFaviconsEnabled) {
         stopLinksObserver();
-    }
-}
-
-export const toggleFaviconsFeature = () => {
-    if (globalContext.pluginConfig?.featureFaviconsEnabled) {
-        faviconsLoad();
-    } else {
-        faviconsUnload();
     }
 }
