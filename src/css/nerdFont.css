@@ -31,7 +31,7 @@
 .page-properties,
 .block-properties {
     font-family: var(--icon-font);
-    font-size: 0.9rem;
+    font-size: 0.94rem;
     letter-spacing: -1px;
     word-spacing: -1px;
 }
