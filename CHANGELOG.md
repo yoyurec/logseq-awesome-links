@@ -1,3 +1,10 @@
+## [1.5.6](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.5...v1.5.6) (2022-10-12)
+
+
+### Bug Fixes
+
+* **settings:** init possible issue ([6ad0a6e](https://github.com/yoyurec/logseq-awesome-links/commit/6ad0a6e6ee1b1e5539754febbe421796e081e798))
+
 ## [1.5.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.4...v1.5.5) (2022-10-12)
 
 
