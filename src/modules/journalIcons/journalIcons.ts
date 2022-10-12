@@ -1,5 +1,7 @@
-import globalContext from './globals';
-import { root, body } from './DOMContainers';
+import {
+    globalContext,
+    root, body
+} from '../internal';
 
 export const journalIconsLoad = async () => {
     if (!globalContext.pluginConfig?.featureJournalIcon) {

@@ -1,8 +1,12 @@
-import globalContext from './globals';
-import { doc, body } from './DOMContainers';
-import { searchIcon } from './queries';
-import { setTitleIcon, removeTitleIcon } from './internal';
-import { stopLinksObserver } from './internal';
+import {
+    globalContext,
+    doc, body,
+    setTitleIcon, removeTitleIcon,
+    stopLinksObserver,
+    searchIcon
+} from '../internal';
+
+import './pageIcons.css';
 
 export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => {
     if (!linkList) {

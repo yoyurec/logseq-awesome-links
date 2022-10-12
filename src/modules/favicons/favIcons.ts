@@ -1,6 +1,10 @@
-import globalContext from './globals';
-import { doc, body } from './DOMContainers';
-import { stopLinksObserver } from './internal';
+import { doc, body } from '../DOMContainers';
+import {
+    globalContext,
+    stopLinksObserver
+} from '../internal';
+
+import './favicons.css';
 
 // External links favicons
 export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement>) => {

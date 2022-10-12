@@ -1,6 +1,8 @@
-import globalContext from './globals';
-import { appContainer } from './DOMContainers';
-import { setFavicons, setPageIcons, setSidebarIcons, setTitleIcon } from './internal';
+import {
+    globalContext,
+    appContainer,
+    setFavicons, setPageIcons, setSidebarIcons, setTitleIcon
+} from '../internal';
 
 let linksObserver: MutationObserver, linksObserverConfig: MutationObserverInit;
 

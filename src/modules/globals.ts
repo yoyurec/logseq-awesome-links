@@ -1,4 +1,4 @@
-import { logseq as PL } from '../../../package.json';
+import { logseq as PL } from '../../package.json';
 
 type globalContextType = {
     pluginID: string;
@@ -6,9 +6,7 @@ type globalContextType = {
     [key: string]: any;
 }
 
-const globalContext: globalContextType = {
+export const globalContext: globalContextType = {
     pluginID: PL.id,
     pluginConfig: null
 };
-
-export default globalContext;

@@ -1,0 +1,9 @@
+/* content */
+.is-awesomeLinks-int .page-icon.awLinks-page-icon {
+    display: inline-block;
+    margin-right: 0.34em !important;
+    font-family: var(--icon-font);
+    text-align: center;
+    line-height: 1em;
+    width: 1.2em;
+}

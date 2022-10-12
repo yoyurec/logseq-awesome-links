@@ -1,4 +1,12 @@
-import { SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
+import { SettingSchemaDesc, LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
+
+import {
+    globalContext,
+    toggleFaviconsFeature, toggleIconsFeature, toggleJournalIconFeature, toggleNerdFonFeature
+} from '../internal';
+import { objectDiff } from '../utils';
+
+import './settings.css';
 
 export const settingsConfig: SettingSchemaDesc[] = [
     {
@@ -44,3 +52,27 @@ export const settingsConfig: SettingSchemaDesc[] = [
         default: true,
     }
 ];
+
+export const settingsLoad = () => {
+    logseq.useSettingsSchema(settingsConfig);
+    logseq.onSettingsChanged((settings, oldSettings) => {
+        onSettingsChangedCallback(settings, oldSettings);
+    });
+ }
+
+const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSettings: LSPluginBaseInfo['settings']) => {
+    globalContext.pluginConfig = { ...settings };
+    const settingsDiff = objectDiff({ ...oldSettings }, globalContext.pluginConfig)
+    if (settingsDiff.includes('featureFaviconsEnabled')) {
+        toggleFaviconsFeature();
+    }
+    if (settingsDiff.includes('featurePageIconsEnabled')) {
+        toggleIconsFeature();
+    }
+    if (settingsDiff.includes('featureJournalIcon')) {
+        toggleJournalIconFeature();
+    }
+    if (settingsDiff.includes('featureNerdFontEnabled')) {
+        toggleNerdFonFeature();
+    }
+}

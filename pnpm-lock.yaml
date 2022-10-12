@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@logseq/libs': 0.0.8
+  '@logseq/libs': 0.0.9
   '@semantic-release/changelog': ^6.0.1
   '@semantic-release/exec': ^6.0.3
   '@semantic-release/git': ^10.0.1
@@ -16,7 +16,7 @@ specifiers:
   vite: 3.1.7
 
 dependencies:
-  '@logseq/libs': 0.0.8
+  '@logseq/libs': 0.0.9
 
 devDependencies:
   '@semantic-release/changelog': 6.0.1_semantic-release@19.0.5
@@ -203,8 +203,8 @@ packages:
     dev: true
     optional: true
 
-  /@logseq/libs/0.0.8:
-    resolution: {integrity: sha512-WZcmt5Fb5VowpiNKcBJRSZ8v8ZNHOhIwUOxHUsjN3W8+cGWCygS4gTs78e07DnB58a2m+onp9SHDYZsG0eljJw==}
+  /@logseq/libs/0.0.9:
+    resolution: {integrity: sha512-cNqjZxJ2+JB/C+BjtQhUMQV2/223cqpx3+WnFS9RFDUUAhNq0jvT8pukqeYyDaPu7vV1lJRWtn76/8f/ThYuYg==}
     dependencies:
       csstype: 3.1.0
       debug: 4.3.4

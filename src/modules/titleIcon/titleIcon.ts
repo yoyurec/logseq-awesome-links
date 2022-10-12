@@ -1,5 +1,9 @@
-import { doc } from './DOMContainers';
-import { getInheritedPropsIcon } from './queries';
+import {
+    doc,
+    getInheritedPropsIcon
+} from '../internal';
+
+import './titleIcon.css';
 
 export const setTitleIcon = async (pageTitleEl?: Element | null) => {
     if (!pageTitleEl) {

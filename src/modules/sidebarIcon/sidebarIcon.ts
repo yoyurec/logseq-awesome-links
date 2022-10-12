@@ -1,5 +1,9 @@
-import { doc } from './DOMContainers';
-import { searchIcon } from './queries';
+import {
+    doc,
+    searchIcon
+} from '../internal';
+
+import './sidebarIcon.css';
 
 export const setSidebarIcons = async (sidebarLinksList?: NodeListOf<HTMLAnchorElement> | HTMLAnchorElement[]) => {
     if (!sidebarLinksList) {

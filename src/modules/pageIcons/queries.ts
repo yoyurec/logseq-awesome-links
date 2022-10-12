@@ -1,5 +1,5 @@
 import '@logseq/libs';
-import globalContext from './globals';
+import { globalContext } from '../internal';
 
 export const getPageIcon = async (title: string) => {
     let pageIcon = '';

@@ -1,7 +1,9 @@
-import globalContext from './globals';
-import { doc } from './DOMContainers';
+import {
+    globalContext,
+    doc
+} from '../internal';
 
-import nerdFontsStyles from '../../css/nerdFont.css?inline';
+import nerdFontsStyles from './nerdFont.css?inline';
 
 export const toggleNerdFonFeature = () => {
     if (globalContext.pluginConfig?.featureNerdFontEnabled) {
@@ -11,7 +13,7 @@ export const toggleNerdFonFeature = () => {
     }
 }
 
-export const nerdFontLoad = () => {
+export const nerdFontLoad = async () => {
     if (!globalContext.pluginConfig?.featureNerdFontEnabled) {
         return;
     }

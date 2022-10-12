@@ -16,7 +16,7 @@
     }
   },
   "dependencies": {
-    "@logseq/libs": "0.0.8"
+    "@logseq/libs": "0.0.9"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
