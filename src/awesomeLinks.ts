@@ -8,7 +8,8 @@ import {
     faviconsLoad, faviconsUnload,
     journalIconsLoad, journalIconsUnload,
     sidebarIconsLoad, sidebarIconsUnload,
-    initLinksObserver, stopLinksObserver, runLinksObserver, settingsLoad
+    initLinksObserver, stopLinksObserver, runLinksObserver,
+    settingsLoad
 } from './modules/internal';
 
 const registerPlugin = async () => {
@@ -21,7 +22,6 @@ const registerPlugin = async () => {
 
 // Main logic runners
 const runStuff = async () => {
-    settingsLoad();
     initLinksObserver();
     getDOMContainers();
     setTimeout(() => {
@@ -50,8 +50,8 @@ const stopStuff = () => {
 const main = async () => {
     console.log(`AwesomeIcons: plugin loaded`);
 
-    globalContext.pluginConfig = logseq.settings;
     registerPlugin();
+    settingsLoad();
 
     runStuff();
 

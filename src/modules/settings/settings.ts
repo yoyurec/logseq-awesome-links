@@ -55,6 +55,8 @@ export const settingsConfig: SettingSchemaDesc[] = [
 
 export const settingsLoad = () => {
     logseq.useSettingsSchema(settingsConfig);
+    globalContext.pluginConfig = logseq.settings;
+
     logseq.onSettingsChanged((settings, oldSettings) => {
         onSettingsChangedCallback(settings, oldSettings);
     });
