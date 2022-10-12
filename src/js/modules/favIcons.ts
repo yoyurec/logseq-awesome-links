@@ -14,7 +14,7 @@ export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement>) =
         }
         const { hostname, protocol } = new URL(extLinkList[i].href);
         if ((protocol === 'http:') || (protocol === 'https:')) {
-            const faviconValue = `https://www.google.com/s2/favicons?domain=${hostname}&sz=16`;
+            const faviconValue = `https://www.google.com/s2/favicons?domain=${hostname}&sz=32`;
             const fav = doc.createElement('img');
             fav.src = faviconValue;
             fav.width = 16;
