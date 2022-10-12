@@ -1,3 +1,10 @@
+## [1.5.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.4...v1.5.5) (2022-10-12)
+
+
+### Bug Fixes
+
+* **modules:** refactoring ([22e96f9](https://github.com/yoyurec/logseq-awesome-links/commit/22e96f9b8a12c4dcb317ea2025531c037c358664))
+
 ## [1.5.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.3...v1.5.4) (2022-10-12)
 
 
