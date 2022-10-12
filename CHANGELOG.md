@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.3...v1.5.4) (2022-10-12)
+
+
+### Bug Fixes
+
+* **favicons:** bigger size 16 to 32 ([95ec6c3](https://github.com/yoyurec/logseq-awesome-links/commit/95ec6c3c63e77acbb3b338f62429771ebebd44a3))
+
 ## [1.5.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.2...v1.5.3) (2022-10-11)
 
 
