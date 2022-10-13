@@ -39,7 +39,7 @@ const linksObserverCallback: MutationCallback = function (mutationsList) {
                     }
                 }
                 // page icons
-                const pageLinkList = addedNode.querySelectorAll('.ls-block .page-ref:not(.page-property-key)') as NodeListOf<HTMLAnchorElement>;
+                const pageLinkList = addedNode.querySelectorAll(globalContext.pageLinksSelector) as NodeListOf<HTMLAnchorElement>;
                 if (pageLinkList.length) {
                     setPageIcons(pageLinkList);
                 }

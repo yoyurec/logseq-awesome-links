@@ -1,6 +1,6 @@
 import {
     doc,
-    getInheritedPropsIcon
+    getHierarchyPageIcon, getInheritedPropsIcon
 } from '../internal';
 
 import './titleIcon.css';
@@ -12,7 +12,11 @@ export const setTitleIcon = async (pageTitleEl?: Element | null) => {
     if (pageTitleEl && !pageTitleEl.querySelector('.page-icon')) {
         const pageName = pageTitleEl.textContent;
         if (pageName) {
-            const titleIcon = await getInheritedPropsIcon(pageName);
+            let titleIcon = await getInheritedPropsIcon(pageName);
+            if (!titleIcon && pageName.includes('/')) {
+                // inherit from hierarchy root
+                titleIcon = await getHierarchyPageIcon(pageName);
+            }
             if (titleIcon) {
                 pageTitleEl.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-title-icon">${titleIcon}</span>`);
                 setTabIcon(titleIcon);

@@ -81,7 +81,11 @@ export const searchIcon = async (pageTitle: string): Promise<string> => {
             pageIcon = await getInheritedPropsIcon(pageTitle);
             if (!pageIcon) {
                 // inherited from aliased page props, when props linked to page
-                pageIcon = getAliasedPropsIcon(pageTitle);
+                pageIcon = await getAliasedPropsIcon(pageTitle);
+                if (!pageIcon && pageTitle.includes('/')) {
+                    // inherit from hierarchy root
+                    pageIcon = await getHierarchyPageIcon(pageTitle);
+                }
             }
             // if (!pageIcon) {
             //     // inherited from page props, when props linked to aliased
@@ -91,6 +95,16 @@ export const searchIcon = async (pageTitle: string): Promise<string> => {
             //     }
             // }
         }
+    }
+    return pageIcon;
+}
+
+export const getHierarchyPageIcon = async (pageTitle: string): Promise<string> => {
+    let pageIcon = '';
+    pageTitle = pageTitle.split('/')[0];
+    pageIcon = await getPageIcon(pageTitle);
+    if (!pageIcon) {
+        pageIcon = await getInheritedPropsIcon(pageTitle);
     }
     return pageIcon;
 }
