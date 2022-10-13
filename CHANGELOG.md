@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.8.1...v1.8.2) (2022-10-13)
+
+
+### Bug Fixes
+
+* **page icon:** journal icon is back ) ([b23373b](https://github.com/yoyurec/logseq-awesome-links/commit/b23373bf9ce03433317faccde6aaccb7d235bf78))
+
 ## [1.8.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.8.0...v1.8.1) (2022-10-13)
 
 
