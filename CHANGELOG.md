@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.7.0...v1.8.0) (2022-10-13)
+
+
+### Features
+
+* **page link:** add coloring support via props ([5860a43](https://github.com/yoyurec/logseq-awesome-links/commit/5860a4340e09ed27b362a2df5273f0211a8cd04d))
+
 # [1.7.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.6.0...v1.7.0) (2022-10-13)
 
 
