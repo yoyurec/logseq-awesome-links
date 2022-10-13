@@ -30,11 +30,13 @@ const runStuff = async () => {
         journalIconsLoad();
         sidebarIconsLoad();
         nerdFontLoad();
+        body.classList.add('is-awesomeLinks');
+    }, 1000)
+    setTimeout(() => {
         if (globalContext.pluginConfig?.featureFaviconsEnabled || globalContext.pluginConfig?.featurePageIconsEnabled) {
             runLinksObserver();
         }
-        body.classList.add('is-awesomeLinks');
-    }, 1000)
+    }, 3000)
 }
 const stopStuff = () => {
     pageIconsUnload();

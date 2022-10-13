@@ -3,7 +3,7 @@ import {
     doc, body,
     setTitleIcon, removeTitleIcon,
     stopLinksObserver,
-    searchIcon
+    searchProps
 } from '../internal';
 
 import './pageIcons.css';
@@ -13,8 +13,6 @@ export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => 
         linkList = doc.querySelectorAll(globalContext.pageLinksSelector);
     }
     for (let i = 0; i < linkList.length; i++) {
-        let pageIcon = '';
-        let pageTitle = '';
         const linkItem = linkList[i];
         const oldPageIcon = linkItem.querySelector('.page-icon.awLinks-page-icon');
         if (oldPageIcon) {
@@ -24,13 +22,20 @@ export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => 
         if (linkText && linkText.startsWith(' ')) {
             continue;
         }
-        pageTitle = linkItem.getAttribute('data-ref') || '';
+        const pageTitle = linkItem.getAttribute('data-ref') || '';
         if (!pageTitle) {
             continue;
         }
-        pageIcon = await searchIcon(pageTitle);
-        if (pageIcon) {
-            linkItem.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-page-icon">${pageIcon}</span>`);
+        const pageProps = await searchProps(pageTitle);
+        if (pageProps) {
+            const pageIcon = pageProps['icon'];
+            if (pageIcon) {
+                linkItem.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-page-icon">${pageIcon}</span>`);
+                const pageColor = pageProps['color'];
+                if (pageColor) {
+                    linkItem.style.color = `#${pageColor}`;
+                }
+            }
         }
     }
     body.classList.add('is-awesomeLinks-int');

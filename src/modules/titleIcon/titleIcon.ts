@@ -1,6 +1,6 @@
 import {
     doc,
-    getHierarchyPageIcon, getInheritedPropsIcon
+    getHierarchyPageProps, getInheritedPropsProps
 } from '../internal';
 
 import './titleIcon.css';
@@ -9,13 +9,20 @@ export const setTitleIcon = async (pageTitleEl?: Element | null) => {
     if (!pageTitleEl) {
         pageTitleEl = doc.querySelector('.ls-page-title');
     }
+    let titleIcon = '';
     if (pageTitleEl && !pageTitleEl.querySelector('.page-icon')) {
         const pageName = pageTitleEl.textContent;
         if (pageName) {
-            let titleIcon = await getInheritedPropsIcon(pageName);
+            let titleProps = await getInheritedPropsProps(pageName);
+            if (titleProps) {
+                titleIcon = titleProps['icon'];
+            }
             if (!titleIcon && pageName.includes('/')) {
                 // inherit from hierarchy root
-                titleIcon = await getHierarchyPageIcon(pageName);
+                titleProps = await getHierarchyPageProps(pageName);
+                if (titleProps) {
+                    titleIcon = titleProps['icon'];
+                }
             }
             if (titleIcon) {
                 pageTitleEl.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-title-icon">${titleIcon}</span>`);

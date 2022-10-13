@@ -1,16 +1,19 @@
 import '@logseq/libs';
 import { globalContext } from '../internal';
 
-export const getPageIcon = async (title: string) => {
-    let pageIcon = '';
+interface propsObject {
+    [key: string]: string;
+}
+
+export const getPageProps = async (title: string): Promise<propsObject> => {
+    let pageProps: propsObject = {};
     title = title.toLowerCase();
     const iconQuery = `
     [
-      :find ?icon
+      :find ?props
       :where
           [?id :block/name "${title}"]
-          [?id :block/properties ?prop]
-          [(get ?prop :icon) ?icon]
+          [?id :block/properties ?props]
     ]
     `;
     const journalQuery = `
@@ -25,14 +28,14 @@ export const getPageIcon = async (title: string) => {
     if (isJournal.length && isJournal[0][0] && globalContext.pluginConfig?.featureJournalIcon) {
         return globalContext.pluginConfig?.featureJournalIcon;
     }
-    const pageIconArr = await logseq.DB.datascriptQuery(iconQuery);
-    if (pageIconArr.length) {
-        pageIcon = pageIconArr[0];
+    const queryResultArr = await logseq.DB.datascriptQuery(iconQuery);
+    if (queryResultArr.length) {
+        pageProps = queryResultArr[0][0];
     }
-    return pageIcon;
+    return pageProps;
 }
 
-export const getInheritedPropsTitle = async (title: string, prop: string) => {
+export const getInheritedPropsTitle = async (title: string, prop: string): Promise<string> => {
     title = title.toLowerCase();
     let inheritedPageTitle = '';
     const inheritedTitleQuery = `
@@ -51,7 +54,7 @@ export const getInheritedPropsTitle = async (title: string, prop: string) => {
     return inheritedPageTitle;
 }
 
-export const getAliasedPageTitle = async (title: string) => {
+export const getAliasedPageTitle = async (title: string): Promise<string> => {
     title = title.toLowerCase();
     let aliasedPageTitle = '';
     const inheritedAliasQuery = `
@@ -70,71 +73,69 @@ export const getAliasedPageTitle = async (title: string) => {
     return aliasedPageTitle;
 }
 
-export const searchIcon = async (pageTitle: string): Promise<string> => {
+export const searchProps = async (pageTitle: string): Promise<propsObject> => {
     // get from page
-    let pageIcon = await getPageIcon(pageTitle);
-    if (!pageIcon) {
+    let pageProps = await getPageProps(pageTitle);
+    let resultedPageProps = { ...pageProps };
+    if (!pageProps['icon']) {
         // get from aliased page
-        pageIcon = await getAliasedPageIcon(pageTitle);
-        if (!pageIcon && globalContext.pluginConfig?.featureInheritPageIcons) {
+        pageProps = await getAliasedPageProps(pageTitle);
+        resultedPageProps = { ...pageProps, ...resultedPageProps };
+        if (!pageProps['icon'] && globalContext.pluginConfig?.featureInheritPageIcons) {
             // inherited from page props, when props linked to page
-            pageIcon = await getInheritedPropsIcon(pageTitle);
-            if (!pageIcon) {
+            pageProps = await getInheritedPropsProps(pageTitle);
+            resultedPageProps = { ...pageProps, ...resultedPageProps };
+            if (!pageProps['icon']) {
                 // inherited from aliased page props, when props linked to page
-                pageIcon = await getAliasedPropsIcon(pageTitle);
-                if (!pageIcon && pageTitle.includes('/')) {
+                pageProps = await getAliasedPropsProps(pageTitle);
+                resultedPageProps = { ...pageProps, ...resultedPageProps };
+                if (!pageProps['icon'] && pageTitle.includes('/')) {
                     // inherit from hierarchy root
-                    pageIcon = await getHierarchyPageIcon(pageTitle);
+                    pageProps = await getHierarchyPageProps(pageTitle);
+                    resultedPageProps = { ...pageProps, ...resultedPageProps };
                 }
             }
-            // if (!pageIcon) {
-            //     // inherited from page props, when props linked to aliased
-            //     const aliasedPageTitle = await getAliasedPageTitle(inheritedPropsTitle);
-            //     if (aliasedPageTitle) {
-            //         pageIcon = await getPageIcon(aliasedPageTitle);
-            //     }
-            // }
         }
     }
-    return pageIcon;
+    return resultedPageProps;
 }
 
-export const getHierarchyPageIcon = async (pageTitle: string): Promise<string> => {
-    let pageIcon = '';
+export const getHierarchyPageProps = async (pageTitle: string): Promise<propsObject> => {
+    let pageProps: propsObject = {};
     pageTitle = pageTitle.split('/')[0];
-    pageIcon = await getPageIcon(pageTitle);
-    if (!pageIcon) {
-        pageIcon = await getInheritedPropsIcon(pageTitle);
+    pageProps = await getPageProps(pageTitle);
+    if (!pageProps['icon']) {
+        pageProps = await getInheritedPropsProps(pageTitle);
     }
-    return pageIcon;
+    return pageProps;
 }
 
-export const getAliasedPageIcon = async (pageTitle: string): Promise<string> => {
-    let pageIcon = '';
+export const getAliasedPageProps = async (pageTitle: string): Promise<propsObject> => {
+    let pageProps: propsObject = {};
     const aliasedPageTitle = await getAliasedPageTitle(pageTitle);
     if (aliasedPageTitle) {
-        pageIcon = await getPageIcon(aliasedPageTitle);
+        pageProps = await getPageProps(aliasedPageTitle);
     }
-    return pageIcon;
+    return pageProps;
 }
 
-export const getInheritedPropsIcon = async (pageTitle: string): Promise<string> => {
-    let pageIcon = '';
+export const getInheritedPropsProps = async (pageTitle: string): Promise<propsObject> => {
+    let pageProps: propsObject = {};
     const inheritedPropsTitle = await getInheritedPropsTitle(pageTitle, globalContext.pluginConfig?.featureInheritPageIcons);
     if (inheritedPropsTitle) {
-        pageIcon = await getPageIcon(inheritedPropsTitle);
+        pageProps = await getPageProps(inheritedPropsTitle);
     }
-    return pageIcon;
+    return pageProps;
 }
 
-export const getAliasedPropsIcon = async (pageTitle: string): Promise<string> => {
-    let pageIcon = '';
+export const getAliasedPropsProps = async (pageTitle: string): Promise<propsObject> => {
+    let pageProps: propsObject = {};
     const aliasedPageTitle = await getAliasedPageTitle(pageTitle);
     if (aliasedPageTitle) {
         const inheritedPageTitle = await getInheritedPropsTitle(aliasedPageTitle, globalContext.pluginConfig?.featureInheritPageIcons);
         if (inheritedPageTitle) {
-            pageIcon = await getPageIcon(inheritedPageTitle);
+            pageProps = await getPageProps(inheritedPageTitle);
         }
     }
-    return pageIcon;
+    return pageProps;
 }

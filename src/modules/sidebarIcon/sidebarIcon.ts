@@ -1,6 +1,6 @@
 import {
     doc,
-    searchIcon
+    searchProps
 } from '../internal';
 
 import './sidebarIcon.css';
@@ -19,9 +19,12 @@ export const setSidebarIcons = async (sidebarLinksList?: NodeListOf<HTMLAnchorEl
         if (!pageTitle) {
             continue;
         }
-        const pageIcon = await searchIcon(pageTitle);
-        if (pageIcon) {
-            sidebarLinkItem.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-sidebar-icon">${pageIcon}</span>`);
+        const pageProps = await searchProps(pageTitle);
+        if (pageProps) {
+            const pageIcon = pageProps['icon'];
+            if (pageIcon) {
+                sidebarLinkItem.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-sidebar-icon">${pageIcon}</span>`);
+            }
         }
     }
 }
