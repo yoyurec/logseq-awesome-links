@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.6...v1.6.0) (2022-10-13)
+
+
+### Features
+
+* **pageicon:** do not show icon when custom [ linktext](link) starts with space ([25f11e7](https://github.com/yoyurec/logseq-awesome-links/commit/25f11e7eab9b418cfb72c581791fa0f7c72f13c4))
+
 ## [1.5.6](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.5...v1.5.6) (2022-10-12)
 
 
