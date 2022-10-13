@@ -11,6 +11,7 @@
     * Icon for cases when the page is an alias
     * Inherit icon from page prop
     * Inherit icons for cases when the prop is an alias
+    * Inherit icons from hierarchy root item or it's props
     * Show inherited page icons on content links, sidebar, page title & tabs
 * Page icons`icon::`extended from Emoji to hundreds icons set via Nerd fonts support <a href="#-custom-page-icons">🡖</a>
 * Custom **Journal icons** <a href="#-journal-icon">🡖</a>
@@ -40,10 +41,17 @@ From Logseq store - `Plugins -> Marketplace`
 Enable feature to show Logseq page (or aliased page) icon for internal links in content.
 In addition you can config icon inheriting from page property referenced page, to avoid manual setting `icon::` for common pages.
 For ex.:
-* create "Projects" page, set `icon::` for it
+* create "Projects" page, set `icon:: 🎯` for it
 * create "Some project" page, set `page-type:: [[Projects]]`
 * set in plugin settings "Inherit icon from..." `page-type`
-* ...and all pages with `page-type:: [[Projects]]` will have inherited "Projects" page icon!
+* ...and all pages with `page-type:: [[Projects]]` will have inherited "Projects" page icon 🎯!
+
+Hierarchy ex.:
+* create "Location" page, set `icon:: 🌍` for it
+* create "Ukraine" page, set `page-type:: [[Location]]`
+* set in plugin settings "Inherit icon from..." `page-type`
+* create page [[Ukraine/Kyiv]]
+* ...page "Ukraine/Kyiv" will have inherited "Location" page icon 🌍!
 
 Inherited icons also will be shown on current page title, current tab (if "Tabs" plugin installed) and sidebar.
 
