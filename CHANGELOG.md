@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.8.0...v1.8.1) (2022-10-13)
+
+
+### Bug Fixes
+
+* **colors:** add more colors variations, show color without icon ([1c27892](https://github.com/yoyurec/logseq-awesome-links/commit/1c27892ca1720c22a8f2c1e931793682790e351c))
+
 # [1.8.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.7.0...v1.8.0) (2022-10-13)
 
 
