@@ -47,6 +47,12 @@ For ex.:
 
 Inherited icons also will be shown on current page title, current tab (if "Tabs" plugin installed) and sidebar.
 
+To disable icon for custom links - start link text with space:
+```
+ [→]([[books]]) — [[📖 →]]
+[ →]([[books]]) — [[ →]]
+```
+
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/page-icons.png)
 
 ### ✨ Custom page icons
