@@ -18,6 +18,10 @@ export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => 
         if (oldPageIcon) {
             oldPageIcon.remove();
         }
+        const linkText = linkItem.textContent;
+        if (linkText && linkText.startsWith(' ')) {
+            continue;
+        }
         const pageTitle = linkItem.getAttribute('data-ref');
         if (!pageTitle) {
             continue;
