@@ -26,7 +26,10 @@ export const getPageProps = async (title: string): Promise<propsObject> => {
     `;
     const isJournal = await logseq.DB.datascriptQuery(journalQuery);
     if (isJournal.length && isJournal[0][0] && globalContext.pluginConfig?.featureJournalIcon) {
-        return globalContext.pluginConfig?.featureJournalIcon;
+        pageProps = {
+            icon: globalContext.pluginConfig?.featureJournalIcon
+        }
+        return pageProps;
     }
     const queryResultArr = await logseq.DB.datascriptQuery(iconQuery);
     if (queryResultArr.length) {
