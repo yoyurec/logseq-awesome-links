@@ -70,6 +70,8 @@ To customize link color, add property (top page, to inherited page) `color::` wi
 
 `color:: "#00ff00"`
 
+![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/colors.png)
+
 ### ✨ Custom page icons
 
 3600+ icons combined from popular sets (Font Awesome, Material Design, SetiUI, etc...)!
