@@ -31,10 +31,11 @@ export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => 
             const pageIcon = pageProps['icon'];
             if (pageIcon) {
                 linkItem.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-page-icon">${pageIcon}</span>`);
-                const pageColor = pageProps['color'];
-                if (pageColor) {
-                    linkItem.style.color = `#${pageColor}`;
-                }
+            }
+            const pageColor = pageProps['color'];
+            if (pageColor) {
+                console.log(pageColor);
+                linkItem.style.color = pageColor.replaceAll('"', '');
             }
         }
     }

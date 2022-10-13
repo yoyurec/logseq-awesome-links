@@ -77,19 +77,19 @@ export const searchProps = async (pageTitle: string): Promise<propsObject> => {
     // get from page
     let pageProps = await getPageProps(pageTitle);
     let resultedPageProps = { ...pageProps };
-    if (!pageProps['icon']) {
+    if (!pageProps['icon'] || !pageProps['color']) {
         // get from aliased page
         pageProps = await getAliasedPageProps(pageTitle);
         resultedPageProps = { ...pageProps, ...resultedPageProps };
-        if (!pageProps['icon'] && globalContext.pluginConfig?.featureInheritPageIcons) {
+        if ((!pageProps['icon'] || !pageProps['color']) && globalContext.pluginConfig?.featureInheritPageIcons) {
             // inherited from page props, when props linked to page
             pageProps = await getInheritedPropsProps(pageTitle);
             resultedPageProps = { ...pageProps, ...resultedPageProps };
-            if (!pageProps['icon']) {
+            if ((!pageProps['icon'] || !pageProps['color'])) {
                 // inherited from aliased page props, when props linked to page
                 pageProps = await getAliasedPropsProps(pageTitle);
                 resultedPageProps = { ...pageProps, ...resultedPageProps };
-                if (!pageProps['icon'] && pageTitle.includes('/')) {
+                if ((!pageProps['icon'] || !pageProps['color']) && pageTitle.includes('/')) {
                     // inherit from hierarchy root
                     pageProps = await getHierarchyPageProps(pageTitle);
                     resultedPageProps = { ...pageProps, ...resultedPageProps };
