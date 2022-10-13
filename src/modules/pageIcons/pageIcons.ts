@@ -34,7 +34,6 @@ export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => 
             }
             const pageColor = pageProps['color'];
             if (pageColor) {
-                console.log(pageColor);
                 linkItem.style.color = pageColor.replaceAll('"', '');
             }
         }

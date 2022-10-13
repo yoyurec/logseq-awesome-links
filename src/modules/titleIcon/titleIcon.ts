@@ -1,43 +1,50 @@
 import {
     doc,
-    getHierarchyPageProps, getInheritedPropsProps
+    propsObject,
+    searchProps
 } from '../internal';
 
 import './titleIcon.css';
 
-export const setTitleIcon = async (pageTitleEl?: Element | null) => {
+export const setTitleIcon = async (pageTitleEl?: HTMLAnchorElement | null) => {
     if (!pageTitleEl) {
-        pageTitleEl = doc.querySelector('.ls-page-title');
+        pageTitleEl = doc.querySelector('.ls-page-title') as HTMLAnchorElement;
     }
-    let titleIcon = '';
     if (pageTitleEl && !pageTitleEl.querySelector('.page-icon')) {
         const pageName = pageTitleEl.textContent;
         if (pageName) {
-            let titleProps = await getInheritedPropsProps(pageName);
+            const titleProps = await searchProps(pageName);
             if (titleProps) {
-                titleIcon = titleProps['icon'];
-            }
-            if (!titleIcon && pageName.includes('/')) {
-                // inherit from hierarchy root
-                titleProps = await getHierarchyPageProps(pageName);
-                if (titleProps) {
-                    titleIcon = titleProps['icon'];
+                const titleIcon = titleProps['icon'];
+                if (titleIcon) {
+                    pageTitleEl.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-title-icon">${titleIcon}</span>`);
                 }
-            }
-            if (titleIcon) {
-                pageTitleEl.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-title-icon">${titleIcon}</span>`);
-                setTabIcon(titleIcon);
+                const titleColor = titleProps['color'];
+                if (titleColor) {
+                    pageTitleEl.style.color = titleColor.replaceAll('"', '');
+                }
+                setTabIcon(titleProps);
             }
         }
     }
 }
 
-const setTabIcon = (titleIcon: string) => {
+const setTabIcon = (titleProps: propsObject) => {
     const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
     if (tabsPluginIframe) {
-        const tabIconEL = tabsPluginIframe.contentDocument?.querySelector('.logseq-tab[data-active="true"] .text-xs');
-        if (tabIconEL) {
-            tabIconEL.textContent = titleIcon;
+        const activeTabEL = tabsPluginIframe.contentDocument?.querySelector('.logseq-tab[data-active="true"]');
+        if (activeTabEL) {
+            const tabIconEL = activeTabEL.querySelector('.text-xs');
+            if (tabIconEL) {
+                tabIconEL.textContent = titleProps['icon'];
+            }
+            const tabTitleEL = activeTabEL.querySelector('.logseq-tab-title') as HTMLElement;
+            if (tabTitleEL) {
+                const titleColor = titleProps['color'];
+                if (titleColor) {
+                    tabTitleEL.style.color = titleColor.replaceAll('"', '');
+                }
+            }
         }
     }
 }

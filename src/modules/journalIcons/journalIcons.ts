@@ -3,6 +3,8 @@ import {
     root, body
 } from '../internal';
 
+import './journalIcons.css';
+
 export const journalIconsLoad = async () => {
     if (!globalContext.pluginConfig?.featureJournalIcon) {
         return;

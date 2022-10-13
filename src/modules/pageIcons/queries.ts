@@ -1,7 +1,7 @@
 import '@logseq/libs';
 import { globalContext } from '../internal';
 
-interface propsObject {
+export interface propsObject {
     [key: string]: string;
 }
 

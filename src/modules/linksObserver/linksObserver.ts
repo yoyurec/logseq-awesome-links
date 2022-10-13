@@ -27,7 +27,7 @@ const linksObserverCallback: MutationCallback = function (mutationsList) {
             }
             if (globalContext.pluginConfig?.featurePageIconsEnabled) {
                 // title icon
-                const titleEl = addedNode.querySelector('.ls-page-title');
+                const titleEl = addedNode.querySelector('.ls-page-title') as HTMLAnchorElement;
                 if (titleEl) {
                     setTitleIcon(titleEl);
                 }

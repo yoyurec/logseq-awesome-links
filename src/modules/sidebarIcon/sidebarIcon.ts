@@ -25,6 +25,11 @@ export const setSidebarIcons = async (sidebarLinksList?: NodeListOf<HTMLAnchorEl
             if (pageIcon) {
                 sidebarLinkItem.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-sidebar-icon">${pageIcon}</span>`);
             }
+            const pageColor = pageProps['color'];
+            if (pageColor) {
+                console.log(pageColor);
+                sidebarLinkItem.style.color = pageColor.replaceAll('"', '');
+            }
         }
     }
 }
