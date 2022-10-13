@@ -13,7 +13,7 @@
     * Inherit icons for cases when the prop is an alias
     * Inherit icons from hierarchy root item or it's props
     * Show inherited page icons on content links, sidebar, page title & tabs
-* Page links color (with same inherit feature)
+* Page links color (with same inherit feature) <a href="#-page-colors">🡖</a>
 * Page icons`icon::`extended from Emoji to hundreds icons set via Nerd fonts support <a href="#-custom-page-icons">🡖</a>
 * Custom **Journal icons** <a href="#-journal-icon">🡖</a>
 
