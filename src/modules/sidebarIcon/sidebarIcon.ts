@@ -27,7 +27,6 @@ export const setSidebarIcons = async (sidebarLinksList?: NodeListOf<HTMLAnchorEl
             }
             const pageColor = pageProps['color'];
             if (pageColor) {
-                console.log(pageColor);
                 sidebarLinkItem.style.color = pageColor.replaceAll('"', '');
             }
         }

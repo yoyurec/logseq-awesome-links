@@ -28,11 +28,11 @@ const runStuff = async () => {
         pageIconsLoad();
         faviconsLoad();
         journalIconsLoad();
-        sidebarIconsLoad();
         nerdFontLoad();
         body.classList.add('is-awesomeLinks');
-    }, 1000)
+    }, 2000)
     setTimeout(() => {
+        sidebarIconsLoad();
         if (globalContext.pluginConfig?.featureFaviconsEnabled || globalContext.pluginConfig?.featurePageIconsEnabled) {
             runLinksObserver();
         }
