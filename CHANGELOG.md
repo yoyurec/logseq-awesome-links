@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.8.2...v1.8.3) (2022-10-13)
+
+
+### Bug Fixes
+
+* **colors:** add sidebar, tab, title. plus journal icon fix ([b9796f9](https://github.com/yoyurec/logseq-awesome-links/commit/b9796f9b70763bfb583b8cc18e483b7d3a9124aa))
+
 ## [1.8.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.8.1...v1.8.2) (2022-10-13)
 
 
