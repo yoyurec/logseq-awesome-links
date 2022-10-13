@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.6.0...v1.7.0) (2022-10-13)
+
+
+### Features
+
+* **pageicon:** add hierarchy support ([6c80b6e](https://github.com/yoyurec/logseq-awesome-links/commit/6c80b6eefb1af33cd67eace3836669541b985f2e))
+
 # [1.6.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.5.6...v1.6.0) (2022-10-13)
 
 
