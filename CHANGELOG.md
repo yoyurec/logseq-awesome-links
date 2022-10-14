@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.8.4...v1.9.0) (2022-10-14)
+
+
+### Features
+
+* **tags:** add coloring + common bugfixing ([eaa74e3](https://github.com/yoyurec/logseq-awesome-links/commit/eaa74e34d0eddf76c93b406a22526b902c4c32b0))
+
 ## [1.8.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.8.3...v1.8.4) (2022-10-14)
 
 
