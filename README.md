@@ -66,7 +66,7 @@ To disable icon for custom links - start link text with space:
 
 ### 🎨 Page colors
 
-To customize link color, add property (top page, to inherited page) `color::` with double quotes.
+To customize link color, add property _(to page or to inherited page)_ `color::` with double quotes.
 
 `color:: "#00ff00"`
 

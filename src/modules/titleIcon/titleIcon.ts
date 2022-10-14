@@ -8,7 +8,7 @@ import './titleIcon.css';
 
 export const setTitleIcon = async (pageTitleEl?: HTMLAnchorElement | null) => {
     if (!pageTitleEl) {
-        pageTitleEl = doc.querySelector('.ls-page-title') as HTMLAnchorElement;
+        pageTitleEl = doc.querySelector('.ls-page-title h1') as HTMLAnchorElement;
     }
     if (pageTitleEl && !pageTitleEl.querySelector('.page-icon')) {
         const pageName = pageTitleEl.textContent;
