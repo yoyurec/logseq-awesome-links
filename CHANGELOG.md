@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.8.3...v1.8.4) (2022-10-14)
+
+
+### Bug Fixes
+
+* **loading:** timeout increased ([40d0e95](https://github.com/yoyurec/logseq-awesome-links/commit/40d0e95403644772fa06bcdd6109741f6e1d9882))
+
 ## [1.8.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.8.2...v1.8.3) (2022-10-13)
 
 
