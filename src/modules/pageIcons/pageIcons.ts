@@ -14,7 +14,7 @@ export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => 
     }
     for (let i = 0; i < linkList.length; i++) {
         const linkItem = linkList[i];
-        const oldPageIcon = linkItem.querySelector('.page-icon.awLinks-page-icon');
+        const oldPageIcon = linkItem.querySelector('.awLinks-page-icon');
         if (oldPageIcon) {
             oldPageIcon.remove();
         }
@@ -29,12 +29,16 @@ export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => 
         const pageProps = await searchProps(pageTitle);
         if (pageProps) {
             const pageIcon = pageProps['icon'];
-            if (pageIcon) {
-                linkItem.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-page-icon">${pageIcon}</span>`);
+            if (pageIcon && pageIcon !== 'none') {
+                linkItem.insertAdjacentHTML('afterbegin', `<span class="awLinks-page-icon">${pageIcon}</span>`);
             }
             const pageColor = pageProps['color'];
-            if (pageColor) {
-                linkItem.style.color = pageColor.toString().replaceAll('"', '');
+            if (pageColor && pageColor !== 'none') {
+                if (linkItem.classList.contains('tag')) {
+                    linkItem.style.backgroundColor = pageColor.toString().replaceAll('"', '');
+                } else {
+                    linkItem.style.color = pageColor.toString().replaceAll('"', '');
+                }
             }
         }
     }
@@ -42,7 +46,7 @@ export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => 
 }
 
 const removePageIcons = () => {
-    const pageIcons = doc.querySelectorAll('.page-icon.awLinks-page-icon');
+    const pageIcons = doc.querySelectorAll('.awLinks-page-icon');
     if (pageIcons.length) {
         for (let i = 0; i < pageIcons.length; i++) {
             pageIcons[i].remove();

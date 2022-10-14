@@ -18,6 +18,11 @@ const linksObserverCallback: MutationCallback = function (mutationsList) {
     for (let i = 0; i < mutationsList.length; i++) {
         const addedNode = mutationsList[i].addedNodes[0] as HTMLAnchorElement;
         if (addedNode && addedNode.childNodes.length) {
+            // page icons
+            const pageLinkList = addedNode.querySelectorAll(globalContext.pageLinksSelector) as NodeListOf<HTMLAnchorElement>;
+            if (pageLinkList.length) {
+                setPageIcons(pageLinkList);
+            }
             // favicons
             if (globalContext.pluginConfig?.featureFaviconsEnabled) {
                 const extLinkList = addedNode.querySelectorAll('.external-link') as NodeListOf<HTMLAnchorElement>;
@@ -37,11 +42,6 @@ const linksObserverCallback: MutationCallback = function (mutationsList) {
                     if (sidebarLink) {
                         setSidebarIcons([sidebarLink]);
                     }
-                }
-                // page icons
-                const pageLinkList = addedNode.querySelectorAll(globalContext.pageLinksSelector) as NodeListOf<HTMLAnchorElement>;
-                if (pageLinkList.length) {
-                    setPageIcons(pageLinkList);
                 }
             }
         }

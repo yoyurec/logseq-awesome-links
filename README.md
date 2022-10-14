@@ -5,15 +5,15 @@
     </a>
 </p>
 
-* **Favicons** for external links! <a href="#-auto-favicons-for-external-links">🡖</a>
-* **Pages icons** for internal links<a href="#-page-icons">🡖</a>
+* **Favicons** for external links <a href="#-auto-favicons-for-external-links">🡖</a>
+* **Pages icons** for internal links & tags <a href="#-page-icons">🡖</a>
     * Common page `icon::`
     * Icon for cases when the page is an alias
     * Inherit icon from page prop
     * Inherit icons for cases when the prop is an alias
     * Inherit icons from hierarchy root item or it's props
     * Show inherited page icons on content links, sidebar, page title & tabs
-* Page links color (with same inherit feature) <a href="#-page-colors">🡖</a>
+* Page links & tags color (with same inherit feature) <a href="#-page-colors">🡖</a>
 * Page icons`icon::`extended from Emoji to hundreds icons set via Nerd fonts support <a href="#-custom-page-icons">🡖</a>
 * Custom **Journal icons** <a href="#-journal-icon">🡖</a>
 
@@ -70,7 +70,9 @@ To customize link color, add property _(to page or to inherited page)_ `color::`
 
 `color:: "#00ff00"`
 
-![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/colors.png)
+![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/page-colors.png)
+
+![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/tag-colors.png)
 
 ### ✨ Custom page icons
 

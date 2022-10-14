@@ -12,7 +12,7 @@ export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement>) =
         extLinkList = doc.querySelectorAll('.external-link');
     }
     for (let i = 0; i < extLinkList.length; i++) {
-        const oldFav = extLinkList[i].querySelector('.page-icon.awLinks-link-icon');
+        const oldFav = extLinkList[i].querySelector('.awLinks-link-icon');
         if (oldFav) {
             oldFav.remove();
         }
@@ -23,7 +23,7 @@ export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement>) =
             fav.src = faviconValue;
             fav.width = 16;
             fav.height = 16;
-            fav.classList.add('page-icon', 'awLinks-link-icon');
+            fav.classList.add('awLinks-link-icon');
             extLinkList[i].insertAdjacentElement('afterbegin', fav);
         }
     }
@@ -31,7 +31,7 @@ export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement>) =
 }
 
 const removeFavicons = () => {
-    const favicons = doc.querySelectorAll('.page-icon.awLinks-link-icon');
+    const favicons = doc.querySelectorAll('.awLinks-link-icon');
     if (favicons.length) {
         for (let i = 0; i < favicons.length; i++) {
             favicons[i].remove();

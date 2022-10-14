@@ -11,10 +11,6 @@ export const setSidebarIcons = async (sidebarLinksList?: NodeListOf<HTMLAnchorEl
     }
     for (let i = 0; i < sidebarLinksList.length; i++) {
         const sidebarLinkItem = sidebarLinksList[i];
-        const defaultIcon = sidebarLinkItem.querySelector('.ui__icon');
-        if (!defaultIcon) {
-            continue;
-        }
         const pageTitle = sidebarLinkItem.querySelector('.page-title')?.textContent;
         if (!pageTitle) {
             continue;
@@ -23,7 +19,7 @@ export const setSidebarIcons = async (sidebarLinksList?: NodeListOf<HTMLAnchorEl
         if (pageProps) {
             const pageIcon = pageProps['icon'];
             if (pageIcon) {
-                sidebarLinkItem.insertAdjacentHTML('afterbegin', `<span class="page-icon awLinks-sidebar-icon">${pageIcon}</span>`);
+                sidebarLinkItem.insertAdjacentHTML('afterbegin', `<span class="awLinks-sidebar-icon">${pageIcon}</span>`);
             }
             const pageColor = pageProps['color'];
             if (pageColor) {
@@ -34,7 +30,7 @@ export const setSidebarIcons = async (sidebarLinksList?: NodeListOf<HTMLAnchorEl
 }
 
 const removeSidebarIcons = () => {
-    const pageIcons = doc.querySelectorAll('.nav-contents-container .page-icon.awLinks-sidebar-icon');
+    const pageIcons = doc.querySelectorAll('.nav-contents-container .awLinks-sidebar-icon');
     if (pageIcons.length) {
         for (let i = 0; i < pageIcons.length; i++) {
             pageIcons[i].remove();

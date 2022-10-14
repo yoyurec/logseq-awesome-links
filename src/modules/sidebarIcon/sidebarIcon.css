@@ -1,3 +1,15 @@
 .awLinks-sidebar-icon + .page-icon {
     display: none !important;
 }
+
+.left-sidebar-inner .awLinks-sidebar-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 0.25rem;
+    width: 16px;
+    height: 18px;
+    vertical-align: baseline;
+    text-align: center;
+    line-height: 1em;
+    opacity: .6;
+}

@@ -15,8 +15,8 @@
 }
 
 .desc-item[data-key="promoAwesomeStyler"] {
-    margin: 1em 0 !important;
-    font-size: 1.3em;
+    margin: 0.5em 0 !important;
+    font-size: 1.2em;
 }
 .desc-item[data-key="promoAwesomeStyler"] .form-checkbox {
     display: none;

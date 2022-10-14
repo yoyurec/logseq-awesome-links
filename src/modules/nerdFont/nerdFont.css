@@ -16,6 +16,9 @@
 */
 .desc-item[data-key="featureJournalIcon"] .form-input,
 .page-icon,
+.awLinks-title-icon,
+.awLinks-page-icon,
+.awLinks-sidebar-icon,
 .is-icon-active .page>.relative>.flex-row>.flex-1::before {
     font-family: var(--icon-font);
 }

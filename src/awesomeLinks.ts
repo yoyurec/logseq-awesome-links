@@ -9,7 +9,8 @@ import {
     journalIconsLoad, journalIconsUnload,
     sidebarIconsLoad, sidebarIconsUnload,
     initLinksObserver, stopLinksObserver, runLinksObserver,
-    settingsLoad
+    settingsLoad,
+    tabIconsLoad, tabIconsUnload
 } from './modules/internal';
 
 const registerPlugin = async () => {
@@ -33,6 +34,7 @@ const runStuff = async () => {
     }, 2000)
     setTimeout(() => {
         sidebarIconsLoad();
+        tabIconsLoad();
         if (globalContext.pluginConfig?.featureFaviconsEnabled || globalContext.pluginConfig?.featurePageIconsEnabled) {
             runLinksObserver();
         }
@@ -43,6 +45,7 @@ const stopStuff = () => {
     faviconsUnload();
     journalIconsUnload();
     sidebarIconsUnload();
+    tabIconsUnload();
     nerdFontUnload();
     stopLinksObserver();
     body.classList.remove('is-awesomeLinks');

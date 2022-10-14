@@ -5,6 +5,7 @@ export * from './linksObserver/linksObserver';
 export * from './pageIcons/pageIcons';
 export * from './pageIcons/queries';
 export * from './titleIcon/titleIcon';
+export * from './tabIcon/tabIcon';
 export * from './sidebarIcon/sidebarIcon';
 export * from './journalIcons/journalIcons';
 export * from './favicons/favIcons';

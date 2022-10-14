@@ -5,7 +5,7 @@ body:not(.is-banner-active).is-awesomeLinks-journal .journal-item h1.title::befo
 body:not(.is-banner-active).is-awesomeLinks-journal .is-journals h1.title::before {
     content: var(--awesomeLinks-journal-icon);
     display: inline-block;
-    margin-right: 0.24em !important;
+    margin-right: 10px;
     font-family: var(--icon-font);
     text-align: center;
     line-height: 1.2em;

@@ -9,5 +9,5 @@ type globalContextType = {
 export const globalContext: globalContextType = {
     pluginID: PL.id,
     pluginConfig: null,
-    pageLinksSelector: '.page-ref:not(.page-property-key)'
+    pageLinksSelector: '.tag, .page-ref:not(.page-property-key)'
 };
