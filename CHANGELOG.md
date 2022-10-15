@@ -1,3 +1,10 @@
+## [1.9.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.4...v1.9.5) (2022-10-15)
+
+
+### Bug Fixes
+
+* **journals:** doubled icons fix, common icons/colors behaviour as for pages ([5913099](https://github.com/yoyurec/logseq-awesome-links/commit/59130994f77d485ba946fbcc8eb8ae3a2cf905b8))
+
 ## [1.9.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.3...v1.9.4) (2022-10-15)
 
 
