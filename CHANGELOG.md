@@ -1,3 +1,10 @@
+## [1.9.6](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.5...v1.9.6) (2022-10-15)
+
+
+### Bug Fixes
+
+* **feature classes:** delete as unused ([542fd19](https://github.com/yoyurec/logseq-awesome-links/commit/542fd193e78b33d5ff4c02c6fd05d6bb0c73bd33))
+
 ## [1.9.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.4...v1.9.5) (2022-10-15)
 
 
