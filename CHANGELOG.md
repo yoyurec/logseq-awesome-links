@@ -1,3 +1,10 @@
+## [1.9.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.3...v1.9.4) (2022-10-15)
+
+
+### Bug Fixes
+
+* **sidebar icons:** delete old icon before setting ([81e12bd](https://github.com/yoyurec/logseq-awesome-links/commit/81e12bdca083f1f98e7c0799a183214bd886c116))
+
 ## [1.9.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.2...v1.9.3) (2022-10-15)
 
 
