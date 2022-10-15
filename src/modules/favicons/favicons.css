@@ -1,18 +1,12 @@
-/*
-  >>> BEGIN: External links
-*/
 /* hide other themes icons at first */
-.is-awesomeLinks-ext .external-link::before,
-.is-awesomeLinks-ext .external-link::after {
+.external-link::before,
+.external-link::after {
     display: none !important;
 }
-.is-awesomeLinks-ext .awLinks-link-icon {
+.awLinks-fav-icon {
     display: inline-block;
     width: 16px;
     height: 16px;
     margin: -3px 5px 0 0;
     border-radius: 3px;
 }
-/*
-<<<< END: External links
-*/

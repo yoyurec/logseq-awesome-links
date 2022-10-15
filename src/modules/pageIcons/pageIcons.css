@@ -1,7 +1,7 @@
 .page-ref, .tag {
     transition: none;
 }
-.is-awesomeLinks-int .awLinks-page-icon {
+.awLinks-page-icon {
     display: inline-block;
     margin-right: 6px;
     font-family: var(--icon-font);

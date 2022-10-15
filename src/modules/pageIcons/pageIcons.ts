@@ -44,7 +44,6 @@ export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => 
             }
         }
     }
-    body.classList.add('is-awesomeLinks-int');
 }
 
 const removePageIcons = () => {
@@ -54,7 +53,6 @@ const removePageIcons = () => {
             pageIcons[i].remove();
         }
     }
-    body.classList.remove('is-awesomeLinks-int');
 }
 
 export const pageIconsLoad = async () => {

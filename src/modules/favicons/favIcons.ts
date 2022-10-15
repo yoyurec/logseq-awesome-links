@@ -13,7 +13,7 @@ export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement>) =
     }
     for (let i = 0; i < extLinkList.length; i++) {
         const extLinkItem = extLinkList[i];
-        const oldFav = extLinkList[i].querySelector('.awLinks-link-icon');
+        const oldFav = extLinkList[i].querySelector('.awLinks-fav-icon');
         if (oldFav) {
             oldFav.remove();
         }
@@ -24,21 +24,19 @@ export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement>) =
             fav.src = faviconValue;
             fav.width = 16;
             fav.height = 16;
-            fav.classList.add('awLinks-link-icon');
+            fav.classList.add('awLinks-fav-icon');
             extLinkItem.insertAdjacentElement('afterbegin', fav);
         }
     }
-    body.classList.add('is-awesomeLinks-ext');
 }
 
 const removeFavicons = () => {
-    const favicons = doc.querySelectorAll('.awLinks-link-icon');
+    const favicons = doc.querySelectorAll('.awLinks-fav-icon');
     if (favicons.length) {
         for (let i = 0; i < favicons.length; i++) {
             favicons[i].remove();
         }
     }
-    body.classList.remove('is-awesomeLinks-ext');
 }
 
 export const toggleFaviconsFeature = () => {
