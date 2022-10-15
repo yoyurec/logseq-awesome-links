@@ -1,7 +1,8 @@
 import {
     doc,
     searchProps,
-    propsObject
+    propsObject,
+    globalContext
 } from '../internal';
 
 export const setTabIcons = async () => {
@@ -32,6 +33,9 @@ const removeTabIcons = () => {
 }
 
 export const tabIconsLoad = async () => {
+    if (!globalContext.pluginConfig?.featurePageIconsEnabled) {
+        return;
+    }
     setTabIcons();
 }
 

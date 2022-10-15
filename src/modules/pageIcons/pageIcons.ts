@@ -58,6 +58,10 @@ const removePageIcons = () => {
 }
 
 export const pageIconsLoad = async () => {
+    if (!globalContext.pluginConfig?.featurePageIconsEnabled) {
+        return;
+    }
+
     setTagType();
     setPageIcons();
     setTitleIcon();

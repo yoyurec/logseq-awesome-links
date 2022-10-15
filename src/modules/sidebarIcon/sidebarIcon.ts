@@ -1,5 +1,6 @@
 import {
     doc,
+    globalContext,
     searchProps
 } from '../internal';
 
@@ -39,6 +40,9 @@ const removeSidebarIcons = () => {
 }
 
 export const sidebarIconsLoad = async () => {
+    if (!globalContext.pluginConfig?.featurePageIconsEnabled) {
+        return;
+    }
     setSidebarIcons();
 }
 
