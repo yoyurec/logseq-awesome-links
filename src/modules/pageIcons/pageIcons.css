@@ -1,4 +1,6 @@
-/* content */
+.page-ref, .tag {
+    transition: none;
+}
 .is-awesomeLinks-int .awLinks-page-icon {
     display: inline-block;
     margin-right: 6px;
