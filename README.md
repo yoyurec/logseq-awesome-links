@@ -5,6 +5,7 @@
     </a>
 </p>
 
+* Custom **journal icon** <a href="#-journal-icon">🡖</a>
 * **Favicons** for external links <a href="#-auto-favicons-for-external-links">🡖</a>
 * **Pages icons** for internal links & tags <a href="#-page-icons">🡖</a>
     * Common page `icon::`
@@ -13,9 +14,10 @@
     * Inherit icons for cases when the prop is an alias
     * Inherit icons from hierarchy root item or it's props
     * Show inherited page icons on content links, sidebar, page title & tabs
-* Page links & tags color (with same inherit feature) <a href="#-page-colors">🡖</a>
+* Page links & tags **color** (with same inherit feature) <a href="#-page-colors">🡖</a>
 * Page icons`icon::`extended from Emoji to hundreds icons set via Nerd fonts support <a href="#-custom-page-icons">🡖</a>
-* Custom **Journal icons** <a href="#-journal-icon">🡖</a>
+
+![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/logseq-awesome-links.png)
 
 ## If you ❤ what i'm doing - you can support my work! ☕
 <a href="https://www.buymeacoffee.com/yoyurec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=yoyurec&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
