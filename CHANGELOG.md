@@ -1,3 +1,10 @@
+## [1.9.7](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.6...v1.9.7) (2022-10-15)
+
+
+### Bug Fixes
+
+* **update:** add misseed condition ([37f1202](https://github.com/yoyurec/logseq-awesome-links/commit/37f12021ace5a5c7b3e0045093cd448e65f29498))
+
 ## [1.9.6](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.5...v1.9.6) (2022-10-15)
 
 
