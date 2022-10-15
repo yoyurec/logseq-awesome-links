@@ -11,7 +11,10 @@ assignees: ''
 - OS:
 - Logseq ver:
 - Plugin ver:
+- Theme name:
+
 - [ ] ⚠ Do i have issue with DISABLED my `custom.css`?
+
 
 **Description:**
 A clear and concise description of what the bug is......

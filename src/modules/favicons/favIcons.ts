@@ -12,11 +12,12 @@ export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement>) =
         extLinkList = doc.querySelectorAll('.external-link');
     }
     for (let i = 0; i < extLinkList.length; i++) {
+        const extLinkItem = extLinkList[i];
         const oldFav = extLinkList[i].querySelector('.awLinks-link-icon');
         if (oldFav) {
             oldFav.remove();
         }
-        const { hostname, protocol } = new URL(extLinkList[i].href);
+        const { hostname, protocol } = new URL(extLinkItem.href);
         if ((protocol === 'http:') || (protocol === 'https:')) {
             const faviconValue = `https://www.google.com/s2/favicons?domain=${hostname}&sz=32`;
             const fav = doc.createElement('img');
@@ -24,7 +25,7 @@ export const setFavicons = async (extLinkList?: NodeListOf<HTMLAnchorElement>) =
             fav.width = 16;
             fav.height = 16;
             fav.classList.add('awLinks-link-icon');
-            extLinkList[i].insertAdjacentElement('afterbegin', fav);
+            extLinkItem.insertAdjacentElement('afterbegin', fav);
         }
     }
     body.classList.add('is-awesomeLinks-ext');

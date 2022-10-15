@@ -58,10 +58,15 @@ Hierarchy ex.:
 
 Inherited icons also will be shown on current page title, current tab (if "Tabs" plugin installed) and sidebar.
 
-To disable icon for custom links - start link text with space:
+To disable icon for custom markdown links - start link text with space:
 ```
  [→]([[books]]) — [[📖 →]]
 [ →]([[books]]) — [[ →]]
+```
+
+To disable icon for specific page if it was inherited, but not needed
+```
+icon:: none
 ```
 
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/page-icons.png)

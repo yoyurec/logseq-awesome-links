@@ -6,12 +6,12 @@ import {
     pageIconsLoad, pageIconsUnload,
     nerdFontLoad, nerdFontUnload,
     faviconsLoad, faviconsUnload,
-    journalIconsLoad, journalIconsUnload,
     sidebarIconsLoad, sidebarIconsUnload,
     initLinksObserver, stopLinksObserver, runLinksObserver,
     settingsLoad,
     tabIconsLoad, tabIconsUnload
 } from './modules/internal';
+import { checkUpdate } from './modules/utils';
 
 const registerPlugin = async () => {
     setTimeout(() => {
@@ -28,7 +28,6 @@ const runStuff = async () => {
     setTimeout(() => {
         pageIconsLoad();
         faviconsLoad();
-        journalIconsLoad();
         nerdFontLoad();
         body.classList.add('is-awesomeLinks');
     }, 2000)
@@ -43,7 +42,6 @@ const runStuff = async () => {
 const stopStuff = () => {
     pageIconsUnload();
     faviconsUnload();
-    journalIconsUnload();
     sidebarIconsUnload();
     tabIconsUnload();
     nerdFontUnload();
@@ -67,6 +65,9 @@ const main = async () => {
         });
     }, 2000)
 
+    setTimeout(() => {
+        checkUpdate();
+    }, 8000)
 };
 
 logseq.ready(main).catch(null);

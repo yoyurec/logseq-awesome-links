@@ -63,8 +63,8 @@ export const pageIconsLoad = async () => {
     }
 
     setTagType();
-    setPageIcons();
     setTitleIcon();
+    setPageIcons();
     logseq.App.onThemeChanged(() => {
         setTimeout(() => {
             setTagType();

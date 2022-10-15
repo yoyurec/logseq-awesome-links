@@ -1,7 +1,8 @@
 /*
 >>> BEGIN: Settings
 */
-.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="featureInheritPageIcons"] {
+.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="featureInheritPageIcons"],
+.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="featureHierarchyPageIcons"] {
     margin-left: 46px;
 }
 /*

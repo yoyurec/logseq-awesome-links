@@ -2,7 +2,7 @@ import { SettingSchemaDesc, LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.
 
 import {
     globalContext,
-    toggleFaviconsFeature, toggleIconsFeature, toggleJournalIconFeature, toggleNerdFonFeature
+    toggleFaviconsFeature, toggleIconsFeature, toggleNerdFonFeature
 } from '../internal';
 import { objectDiff } from '../utils';
 
@@ -19,28 +19,35 @@ export const settingsConfig: SettingSchemaDesc[] = [
     {
         key: 'featureFaviconsEnabled',
         title: '',
-        description: 'Show site favicon for external links?',
+        description: 'Enable feature: favicons for external links?',
         type: 'boolean',
         default: true,
     },
     {
         key: 'featurePageIconsEnabled',
         title: '',
-        description: 'Show page icon for internal links?',
+        description: 'Enable feature: icon/color for internal pages?',
         type: 'boolean',
         default: true,
     },
     {
         key: 'featureInheritPageIcons',
         title: '',
-        description: 'Inherit page icon from custom property page',
+        description: 'Inherit page icon/color via custom property page (delete to disable)',
         type: 'string',
         default: 'page-type',
     },
     {
+        key: 'featureHierarchyPageIcons',
+        title: '',
+        description: 'Inherit page icon/color via hierarchy?',
+        type: 'boolean',
+        default: true,
+    },
+    {
         key: 'featureJournalIcon',
         title: '',
-        description: 'Journal item icon: emoji or Nerd icon. Delete value to disable feature',
+        description: 'Journal item icon: emoji or Nerd icon (delete to disable)',
         type: 'string',
         default: '',
     },
@@ -72,7 +79,7 @@ const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSe
         toggleIconsFeature();
     }
     if (settingsDiff.includes('featureJournalIcon')) {
-        toggleJournalIconFeature();
+        toggleIconsFeature();
     }
     if (settingsDiff.includes('featureNerdFontEnabled')) {
         toggleNerdFonFeature();

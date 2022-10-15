@@ -1,7 +1,3 @@
-.awLinks-sidebar-icon + .page-icon {
-    display: none !important;
-}
-
 .left-sidebar-inner .awLinks-sidebar-icon {
     display: flex;
     align-items: center;
