@@ -34,9 +34,11 @@ export const setPageIcons = async (linkList?: NodeListOf<HTMLAnchorElement>) => 
             }
             const pageColor = pageProps['color'];
             if (pageColor && pageColor !== 'none') {
-                if (linkItem.classList.contains('tag')) {
+                if (linkItem.classList.contains('tag') && globalContext.tagHasBg) {
+                    linkItem.style.color = '';
                     linkItem.style.backgroundColor = pageColor.toString().replaceAll('"', '');
                 } else {
+                    linkItem.style.backgroundColor = '';
                     linkItem.style.color = pageColor.toString().replaceAll('"', '');
                 }
             }
@@ -56,9 +58,35 @@ const removePageIcons = () => {
 }
 
 export const pageIconsLoad = async () => {
+    setTagType();
     setPageIcons();
     setTitleIcon();
+    logseq.App.onThemeChanged(() => {
+        setTimeout(() => {
+            setTagType();
+            setPageIcons();
+        }, 1000);
+    });
+    logseq.App.onThemeModeChanged(() => {
+        setTimeout(() => {
+            setTagType();
+            setPageIcons();
+        }, 1000);
+    });
 }
+
+export const setTagType = () => {
+    const tag = doc.createElement('a');
+    tag.classList.add('tag');
+    body.insertAdjacentElement('beforeend', tag);
+    const tagBgColor = getComputedStyle(tag).backgroundColor.trim();
+    if (tagBgColor !== 'rgba(0, 0, 0, 0)') {
+        globalContext.tagHasBg = true;
+    } else {
+        globalContext.tagHasBg = false;
+    }
+    tag.remove();
+ }
 
 export const pageIconsUnload = () => {
     removePageIcons();
