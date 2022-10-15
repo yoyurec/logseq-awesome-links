@@ -14,7 +14,7 @@
     * Inherit icons for cases when the prop is an alias
     * Inherit icons from hierarchy root item or it's props
     * Show inherited page icons on content links, sidebar, page title & tabs
-* Page links & tags **color** (with same inherit feature) <a href="#-page-colors">🡖</a>
+* Page links & tags **color** (with same inherit feature) - any valid CSS value (for ex [color names](https://enes.in/sorted-colors) ) <a href="#-page-colors">🡖</a>
 * Page icons`icon::`extended from Emoji to hundreds icons set via Nerd fonts support <a href="#-custom-page-icons">🡖</a>
 
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/logseq-awesome-links.png)
