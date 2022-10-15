@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.1...v1.9.2) (2022-10-15)
+
+
+### Bug Fixes
+
+* **pageicons:** load if enabled ([937e68d](https://github.com/yoyurec/logseq-awesome-links/commit/937e68dbd5830738d1ff65f9e801e8df18da92be))
+
 ## [1.9.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.0...v1.9.1) (2022-10-15)
 
 
