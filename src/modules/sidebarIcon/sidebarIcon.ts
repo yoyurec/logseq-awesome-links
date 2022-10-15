@@ -16,6 +16,10 @@ export const setSidebarIcons = async (sidebarLinksList?: NodeListOf<HTMLAnchorEl
         if (!pageTitle) {
             continue;
         }
+        const oldPageIcon = sidebarLinkItem.querySelector('.awLinks-sidebar-icon');
+        if (oldPageIcon) {
+            oldPageIcon.remove();
+        }
         const pageProps = await searchProps(pageTitle);
         if (pageProps) {
             const pageIcon = pageProps['icon'];
