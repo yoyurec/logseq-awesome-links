@@ -1,3 +1,10 @@
+## [1.9.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.2...v1.9.3) (2022-10-15)
+
+
+### Bug Fixes
+
+* **pageicon:** visual perf ([52101a0](https://github.com/yoyurec/logseq-awesome-links/commit/52101a02e18f33096e6ec4dff111862ab2476503))
+
 ## [1.9.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.1...v1.9.2) (2022-10-15)
 
 
