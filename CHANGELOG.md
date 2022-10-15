@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.0...v1.9.1) (2022-10-15)
+
+
+### Bug Fixes
+
+* **tags:** tag type detection ([96c1ab2](https://github.com/yoyurec/logseq-awesome-links/commit/96c1ab2dc89b30f7cd3ccda96ba5615a0f3549c2))
+
 # [1.9.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.8.4...v1.9.0) (2022-10-14)
 
 
