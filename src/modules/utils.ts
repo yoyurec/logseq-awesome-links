@@ -22,9 +22,11 @@ export const checkUpdate = async () => {
     }
     const repoInfo = await response.json();
     if (repoInfo) {
-        const version = repoInfo.tag_name.replace('v', '');
+        const latestVersion = repoInfo.tag_name.replace('v', '');
         // https://stackoverflow.com/a/65687141
-        version.localeCompare(globalContext.pluginVersion, undefined, { numeric: true, sensitivity: 'base' })
+        const hasUpdate = latestVersion.localeCompare(globalContext.pluginVersion, undefined, { numeric: true, sensitivity: 'base' });
+        if (hasUpdate == 1) {
+            logseq.UI.showMsg(`"${globalContext.pluginID}" new version is available! Please, update!`, 'warning', {timeout: 30000});
+        }
     }
-    logseq.UI.showMsg(`"${globalContext.pluginID}" new version is available! Please, update!`, 'warning', {timeout: 30000});
 }
