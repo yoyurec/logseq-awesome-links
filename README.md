@@ -67,6 +67,9 @@ To disable icon for specific page if it was inherited, but not needed
 ```
 icon:: none
 ```
+
+Journal pages default props (cose there is no inherit from) can be configured in Settings.
+
 <img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/page-icons.png" width="640">
 
 ### 🎨 Page colors
