@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.7...v1.10.0) (2022-10-20)
+
+
+### Features
+
+* **all:** performanc, rendering + cqache,tags fix, text-stroke, etc ([20c2c8d](https://github.com/yoyurec/logseq-awesome-links/commit/20c2c8d8729bde72bbfac81fa31f8ce60cbc5c3b))
+
 ## [1.9.7](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.6...v1.9.7) (2022-10-15)
 
 
