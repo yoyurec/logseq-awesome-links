@@ -2,20 +2,12 @@ import '@logseq/libs';
 import { globalContext } from '../internal';
 
 export interface propsObject {
-    [key: string]: string;
+    icon?: string;
+    color?: string;
+    needStroke?: boolean;
 }
 
-export const getPageProps = async (title: string): Promise<propsObject> => {
-    let pageProps: propsObject = {};
-    title = title.toLowerCase();
-    const iconQuery = `
-    [
-      :find ?props
-      :where
-          [?id :block/name "${title}"]
-          [?id :block/properties ?props]
-    ]
-    `;
+export const isJournalType = async (title: string): Promise<boolean> => {
     const journalQuery = `
     [
       :find ?isjournal
@@ -24,22 +16,59 @@ export const getPageProps = async (title: string): Promise<propsObject> => {
           [?id :block/journal? ?isjournal]
     ]
     `;
-    const queryResultArr = await logseq.DB.datascriptQuery(iconQuery);
-    if (queryResultArr.length) {
-        pageProps = queryResultArr[0][0];
-    }
     const isJournal = await logseq.DB.datascriptQuery(journalQuery);
-    if (isJournal.length && isJournal[0][0] && globalContext.pluginConfig?.featureJournalIcon) {
-        const journalDefaultProps = {
-            icon: globalContext.pluginConfig?.featureJournalIcon
+    if (isJournal[0] && isJournal[0][0]) {
+        return true;
+    }
+    return false;
+}
+
+export const getPageProps = async (title: string): Promise<propsObject> => {
+    let pageProps: propsObject = Object.create(null);
+    const iconQuery = `
+    [
+      :find ?props
+      :where
+          [?id :block/name "${title}"]
+          [?id :block/properties ?props]
+    ]
+    `;
+    const isJournal = await isJournalType(title);
+    if (isJournal) {
+        const journalDefaultProps = Object.create(null);
+        const journalPropsArr = globalContext.pluginConfig.defaultJournalProps.split('\n');
+        const journalIconMatch = journalPropsArr.find(
+            (el: string) => el.includes('icon::')
+        );
+        if (journalIconMatch) {
+            const iconPropArr = journalIconMatch.split('::');
+            if (iconPropArr) {
+                journalDefaultProps.icon = iconPropArr[1].trim();
+            }
         }
-        pageProps = { ...journalDefaultProps, ...pageProps }
+        const journalColorMatch = journalPropsArr.find(
+            (el: string) => el.includes('color::')
+        );
+        if (journalColorMatch) {
+            const colorPropArr = journalColorMatch.split('::');
+            if (colorPropArr) {
+                journalDefaultProps.color = colorPropArr[1].trim();
+            }
+        }
+        pageProps = { ...journalDefaultProps, ...pageProps };
+    } else {
+        const queryResultArr = await logseq.DB.datascriptQuery(iconQuery);
+        if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].icon) {
+            pageProps.icon = queryResultArr[0][0].icon;
+        }
+        if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].color) {
+            pageProps.color = queryResultArr[0][0].color.replaceAll('"', '');
+        }
     }
     return pageProps;
 }
 
 export const getInheritedPropsTitle = async (title: string, prop: string): Promise<string> => {
-    title = title.toLowerCase();
     let inheritedPageTitle = '';
     const inheritedTitleQuery = `
     [
@@ -52,13 +81,12 @@ export const getInheritedPropsTitle = async (title: string, prop: string): Promi
     `;
     const titleArr = await logseq.DB.datascriptQuery(inheritedTitleQuery);
     if (titleArr.length) {
-        inheritedPageTitle = titleArr[0][0][0];
+        inheritedPageTitle = titleArr[0][0][0].toLowerCase();
     }
     return inheritedPageTitle;
 }
 
 export const getAliasedPageTitle = async (title: string): Promise<string> => {
-    title = title.toLowerCase();
     let aliasedPageTitle = '';
     const inheritedAliasQuery = `
     [
@@ -71,50 +99,54 @@ export const getAliasedPageTitle = async (title: string): Promise<string> => {
     `;
     const aliasArr = await logseq.DB.datascriptQuery(inheritedAliasQuery);
     if (aliasArr.length) {
-        aliasedPageTitle = aliasArr[0][0];
+        aliasedPageTitle = aliasArr[0][0].toLowerCase();
     }
     return aliasedPageTitle;
 }
 
-export const searchProps = async (pageTitle: string): Promise<propsObject> => {
+export const getPropsByPageName = async (pageTitle: string): Promise<propsObject> => {
     // get from own page
     let pageProps = await getPageProps(pageTitle);
     let resultedPageProps = { ...pageProps };
-    if (!pageProps['icon'] || !pageProps['color']) {
+    if (!resultedPageProps['icon'] || !resultedPageProps['color']) {
         // get from aliased page
         pageProps = await getAliasedPageProps(pageTitle);
         resultedPageProps = { ...pageProps, ...resultedPageProps };
-        if ((!pageProps['icon'] || !pageProps['color']) && globalContext.pluginConfig?.featureInheritPageIcons) {
+        if ((!resultedPageProps['icon'] || !resultedPageProps['color']) && globalContext.pluginConfig.inheritFromProp) {
             // inherited from page props, when props linked to page
             pageProps = await getInheritedPropsProps(pageTitle);
             resultedPageProps = { ...pageProps, ...resultedPageProps };
-            if ((!pageProps['icon'] || !pageProps['color'])) {
+            if ((!resultedPageProps['icon'] || !resultedPageProps['color'])) {
                 // inherited from aliased page props, when props linked to page
                 pageProps = await getAliasedPropsProps(pageTitle);
                 resultedPageProps = { ...pageProps, ...resultedPageProps };
             }
         }
-        if (globalContext.featureHierarchyPageIcons && pageTitle.includes('/') && (!pageProps['icon'] || !pageProps['color'])) {
+        if (globalContext.pluginConfig.inheritFromHierarchy && pageTitle.includes('/') && (!resultedPageProps['icon'] || !resultedPageProps['color'])) {
             // inherit from hierarchy root
             pageProps = await getHierarchyPageProps(pageTitle);
             resultedPageProps = { ...pageProps, ...resultedPageProps };
         }
     }
+    //@ts-ignore
+    resultedPageProps.__proto__ = null;
     return resultedPageProps;
 }
 
 export const getHierarchyPageProps = async (pageTitle: string): Promise<propsObject> => {
-    let pageProps: propsObject = {};
+    let pageProps: propsObject = Object.create(null);
     pageTitle = pageTitle.split('/')[0];
     pageProps = await getPageProps(pageTitle);
+    let resultedPageProps = { ...pageProps };
     if (!pageProps['icon'] || !pageProps['color']) {
         pageProps = await getInheritedPropsProps(pageTitle);
+        resultedPageProps = { ...pageProps, ...resultedPageProps };
     }
-    return pageProps;
+    return resultedPageProps;
 }
 
 export const getAliasedPageProps = async (pageTitle: string): Promise<propsObject> => {
-    let pageProps: propsObject = {};
+    let pageProps: propsObject = Object.create(null);
     const aliasedPageTitle = await getAliasedPageTitle(pageTitle);
     if (aliasedPageTitle) {
         pageProps = await getPageProps(aliasedPageTitle);
@@ -123,8 +155,8 @@ export const getAliasedPageProps = async (pageTitle: string): Promise<propsObjec
 }
 
 export const getInheritedPropsProps = async (pageTitle: string): Promise<propsObject> => {
-    let pageProps: propsObject = {};
-    const inheritedPropsTitle = await getInheritedPropsTitle(pageTitle, globalContext.pluginConfig?.featureInheritPageIcons);
+    let pageProps: propsObject = Object.create(null);
+    const inheritedPropsTitle = await getInheritedPropsTitle(pageTitle, globalContext.pluginConfig.inheritFromProp);
     if (inheritedPropsTitle) {
         pageProps = await getPageProps(inheritedPropsTitle);
     }
@@ -132,10 +164,10 @@ export const getInheritedPropsProps = async (pageTitle: string): Promise<propsOb
 }
 
 export const getAliasedPropsProps = async (pageTitle: string): Promise<propsObject> => {
-    let pageProps: propsObject = {};
+    let pageProps: propsObject = Object.create(null);
     const aliasedPageTitle = await getAliasedPageTitle(pageTitle);
     if (aliasedPageTitle) {
-        const inheritedPageTitle = await getInheritedPropsTitle(aliasedPageTitle, globalContext.pluginConfig?.featureInheritPageIcons);
+        const inheritedPageTitle = await getInheritedPropsTitle(aliasedPageTitle, globalContext.pluginConfig.inheritFromProp);
         if (inheritedPageTitle) {
             pageProps = await getPageProps(inheritedPageTitle);
         }

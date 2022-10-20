@@ -16,7 +16,9 @@
     }
   },
   "dependencies": {
-    "@logseq/libs": "0.0.9"
+    "@logseq/libs": "0.0.9",
+    "fastdom": "^1.0.11",
+    "tinycolor2": "^1.4.2"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",

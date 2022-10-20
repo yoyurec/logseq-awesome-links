@@ -3,7 +3,7 @@
 }
 
 @font-face {
-    font-family: "Fira Code Nerd Font";
+    font-family: 'Fira Code Nerd Font';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -14,11 +14,9 @@
 /*
   >>> BEGIN: Nerd icons
 */
-.desc-item[data-key="featureJournalIcon"] .form-input,
+.desc-item[data-key="defaultJournalProps"] .form-input,
 .page-icon,
-.awLinks-title-icon,
-.awLinks-page-icon,
-.awLinks-sidebar-icon,
+.awLi-icon,
 .is-icon-active .page>.relative>.flex-row>.flex-1::before {
     font-family: var(--icon-font);
 }

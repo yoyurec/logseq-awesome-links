@@ -1,12 +1,13 @@
 import {
     globalContext,
-    doc
+    doc,
+    tabsPluginIframe
 } from '../internal';
 
 import nerdFontsStyles from './nerdFont.css?inline';
 
 export const toggleNerdFonFeature = () => {
-    if (globalContext.pluginConfig?.featureNerdFontEnabled) {
+    if (globalContext.pluginConfig.nerdFontEnabled) {
         nerdFontLoad();
     } else {
         nerdFontUnload();
@@ -14,22 +15,21 @@ export const toggleNerdFonFeature = () => {
 }
 
 export const nerdFontLoad = async () => {
-    if (!globalContext.pluginConfig?.featureNerdFontEnabled) {
+    if (!globalContext.pluginConfig.nerdFontEnabled) {
         return;
     }
     setTimeout(() => {
-        const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
         if (tabsPluginIframe) {
             tabsPluginIframe.contentDocument?.head.insertAdjacentHTML(
                 'beforeend',
-                `<style id="awesomeLinks">
+                `<style id="awLi-nerd-font-css">
                     @font-face {
                         font-family: "Fira Code Nerd Font";
                         font-style: normal;
                         font-weight: 400;
                         src: url('lsp://logseq.io/${globalContext.pluginID}/dist/fonts/fira-code-nerd-regular.ttf') format('truetype');
                     }
-                    .logseq-tab .text-xs {
+                    .logseq-tab .awLi-tab-icon {
                         font-family: "Fira Code Nerd Font";
                     }
                 </style>`
@@ -40,9 +40,8 @@ export const nerdFontLoad = async () => {
 }
 
 export const nerdFontUnload = () => {
-    const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
     if (tabsPluginIframe) {
-        tabsPluginIframe.contentDocument?.getElementById('awesomeLinks')?.remove();
+        tabsPluginIframe.contentDocument?.getElementById('awLi-nerd-font-css')?.remove();
     }
     doc.head.querySelector(`style[data-injected-style="awLi-nerd-font-css-${globalContext.pluginID}"]`)?.remove();
 }

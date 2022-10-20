@@ -1,8 +1,22 @@
 /*
 >>> BEGIN: Settings
 */
-.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="featureInheritPageIcons"],
-.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="featureHierarchyPageIcons"] {
+.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="fixLowContrast"],
+.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromProp"],
+.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromProp"],
+.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromHierarchy"],
+.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="defaultJournalProps"] {
+    display: none;
+}
+
+.awLi-icons :is(
+    .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="fixLowContrast"],
+    .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromProp"],
+    .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromProp"],
+    .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromHierarchy"],
+    .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="defaultJournalProps"]
+    ) {
+    display: block;
     margin-left: 46px;
 }
 /*

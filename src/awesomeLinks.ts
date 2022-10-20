@@ -2,51 +2,52 @@ import '@logseq/libs';
 
 import {
     globalContext,
-    doc, body, getDOMContainers,
+    getDOMContainers,
+    doc, body,
     pageIconsLoad, pageIconsUnload,
     nerdFontLoad, nerdFontUnload,
     faviconsLoad, faviconsUnload,
-    sidebarIconsLoad, sidebarIconsUnload,
     initLinksObserver, stopLinksObserver, runLinksObserver,
     settingsLoad,
-    tabIconsLoad, tabIconsUnload
+    initTabsObserver, runTabsObserver, stopTabsObserver,
 } from './modules/internal';
 import { checkUpdate } from './modules/utils';
 
 const registerPlugin = async () => {
     setTimeout(() => {
         if (doc.head) {
-            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="css-awesomeLinks" href="lsp://logseq.io/${globalContext.pluginID}/dist/assets/awesomeLinks.css">`)
+            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="css-awLi" href="lsp://logseq.io/${globalContext.pluginID}/dist/assets/awesomeLinks.css">`)
         }
     }, 500);
 }
 
 // Main logic runners
 const runStuff = async () => {
-    initLinksObserver();
     getDOMContainers();
+    body.classList.add(globalContext.isPluginEnabled);
+    nerdFontLoad();
     setTimeout(() => {
         pageIconsLoad();
         faviconsLoad();
-        nerdFontLoad();
-        body.classList.add('is-awesomeLinks');
-    }, 2000)
+    }, 2000);
     setTimeout(() => {
-        sidebarIconsLoad();
-        tabIconsLoad();
-        if (globalContext.pluginConfig?.featureFaviconsEnabled || globalContext.pluginConfig?.featurePageIconsEnabled) {
+        if (globalContext.pluginConfig.faviconsEnabled || globalContext.pluginConfig.pageIconsEnabled) {
+            initLinksObserver();
             runLinksObserver();
         }
-    }, 3000)
+        if (globalContext.pluginConfig.pageIconsEnabled) {
+            initTabsObserver();
+            runTabsObserver();
+        }
+    }, 4000);
 }
 const stopStuff = () => {
+    body.classList.remove(globalContext.isPluginEnabled);
     pageIconsUnload();
     faviconsUnload();
-    sidebarIconsUnload();
-    tabIconsUnload();
     nerdFontUnload();
     stopLinksObserver();
-    body.classList.remove('is-awesomeLinks');
+    stopTabsObserver();
 }
 
 // Main logseq on ready

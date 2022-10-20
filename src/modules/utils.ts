@@ -1,3 +1,6 @@
+//@ts-ignore
+import tinycolor from 'tinycolor2';
+
 import { globalContext } from './internal';
 
 export const objectDiff = (orig: object, updated: object) => {
@@ -29,4 +32,28 @@ export const checkUpdate = async () => {
             logseq.UI.showMsg(`"${globalContext.pluginID}" new version is available! Please, update!`, 'warning', {timeout: 30000});
         }
     }
+}
+
+// Generate Base64 from image URL
+export const getBase64FromUrl = async (url: string): Promise<string> => {
+    let data;
+    try {
+        data = await fetch(url);
+    } catch (error) {
+        return '';
+    }
+    const blob = await data.blob();
+    return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+            const base64data = reader.result as string;
+            resolve(base64data);
+        }
+    });
+}
+
+export const isNeedLowContrastFix = (color: string) => {
+    const readability = tinycolor.readability(color, globalContext.themeBg);
+    return (readability < 1.7) ? true : false;
 }

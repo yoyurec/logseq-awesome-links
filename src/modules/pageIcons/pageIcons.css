@@ -1,11 +1,62 @@
-.page-ref, .tag {
-    transition: none;
+/* icons */
+.is-awLi-enabled .page-icon {
+    display: none !important;
 }
-.awLinks-page-icon {
+.awLi-icon {
     display: inline-block;
-    margin-right: 6px;
+    margin-right: 0.34em;
     font-family: var(--icon-font);
     text-align: center;
     line-height: 1em;
     width: 1.2em;
+}
+.title .awLi-icon {
+    display: inline-block;
+    width: 1.4em;
+    margin-right: 0.34em;
+    font-family: var(--icon-font);
+    text-align: center;
+    align-self: end;
+    line-height: 1.2em;
+}
+
+/* color */
+.awLi-color:is(
+    .page-ref,
+    .references li a,
+    .page-title,
+    .journal-title .title
+) {
+    color: var(--awLi-color) !important;
+}
+
+/* tags magic color/bg */
+body:not(.awLi-tagHasBg) .tag.awLi-color {
+    color: var(---awLi-color) !important;
+}
+.awLi-tagHasBg .tag.awLi-color {
+    color: var(--ls-primary-background-color);
+    background-color: var(--awLi-color) !important;
+}
+
+
+/* low contrast stroke */
+[data-theme="light"] .awLi-stroke {
+    -webkit-text-stroke: 0.3px #00000088;
+}
+[data-theme="dark"] .awLi-stroke {
+    -webkit-text-stroke: 0.3px #ffffff88;
+}
+
+
+/* hide other themes calendar icons */
+.ls-page-title::before,
+.journal-title .title::before {
+    display: none !important;
+}
+
+
+/* other */
+.page-ref, .tag {
+    transition: none;
 }

@@ -17,47 +17,55 @@ export const settingsConfig: SettingSchemaDesc[] = [
         default: false,
     },
     {
-        key: 'featureFaviconsEnabled',
+        key: 'faviconsEnabled',
         title: '',
         description: 'Enable feature: favicons for external links?',
         type: 'boolean',
         default: true,
     },
     {
-        key: 'featurePageIconsEnabled',
+        key: 'pageIconsEnabled',
         title: '',
         description: 'Enable feature: icon/color for internal pages?',
         type: 'boolean',
         default: true,
     },
     {
-        key: 'featureInheritPageIcons',
+        key: 'fixLowContrast',
+        title: '',
+        description: '⚠ Experimental: Enable text black/white stroke for low contrast page links colors',
+        type: 'boolean',
+        default: false,
+    },
+    {
+        key: 'inheritFromProp',
         title: '',
         description: 'Inherit page icon/color via custom property page (delete to disable)',
         type: 'string',
         default: 'page-type',
     },
     {
-        key: 'featureHierarchyPageIcons',
+        key: 'inheritFromHierarchy',
         title: '',
         description: 'Inherit page icon/color via hierarchy?',
         type: 'boolean',
         default: true,
     },
     {
-        key: 'featureJournalIcon',
+        key: 'defaultJournalProps',
         title: '',
-        description: 'Journal item icon: emoji or Nerd icon (delete to disable)',
+        description: 'Journal pages default props: icon (emoji or Nerd icon) and color. (Delete to disable)',
         type: 'string',
-        default: '',
+        inputAs: 'textarea',
+        default: 'icon::\ncolor::',
     },
     {
-        key: 'featureNerdFontEnabled',
+        key: 'nerdFontEnabled',
         title: '',
         description: 'Enable Nerd font with tons of icons (https://www.nerdfonts.com/cheat-sheet)',
         type: 'boolean',
         default: true,
-    }
+    },
 ];
 
 export const settingsLoad = () => {
@@ -72,16 +80,13 @@ export const settingsLoad = () => {
 const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSettings: LSPluginBaseInfo['settings']) => {
     globalContext.pluginConfig = { ...settings };
     const settingsDiff = objectDiff({ ...oldSettings }, globalContext.pluginConfig)
-    if (settingsDiff.includes('featureFaviconsEnabled')) {
+    if (settingsDiff.includes('faviconsEnabled')) {
         toggleFaviconsFeature();
     }
-    if (settingsDiff.includes('featurePageIconsEnabled')) {
+    if (settingsDiff.includes('pageIconsEnabled') || settingsDiff.includes('inheritFromHierarchy') || settingsDiff.includes('defaultJournalProps') || settingsDiff.includes('fixLowContrast')) {
         toggleIconsFeature();
     }
-    if (settingsDiff.includes('featureJournalIcon')) {
-        toggleIconsFeature();
-    }
-    if (settingsDiff.includes('featureNerdFontEnabled')) {
+    if (settingsDiff.includes('nerdFontEnabled')) {
         toggleNerdFonFeature();
     }
 }

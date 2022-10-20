@@ -6,15 +6,14 @@
 </p>
 
 * Custom **journal icon** <a href="#-journal-icon">🡖</a>
-* **Favicons** for external links <a href="#-auto-favicons-for-external-links">🡖</a>
-* **Pages icons** for internal links & tags <a href="#-page-icons">🡖</a>
+* **Favicons** for external links (with caching) <a href="#-auto-favicons-for-external-links">🡖</a>
+* **Pages icons/colors** for internal links & tags (shows in content, sidebar, page title & tabs) <a href="#-page-icons">🡖</a>
     * Common page `icon::`
     * Icon for cases when the page is an alias
     * Inherit icon from page prop
-    * Inherit icons for cases when the prop is an alias
-    * Inherit icons from hierarchy root item or it's props
-    * Show inherited page icons on content links, sidebar, page title & tabs
-* Page links & tags **color** (with same inherit feature) - any valid CSS value (for ex [color names](https://enes.in/sorted-colors) ) <a href="#-page-colors">🡖</a>
+    * Inherit icon for cases when the prop is an alias
+    * Inherit icon from hierarchy root item or it's props
+* In addition page links & tags **color** `color: "value"` <a href="#-page-colors">🡖</a>
 * Page icons`icon::`extended from Emoji to hundreds icons set via Nerd fonts support <a href="#-custom-page-icons">🡖</a>
 
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/logseq-awesome-links.png)
@@ -37,7 +36,7 @@ From Logseq store - `Plugins -> Marketplace`
 
 ### ⭐ Auto favicons for external links
 
-<img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/favicons.png" width="640">
+<img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/favicons.png" width="500">
 
 ### ✨ Page icons
 
@@ -68,16 +67,16 @@ To disable icon for specific page if it was inherited, but not needed
 ```
 icon:: none
 ```
-
-![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/page-icons.png)
+<img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/page-icons.png" width="640">
 
 ### 🎨 Page colors
 
-To customize link color, add property _(to page or to inherited page)_ `color::` with double quotes.
+To customize link color, add property _(to page or to inherited page)_ `color::` with double quotes. Any valid CSS value (for ex [color names](https://enes.in/sorted-colors) )
 
 `color:: "#00ff00"`
 
-![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/page-colors.png)
+<img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/page-colors.png" width="540">
+
 
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/tag-colors.png)
 
@@ -93,16 +92,18 @@ Native Logseq props `icon::` extended with Nerd icons font:
 Banners & Tabs plugin support included 😎
 Feature can be disabled.
 
-![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/nerd-icons.png)
+<img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/nerd-icons.png" width="640">
 
-![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/nerd.png)
+<img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/nerd.png" width="640">
+
 
 ### ✨ Journal icon
 
 Can be customized in settings.
 Delete value to disable feature.
 
-![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/journal-icon.png)
+<img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/journal-icon.png" width="500">
+
 
 ## What is Logseq?
 Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.
@@ -113,7 +114,7 @@ Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com 
 * If you have any questions, issues or feature request, use the issue submission on GitHub: https://github.com/yoyurec/logseq-awesome-links/issues
 
 ## Credits
-* Icon - https://www.flaticon.com/free-icon/social-media_4089948?related_id=4089948
+* Icon - https://www.flaticon.com/free-icon/clicking_1721678
 
 ## License
 

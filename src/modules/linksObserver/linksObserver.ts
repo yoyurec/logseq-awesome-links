@@ -1,45 +1,32 @@
 import {
+    appContainer, tabsPluginIframe,
     globalContext,
-    appContainer,
-    setFavicons, setPageIcons, setSidebarIcons, setTitleIcon
+    setFavicons, setPageIcons, processLinkItem
 } from '../internal';
 
-let linksObserver: MutationObserver, linksObserverConfig: MutationObserverInit;
+let linksObserver: MutationObserver;
+let linksObserverConfig: MutationObserverInit;
 
 export const initLinksObserver = () => {
-    linksObserverConfig = { childList: true, subtree: true };
+    linksObserverConfig = {
+        childList: true,
+        subtree: true
+    };
     linksObserver = new MutationObserver(linksObserverCallback);
 }
 
 const linksObserverCallback: MutationCallback = function (mutationsList) {
-    if (!appContainer) {
-        return;
-    }
     for (let i = 0; i < mutationsList.length; i++) {
-        const addedNode = mutationsList[i].addedNodes[0] as HTMLAnchorElement;
+        const mutationItem = mutationsList[i];
+        const addedNode = mutationItem.addedNodes[0] as HTMLElement;
         if (addedNode && addedNode.childNodes.length) {
-            if (globalContext.pluginConfig?.featurePageIconsEnabled) {
-                // title icon
-                const titleList = addedNode.querySelectorAll(globalContext.titleSelector) as NodeListOf<HTMLAnchorElement>;
-                if (titleList.length) {
-                    setTitleIcon(titleList);
-                }
-                // sidebar icon
-                if (addedNode.classList.contains('favorite-item') || addedNode.classList.contains('recent-item')) {
-                    const sidebarLink = addedNode.querySelector('a') as HTMLAnchorElement;
-                    if (sidebarLink) {
-                        setSidebarIcons([sidebarLink]);
-                    }
-                }
-                // page icons
-                const pageLinkList = addedNode.querySelectorAll(globalContext.pageLinksSelector) as NodeListOf<HTMLAnchorElement>;
-                if (pageLinkList.length) {
-                    setPageIcons(pageLinkList);
-                }
+            // page icons
+            if (globalContext.pluginConfig.pageIconsEnabled) {
+                setPageIcons(addedNode);
             }
             // favicons
-            if (globalContext.pluginConfig?.featureFaviconsEnabled) {
-                const extLinkList = addedNode.querySelectorAll('.external-link') as NodeListOf<HTMLAnchorElement>;
+            if (globalContext.pluginConfig.faviconsEnabled) {
+                const extLinkList = [... addedNode.querySelectorAll(globalContext.extLinksSelector)] as HTMLElement[];
                 if (extLinkList.length) {
                     setFavicons(extLinkList);
                 }
@@ -57,4 +44,43 @@ export const runLinksObserver = () => {
 
 export const stopLinksObserver = () => {
     linksObserver.disconnect();
+}
+
+// Tabs
+
+let tabsObserver: MutationObserver;
+let tabsObserverConfig: MutationObserverInit;
+
+export const initTabsObserver = () => {
+    tabsObserverConfig = {
+        childList: true,
+        subtree: true
+    };
+    tabsObserver = new MutationObserver(tabsObserverCallback);
+}
+
+const tabsObserverCallback: MutationCallback = function (mutationsList) {
+    for (let i = 0; i < mutationsList.length; i++) {
+        const mutationItem = mutationsList[i];
+        const addedNode = mutationItem.addedNodes[0] as HTMLElement;
+        if (addedNode && addedNode.childNodes.length) {
+            const tabLink = addedNode.querySelector('.logseq-tab-title') as HTMLElement;
+            if (tabLink) {
+                processLinkItem(tabLink);
+            }
+        }
+    }
+};
+
+export const runTabsObserver = () => {
+    if (tabsPluginIframe) {
+        const tabsContainer = tabsPluginIframe.contentDocument?.querySelector('.logseq-tab-wrapper');
+        if (tabsContainer) {
+            tabsObserver.observe(tabsContainer, tabsObserverConfig);
+        }
+    }
+}
+
+export const stopTabsObserver = () => {
+    tabsObserver.disconnect();
 }

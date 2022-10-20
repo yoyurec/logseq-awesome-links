@@ -11,12 +11,16 @@ specifiers:
   conventional-changelog-conventionalcommits: ^5.0.0
   cz-conventional-changelog: 3.3.0
   eslint: ^8.25.0
+  fastdom: ^1.0.11
   semantic-release: ^19.0.5
+  tinycolor2: ^1.4.2
   typescript: ^4.8.4
   vite: 3.1.7
 
 dependencies:
   '@logseq/libs': 0.0.9
+  fastdom: 1.0.11
+  tinycolor2: 1.4.2
 
 devDependencies:
   '@semantic-release/changelog': 6.0.1_semantic-release@19.0.5
@@ -1687,6 +1691,12 @@ packages:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
     dev: true
 
+  /fastdom/1.0.11:
+    resolution: {integrity: sha512-jl9MwXDFxhg354W4E3s1UMsLh3HWFuVMQiRUlXpHckcHRXQvUe76yzBf1Z7b+x5Ci4TUJ1KmynI9alGUXG95IQ==}
+    dependencies:
+      strictdom: 1.0.1
+    dev: false
+
   /fastq/1.13.0:
     resolution: {integrity: sha512-YpkpUnK8od0o1hmeSc7UUs/eB/vIPWJYjKck2QKIzAf71Vm1AAQ3EbuZB3g2JIy+pg+ERD0vqI79KyZiB2e2Nw==}
     dependencies:
@@ -3285,6 +3295,10 @@ packages:
       readable-stream: 2.3.7
     dev: true
 
+  /strictdom/1.0.1:
+    resolution: {integrity: sha512-cEmp9QeXXRmjj/rVp9oyiqcvyocWab/HaoN4+bwFeZ7QzykJD6L3yD4v12K1x0tHpqRqVpJevN3gW7kyM39Bqg==}
+    dev: false
+
   /string-width/4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
     engines: {node: '>=8'}
@@ -3413,6 +3427,10 @@ packages:
     dependencies:
       readable-stream: 3.6.0
     dev: true
+
+  /tinycolor2/1.4.2:
+    resolution: {integrity: sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==}
+    dev: false
 
   /tmp/0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
