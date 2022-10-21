@@ -19,7 +19,6 @@
 .awLi-icon,
 .is-icon-active .page>.relative>.flex-row>.flex-1::before {
     font-family: var(--icon-font);
-    font-size: 0.96rem;
 }
 /*
 <<<< END: Nerd icons
