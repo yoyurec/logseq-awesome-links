@@ -139,12 +139,13 @@ export const setStyleToLinkItem = async (linkItem: HTMLElement, pageProps: props
     const pageIcon = pageProps['icon'];
     if (pageIcon && pageIcon !== 'none') {
         const oldPageIcon = linkItem.querySelector('.awLi-icon');
-        if (!oldPageIcon) {
-            linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
-        } else {
-            if (oldPageIcon.textContent !== pageIcon) {
-                oldPageIcon.textContent = pageIcon;
+        if (oldPageIcon) {
+            if (oldPageIcon.innerHTML !== pageIcon) {
+                linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
+                oldPageIcon.remove();
             }
+        } else {
+            linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
         }
     }
     // color
