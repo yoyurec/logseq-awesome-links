@@ -28,12 +28,12 @@
 /*
 >>> BEGIN: Props
 */
-.pre-block > .flex-row .editor-wrapper textarea {
+/* .pre-block > .flex-row .editor-wrapper textarea {
     font-family: var(--icon-font);
     font-size: 0.96rem;
     letter-spacing: -1px;
     word-spacing: -1px;
-}
+} */
 /*
 <<<< END: Props
 */
