@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.10.0...v1.10.1) (2022-10-21)
+
+
+### Bug Fixes
+
+* **nerd icons:** delete from props ([1c631d1](https://github.com/yoyurec/logseq-awesome-links/commit/1c631d1f5be3f9ccccd08e9a9eb4499bf8ab864c))
+
 # [1.10.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.9.7...v1.10.0) (2022-10-20)
 
 
