@@ -1,3 +1,10 @@
+## [1.10.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.10.4...v1.10.5) (2022-10-21)
+
+
+### Bug Fixes
+
+* **pageicon:** checking oldicon ([7bc0ec8](https://github.com/yoyurec/logseq-awesome-links/commit/7bc0ec873168013498646744cdf7eb2cc8feb0b9))
+
 ## [1.10.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.10.3...v1.10.4) (2022-10-21)
 
 
