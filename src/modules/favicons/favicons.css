@@ -1,12 +1,12 @@
 /* hide other themes icons at first */
-.external-link::before,
+div:not(.block-properties).external-link::before,
 .external-link::after {
     display: none !important;
 }
 .awLi-favicon {
     display: inline-block;
-    width: 1.1em;
-    height: 1.1em;
+    width: 1em;
+    height: 1em;
     margin: -3px 0.34em 0 0;
     border-radius: 3px;
 }

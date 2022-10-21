@@ -1,6 +1,6 @@
 import {
     globalContext,
-    doc,
+    doc, body,
     tabsPluginIframe
 } from '../internal';
 
@@ -36,6 +36,7 @@ export const nerdFontLoad = async () => {
             );
         }
         logseq.provideStyle({ key: 'awLi-nerd-font-css', style: nerdFontsStyles });
+        body.classList.add('awLi-nerd');
     }, 1000)
 }
 
@@ -44,4 +45,5 @@ export const nerdFontUnload = () => {
         tabsPluginIframe.contentDocument?.getElementById('awLi-nerd-font-css')?.remove();
     }
     doc.head.querySelector(`style[data-injected-style="awLi-nerd-font-css-${globalContext.pluginID}"]`)?.remove();
+    body.classList.remove('awLi-nerd');
 }
