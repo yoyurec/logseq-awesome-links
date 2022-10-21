@@ -1,3 +1,10 @@
+## [1.10.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.10.2...v1.10.3) (2022-10-21)
+
+
+### Bug Fixes
+
+* **props:** texarea disable nerd (( ([8679219](https://github.com/yoyurec/logseq-awesome-links/commit/867921995264203f917f21299dbbefae58271078))
+
 ## [1.10.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.10.1...v1.10.2) (2022-10-21)
 
 
