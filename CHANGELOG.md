@@ -1,3 +1,10 @@
+## [1.10.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.10.3...v1.10.4) (2022-10-21)
+
+
+### Bug Fixes
+
+* **title icon:** position ([a69e4fa](https://github.com/yoyurec/logseq-awesome-links/commit/a69e4fa4efd4f43bdb476bb8045682ceba23c201))
+
 ## [1.10.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.10.2...v1.10.3) (2022-10-21)
 
 
