@@ -17,7 +17,7 @@
     font-family: var(--icon-font);
     text-align: center;
     align-self: end;
-    line-height: 1.2em;
+    line-height: inherit;
 }
 
 /* color */
