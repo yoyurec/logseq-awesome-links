@@ -3,6 +3,9 @@ import { globalContext } from '../internal';
 
 export interface propsObject {
     icon?: string;
+    "icon-url"?: string;
+    icon2?: string;
+    "icon-url2"?: string;
     color?: string;
     needStroke?: boolean;
 }
@@ -58,11 +61,23 @@ export const getPageProps = async (title: string): Promise<propsObject> => {
         pageProps = { ...journalDefaultProps, ...pageProps };
     } else {
         const queryResultArr = await logseq.DB.datascriptQuery(iconQuery);
-        if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].icon) {
-            pageProps.icon = queryResultArr[0][0].icon;
-        }
-        if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].color) {
-            pageProps.color = queryResultArr[0][0].color.replaceAll('"', '');
+        if(queryResultArr.length && queryResultArr[0].length){
+            const row = queryResultArr[0][0];
+            if (row.icon) {
+                pageProps.icon = row.icon;
+            }
+            if (row.color) {
+                pageProps.color = row.color.replaceAll('"', '');
+            }
+            if (row[".icon-url"] || row["icon-url"]) {
+                pageProps["icon-url"] = row[".icon-url"] || row["icon-url"];
+            }
+            if (row[".icon2"] || row["icon2"]) {
+                pageProps.icon2 = row[".icon2"] || row["icon2"];
+            }
+            if (row[".icon-url2"] || row["icon-url2"]) {
+                pageProps["icon-url2"] = row[".icon-url2"] || row["icon-url2"];
+            }
         }
     }
     return pageProps;

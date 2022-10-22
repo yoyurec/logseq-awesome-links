@@ -10,14 +10,20 @@
     line-height: 1em;
     width: 1.2em;
 }
+.awLi-icon2{
+    margin-right: 0.64em;
+}
 .title .awLi-icon {
     display: inline-block;
     width: 1.4em;
     margin-right: 0.34em;
     font-family: var(--icon-font);
     text-align: center;
-    align-self: end;
+    align-self: center;
     line-height: inherit;
+}
+.title .awLi-icon2{
+    margin-right: 0.64em;
 }
 
 /* color */
