@@ -136,8 +136,8 @@ export const processLinkItem = async (linkItem: HTMLElement) => {
 export const setStyleToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject) => {
     linkItem.classList.remove('awLi-stroke');
     // icon
-    const pageIcon = pageProps['icon-url'] ? `<img src="${pageProps['icon-url']}" style="width:1em">` : pageProps['icon'];
-    const pageIcon2 = pageProps['icon-url2'] ? `<img src="${pageProps['icon-url2']}" style="width:1em">` : pageProps['icon2'];
+    const pageIcon = pageProps['icon-url'] ? `<img src="${pageProps['icon-url']}">` : pageProps['icon'];
+    const pageIcon2 = pageProps['icon-url2'] ? `<img src="${pageProps['icon-url2']}">` : pageProps['icon2'];
     if (pageIcon && pageIcon !== 'none') {
         const oldPageIcon = linkItem.querySelector('.awLi-icon');
         const oldPageIcon2 = linkItem.querySelector('.awLi-icon2');
