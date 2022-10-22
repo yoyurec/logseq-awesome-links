@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite';
+import logseqDevPlugin from "vite-plugin-logseq";
 
 const name = 'awesomeLinks';
 
 export default defineConfig({
+  plugins: [logseqDevPlugin()],
   base: '',
   build: {
     sourcemap: true,

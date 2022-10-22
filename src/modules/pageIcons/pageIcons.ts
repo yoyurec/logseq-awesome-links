@@ -136,15 +136,22 @@ export const processLinkItem = async (linkItem: HTMLElement) => {
 export const setStyleToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject) => {
     linkItem.classList.remove('awLi-stroke');
     // icon
-    const pageIcon = pageProps['icon'];
+    const pageIcon = pageProps['icon-url'] ? `<img src="${pageProps['icon-url']}" style="width:1em">` : pageProps['icon'];
+    const pageIcon2 = pageProps['icon-url2'] ? `<img src="${pageProps['icon-url2']}" style="width:1em">` : pageProps['icon2'];
     if (pageIcon && pageIcon !== 'none') {
         const oldPageIcon = linkItem.querySelector('.awLi-icon');
+        const oldPageIcon2 = linkItem.querySelector('.awLi-icon2');
         if (oldPageIcon) {
+            if( oldPageIcon2 && oldPageIcon2.innerHTML!=pageIcon2){
+                linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon2 awLi-icon">${pageIcon2}</span>`);
+                oldPageIcon2.remove();
+            }
             if (oldPageIcon.innerHTML !== pageIcon) {
                 linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
                 oldPageIcon.remove();
             }
         } else {
+            if(pageIcon2) linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon2 awLi-icon">${pageIcon2}</span>`);
             linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
         }
     }
@@ -226,7 +233,6 @@ const setTabsCSS = () => {
                 font-family: 'Fira Code Nerd Font', 'Fira Code', 'Fira Sans';
                 text-align: center;
                 line-height: 1em;
-                width: 1.2em;
             }
             .light .awLi-stroke {
                 -webkit-text-stroke: 0.3px #00000088;
