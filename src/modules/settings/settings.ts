@@ -107,8 +107,8 @@ export const settingsLoad = () => {
  }
 
 const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSettings: LSPluginBaseInfo['settings']) => {
-    globalContext.defaultPageProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultJournalProps);
-    globalContext.defaultJournalProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultPageProps);
+    globalContext.defaultPageProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultPageProps);
+    globalContext.defaultJournalProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultJournalProps);
 
     globalContext.pluginConfig = { ...settings };
     const settingsDiff = objectDiff({ ...oldSettings }, globalContext.pluginConfig)
