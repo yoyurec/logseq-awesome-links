@@ -1,3 +1,10 @@
+## [1.11.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.11.3...v1.11.4) (2022-10-29)
+
+
+### Bug Fixes
+
+* **updater:** add missed CI task - get next version ([0c20479](https://github.com/yoyurec/logseq-awesome-links/commit/0c204792c896233037cd75bbc33aebbf516f0b82))
+
 ## [1.11.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.11.2...v1.11.3) (2022-10-29)
 
 
