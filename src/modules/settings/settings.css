@@ -2,11 +2,11 @@
 >>> BEGIN: Settings
 */
 .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="fixLowContrast"],
-.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritingHeading"],
+.panel-wrap[data-id="logseq-awesome-links"] .heading-item[data-key="inheritingHeading"],
 .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromProp"],
 .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromProp"],
 .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromHierarchy"],
-.panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="dafaultPropsHeading"],
+.panel-wrap[data-id="logseq-awesome-links"] .heading-item[data-key="dafaultPropsHeading"],
 .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="defaultPageProps"],
 .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="defaultJournalProps"] {
     display: none;
@@ -14,11 +14,11 @@
 
 .awLi-icons :is(
     .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="fixLowContrast"],
-    .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritingHeading"],
+    .panel-wrap[data-id="logseq-awesome-links"] .heading-item[data-key="inheritingHeading"],
     .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromProp"],
     .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromProp"],
     .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="inheritFromHierarchy"],
-    .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="dafaultPropsHeading"],
+    .panel-wrap[data-id="logseq-awesome-links"] .heading-item[data-key="dafaultPropsHeading"],
     .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="defaultPageProps"],
     .panel-wrap[data-id="logseq-awesome-links"] .desc-item[data-key="defaultJournalProps"]
     ) {
