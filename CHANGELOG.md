@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.10.5...v1.11.0) (2022-10-29)
+
+
+### Features
+
+* **defaults:** add page icon settings and show on sidebar/tabs ([3ec13bb](https://github.com/yoyurec/logseq-awesome-links/commit/3ec13bbd4a7865145419a72ad8fa221f41565e1f))
+
 ## [1.10.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.10.4...v1.10.5) (2022-10-21)
 
 
