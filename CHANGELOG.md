@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.11.1...v1.11.2) (2022-10-29)
+
+
+### Bug Fixes
+
+* **settings:** typo ([60549a2](https://github.com/yoyurec/logseq-awesome-links/commit/60549a2b47d5d57be9ac71cb8416925ae899da52))
+
 ## [1.11.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.11.0...v1.11.1) (2022-10-29)
 
 
