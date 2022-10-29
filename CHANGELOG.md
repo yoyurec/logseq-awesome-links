@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.11.0...v1.11.1) (2022-10-29)
+
+
+### Bug Fixes
+
+* **settings:** default props heading indent ([01881d0](https://github.com/yoyurec/logseq-awesome-links/commit/01881d0e8402ed7facf14267b513a965a1320614))
+
 # [1.11.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.10.5...v1.11.0) (2022-10-29)
 
 
