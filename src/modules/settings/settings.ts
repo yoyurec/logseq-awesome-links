@@ -54,7 +54,7 @@ export const settingsConfig: SettingSchemaDesc[] = [
     {
         key: 'inheritFromProp',
         title: '',
-        description: 'Inherit page icon/color via custom property page (delete to disable)',
+        description: 'Inherit page icon/color via custom property (delete to disable)',
         type: 'string',
         default: 'page-type',
     },
