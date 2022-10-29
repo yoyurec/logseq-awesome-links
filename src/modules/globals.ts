@@ -5,6 +5,12 @@ type globalContextType = {
     [key: string]: any;
 }
 
+export interface propsObject {
+    icon?: string;
+    color?: string;
+    needStroke?: boolean;
+}
+
 export const globalContext: globalContextType = {
     pluginID: PL.id,
     pluginConfig: null,
@@ -17,6 +23,8 @@ export const globalContext: globalContextType = {
     tagHasBg: false,
     themeBg: '',
     favIconsCache: Object.create(null),
+    defaultPageProps: Object.create(null),
+    defaultJournalProps: Object.create(null),
     doc: parent.document,
     root: parent.document.documentElement,
     body: parent.document.body,

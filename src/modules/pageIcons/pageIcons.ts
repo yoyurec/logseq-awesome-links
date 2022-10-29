@@ -1,15 +1,16 @@
 import fastdom from 'fastdom'
 
 import {
-    globalContext,
+    propsObject, globalContext,
     root, doc, body, tabsPluginIframe,
     stopLinksObserver, stopTabsObserver,
 } from '../internal';
 import {
-    propsObject,
     getPropsByPageName
 } from './queries';
-import { isNeedLowContrastFix } from '../utils';
+import {
+    isNeedLowContrastFix, settingsTextToPropsObj
+} from '../utils';
 
 import pageIconsStyles from  './pageIcons.css?inline';
 
@@ -26,6 +27,8 @@ export const pageIconsLoad = async () => {
     }
     body.classList.add('awLi-icons')
     logseq.provideStyle({ key: 'awLi-icon-css', style: pageIconsStyles });
+    globalContext.defaultPageProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultPageProps);
+    globalContext.defaultJournalProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultJournalProps);
     setTabsCSS();
     pageIconsRender();
 
@@ -71,11 +74,11 @@ export const setPageIcons = async (context?: Document | HTMLElement) => {
     }
     const titleLinksList = [...context.querySelectorAll(globalContext.titleSelector)];
     if (titleLinksList) {
-        setStyleToLinkList(titleLinksList);
+        setStyleToLinkList(titleLinksList, true);
     }
     const pageLinksList = [...context.querySelectorAll(globalContext.pageLinksSelector)];
     if (pageLinksList.length) {
-        setStyleToLinkList(pageLinksList);
+        setStyleToLinkList(pageLinksList, true);
     }
     const sidebarLinksList = [...context.querySelectorAll(globalContext.sidebarLinkSelector)];
     if (sidebarLinksList) {
@@ -104,39 +107,37 @@ export const setActiveTabIcon = async () => {
     }
 }
 
-export const setStyleToLinkList = (linkList: HTMLElement[], skipFastDOM?: boolean) => {
+export const setStyleToLinkList = (linkList: HTMLElement[], noDefaultIcon?: boolean) => {
     if (!linkList.length) {
         return;
     }
     for (let i = 0; i < linkList.length; i++) {
         const linkItem = linkList[i];
-        if (skipFastDOM) {
-                processLinkItem(linkItem);
-        } else {
-            fastdom.mutate(() => {
-                processLinkItem(linkItem);
-            });
-        }
+        fastdom.mutate(() => {
+            processLinkItem(linkItem, noDefaultIcon);
+        });
     }
 }
 
-export const processLinkItem = async (linkItem: HTMLElement) => {
+export const processLinkItem = async (linkItem: HTMLElement, noDefaultIcon?: boolean) => {
     const linkText = linkItem.textContent;
     if (linkText && !linkText.startsWith(' ')) {
         const pageTitle = linkItem.getAttribute('data-ref') || linkItem.childNodes[1]?.textContent?.trim().toLowerCase() || linkItem.textContent?.trim().toLowerCase() || '';
         if (pageTitle) {
             const pageProps = await getPropsByPageName(pageTitle);
             if (pageProps) {
-                setStyleToLinkItem(linkItem, pageProps);
+                setIconToLinkItem(linkItem, pageProps, noDefaultIcon);
+                setColorToLinkItem(linkItem, pageProps);
             }
         }
     }
  }
 
-export const setStyleToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject) => {
-    linkItem.classList.remove('awLi-stroke');
-    // icon
+const setIconToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject, noDefaultIcon?: boolean) => {
     const pageIcon = pageProps['icon'];
+    if (pageIcon === globalContext.defaultPageProps.icon && noDefaultIcon) {
+        return;
+    }
     if (pageIcon && pageIcon !== 'none') {
         const oldPageIcon = linkItem.querySelector('.awLi-icon');
         if (oldPageIcon) {
@@ -148,7 +149,10 @@ export const setStyleToLinkItem = async (linkItem: HTMLElement, pageProps: props
             linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
         }
     }
-    // color
+}
+
+const setColorToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject) => {
+    linkItem.classList.remove('awLi-stroke');
     const pageColor = pageProps['color'];
     if (pageColor && pageColor !== 'none') {
         const oldPageColor = getComputedStyle(linkItem).getPropertyValue('awLi-color');

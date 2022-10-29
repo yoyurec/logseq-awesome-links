@@ -4,7 +4,7 @@ import {
     globalContext,
     toggleFaviconsFeature, toggleIconsFeature, toggleNerdFonFeature
 } from '../internal';
-import { objectDiff } from '../utils';
+import { objectDiff, settingsTextToPropsObj } from '../utils';
 
 import './settings.css';
 
@@ -17,11 +17,25 @@ export const settingsConfig: SettingSchemaDesc[] = [
         default: false,
     },
     {
+        key: 'externalHeading',
+        title: 'External links',
+        description: '',
+        type: 'heading',
+        default: null,
+    },
+    {
         key: 'faviconsEnabled',
         title: '',
         description: 'Enable feature: favicons for external links?',
         type: 'boolean',
         default: true,
+    },
+    {
+        key: 'internalHeading',
+        title: 'Internal links',
+        description: '',
+        type: 'heading',
+        default: null,
     },
     {
         key: 'pageIconsEnabled',
@@ -31,11 +45,11 @@ export const settingsConfig: SettingSchemaDesc[] = [
         default: true,
     },
     {
-        key: 'fixLowContrast',
-        title: '',
-        description: '⚠ Experimental: Enable text black/white stroke for low contrast page links colors',
-        type: 'boolean',
-        default: false,
+        key: 'inheritingHeading',
+        title: 'Inheriting',
+        description: '',
+        type: 'heading',
+        default: null,
     },
     {
         key: 'inheritFromProp',
@@ -50,6 +64,21 @@ export const settingsConfig: SettingSchemaDesc[] = [
         description: 'Inherit page icon/color via hierarchy?',
         type: 'boolean',
         default: true,
+    },
+    {
+        key: 'dafaultPropsHeading',
+        title: 'Default props',
+        description: '',
+        type: 'heading',
+        default: null,
+    },
+    {
+        key: 'defaultPageProps',
+        title: '',
+        description: 'Pages default props: icon (emoji or Nerd icon) and color. (Delete to disable)',
+        type: 'string',
+        inputAs: 'textarea',
+        default: `icon::\ncolor::`,
     },
     {
         key: 'defaultJournalProps',
@@ -78,6 +107,9 @@ export const settingsLoad = () => {
  }
 
 const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSettings: LSPluginBaseInfo['settings']) => {
+    globalContext.defaultPageProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultJournalProps);
+    globalContext.defaultJournalProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultPageProps);
+
     globalContext.pluginConfig = { ...settings };
     const settingsDiff = objectDiff({ ...oldSettings }, globalContext.pluginConfig)
     if (settingsDiff.includes('faviconsEnabled')) {

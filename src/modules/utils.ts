@@ -1,7 +1,7 @@
 //@ts-ignore
 import tinycolor from 'tinycolor2';
 
-import { globalContext } from './internal';
+import { globalContext, propsObject } from './internal';
 
 export const objectDiff = (orig: object, updated: object) => {
     const difference = Object.keys(orig).filter((key) => {
@@ -56,4 +56,28 @@ export const getBase64FromUrl = async (url: string): Promise<string> => {
 export const isNeedLowContrastFix = (color: string) => {
     const readability = tinycolor.readability(color, globalContext.themeBg);
     return (readability < 1.7) ? true : false;
+}
+
+export const settingsTextToPropsObj = (settingsText: string): propsObject => {
+    const defaultPageProps = Object.create(null);
+    const pagePropsArr = settingsText.split('\n');
+    const pageIconMatch = pagePropsArr.find(
+        (el: string) => el.includes('icon::')
+    );
+    if (pageIconMatch) {
+        const iconPropArr = pageIconMatch.split('::');
+        if (iconPropArr) {
+            defaultPageProps.icon = iconPropArr[1].trim();
+        }
+    }
+    const pageColorMatch = pagePropsArr.find(
+        (el: string) => el.includes('color::')
+    );
+    if (pageColorMatch) {
+        const colorPropArr = pageColorMatch.split('::');
+        if (colorPropArr) {
+            defaultPageProps.color = colorPropArr[1].trim();
+        }
+    }
+    return defaultPageProps;
 }

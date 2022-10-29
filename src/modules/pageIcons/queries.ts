@@ -1,11 +1,7 @@
 import '@logseq/libs';
-import { globalContext } from '../internal';
-
-export interface propsObject {
-    icon?: string;
-    color?: string;
-    needStroke?: boolean;
-}
+import {
+    globalContext, propsObject
+} from '../internal';
 
 export const isJournalType = async (title: string): Promise<boolean> => {
     const journalQuery = `
@@ -35,27 +31,7 @@ export const getPageProps = async (title: string): Promise<propsObject> => {
     `;
     const isJournal = await isJournalType(title);
     if (isJournal) {
-        const journalDefaultProps = Object.create(null);
-        const journalPropsArr = globalContext.pluginConfig.defaultJournalProps.split('\n');
-        const journalIconMatch = journalPropsArr.find(
-            (el: string) => el.includes('icon::')
-        );
-        if (journalIconMatch) {
-            const iconPropArr = journalIconMatch.split('::');
-            if (iconPropArr) {
-                journalDefaultProps.icon = iconPropArr[1].trim();
-            }
-        }
-        const journalColorMatch = journalPropsArr.find(
-            (el: string) => el.includes('color::')
-        );
-        if (journalColorMatch) {
-            const colorPropArr = journalColorMatch.split('::');
-            if (colorPropArr) {
-                journalDefaultProps.color = colorPropArr[1].trim();
-            }
-        }
-        pageProps = { ...journalDefaultProps, ...pageProps };
+        pageProps = globalContext.defaultJournalProps;
     } else {
         const queryResultArr = await logseq.DB.datascriptQuery(iconQuery);
         if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].icon) {
@@ -105,21 +81,30 @@ export const getAliasedPageTitle = async (title: string): Promise<string> => {
 }
 
 export const getPropsByPageName = async (pageTitle: string): Promise<propsObject> => {
+    let resultedPageProps: propsObject = Object.create(null);
     // get from own page
     let pageProps = await getPageProps(pageTitle);
-    let resultedPageProps = { ...pageProps };
+    if (pageProps) {
+        resultedPageProps = { ...pageProps };
+    }
     if (!resultedPageProps['icon'] || !resultedPageProps['color']) {
         // get from aliased page
         pageProps = await getAliasedPageProps(pageTitle);
-        resultedPageProps = { ...pageProps, ...resultedPageProps };
+        if (pageProps) {
+            resultedPageProps = { ...pageProps, ...resultedPageProps };
+        }
         if ((!resultedPageProps['icon'] || !resultedPageProps['color']) && globalContext.pluginConfig.inheritFromProp) {
             // inherited from page props, when props linked to page
             pageProps = await getInheritedPropsProps(pageTitle);
-            resultedPageProps = { ...pageProps, ...resultedPageProps };
+            if (pageProps) {
+                resultedPageProps = { ...pageProps, ...resultedPageProps };
+            }
             if ((!resultedPageProps['icon'] || !resultedPageProps['color'])) {
                 // inherited from aliased page props, when props linked to page
                 pageProps = await getAliasedPropsProps(pageTitle);
-                resultedPageProps = { ...pageProps, ...resultedPageProps };
+                if (pageProps) {
+                    resultedPageProps = { ...pageProps, ...resultedPageProps };
+                }
             }
         }
         if (globalContext.pluginConfig.inheritFromHierarchy && pageTitle.includes('/') && (!resultedPageProps['icon'] || !resultedPageProps['color'])) {
@@ -128,6 +113,7 @@ export const getPropsByPageName = async (pageTitle: string): Promise<propsObject
             resultedPageProps = { ...pageProps, ...resultedPageProps };
         }
     }
+    resultedPageProps = { ...globalContext.defaultPageProps, ...resultedPageProps };
     //@ts-ignore
     resultedPageProps.__proto__ = null;
     return resultedPageProps;
