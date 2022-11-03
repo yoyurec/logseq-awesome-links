@@ -1,3 +1,10 @@
+## [1.11.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.11.4...v1.11.5) (2022-11-03)
+
+
+### Bug Fixes
+
+* **updater:** add otion on/off, search result page icon ([1e08685](https://github.com/yoyurec/logseq-awesome-links/commit/1e0868503853b5cae8a6a5f491b559c1b9783fa0))
+
 ## [1.11.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.11.3...v1.11.4) (2022-10-29)
 
 
