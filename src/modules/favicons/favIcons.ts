@@ -1,9 +1,10 @@
 import {
     doc,
+    getPropsByPageName,
     globalContext,
     stopLinksObserver
 } from '../internal';
-import { getBase64FromUrl } from '../utils';
+import { getBase64FromUrl, isNeedLowContrastFix } from '../utils';
 
 import './favicons.css';
 
@@ -14,25 +15,58 @@ export const setFavicons = async (extLinkList?: HTMLElement[]) => {
     }
     for (let i = 0; i < extLinkList.length; i++) {
         const extLinkItem = extLinkList[i] as HTMLAnchorElement;
-        const oldFav = extLinkList[i].querySelector('.awLi-favicon');
-        if (oldFav) {
-            oldFav.remove();
+        setIconToExtItem(extLinkItem);
+        if (globalContext.pluginConfig.inheritExtColor) {
+            setColorToExtItem(extLinkItem);
         }
-        const { hostname, protocol } = new URL(extLinkItem.href);
-        if ((protocol === 'http:') || (protocol === 'https:')) {
-            let faviconData = null;
-            if (globalContext.favIconsCache.has(hostname)) {
-                faviconData = globalContext.favIconsCache.get(hostname);
-            }
-            if (!faviconData) {
-                faviconData = await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?url=${protocol}${hostname}&size=32&client=social`);
-                globalContext.favIconsCache.set(hostname, faviconData);
+    }
+}
 
+const setIconToExtItem = async (extLinkItem: HTMLAnchorElement) => {
+    const oldFav = extLinkItem.querySelector('.awLi-favicon');
+    if (oldFav) {
+        oldFav.remove();
+    }
+    const { hostname, protocol } = new URL(extLinkItem.href);
+    if ((protocol === 'http:') || (protocol === 'https:')) {
+        let faviconData = null;
+        if (globalContext.favIconsCache.has(hostname)) {
+            faviconData = globalContext.favIconsCache.get(hostname);
+        }
+        if (!faviconData) {
+            faviconData = await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?url=${protocol}${hostname}&size=32&client=social`);
+            globalContext.favIconsCache.set(hostname, faviconData);
+
+        }
+        const fav = doc.createElement('img');
+        fav.classList.add('awLi-favicon');
+        fav.src = faviconData;
+        extLinkItem.insertAdjacentElement('afterbegin', fav);
+    }
+}
+
+const setColorToExtItem = async (extLinkItem: HTMLAnchorElement) => {
+    const parentRef = extLinkItem.closest('.ls-block[data-refs-self]');
+    if (!parentRef) {
+        return;
+    }
+    const refPageAttr = parentRef.getAttribute('data-refs-self') || '';
+    const refPageArray = JSON.parse(refPageAttr);
+    if (!refPageArray.length) {
+        return;
+    }
+    const refPageTitle = refPageArray[0].toLowerCase();
+    if (refPageTitle) {
+        const pageProps = await getPropsByPageName(refPageTitle);
+        if (pageProps) {
+            const pageColor = pageProps['color'];
+            if (pageColor && pageColor !== 'none') {
+                extLinkItem.style.setProperty('--awLi-color', pageColor);
+                extLinkItem.classList.add('awLi-color');
+                if (globalContext.pluginConfig.fixLowContrast && isNeedLowContrastFix(pageColor, globalContext.themeBg)) {
+                    extLinkItem.classList.add('awLi-stroke');
+                }
             }
-            const fav = doc.createElement('img');
-            fav.classList.add('awLi-favicon');
-            fav.src = faviconData;
-            extLinkItem.insertAdjacentElement('afterbegin', fav);
         }
     }
 }
@@ -46,11 +80,39 @@ const removeFavicons = () => {
     }
 }
 
+const setFaviconsColor = () => {
+    const extLinkList = [...doc.querySelectorAll(globalContext.extLinksSelector)];
+    if (extLinkList.length) {
+        for (let i = 0; i < extLinkList.length; i++) {
+            setColorToExtItem(extLinkList[i]);
+        }
+    }
+}
+
+const removeFaviconsColor = () => {
+    const extLinkList = [...doc.querySelectorAll(globalContext.extLinksSelector)];
+    if (extLinkList.length) {
+        for (let i = 0; i < extLinkList.length; i++) {
+            const extLinkItem = extLinkList[i] as HTMLAnchorElement;
+            extLinkItem.style.setProperty('--awLi-color', '');
+            extLinkItem.classList.remove('awLi-color', 'awLi-stroke');
+        }
+    }
+}
+
 export const toggleFaviconsFeature = () => {
     if (globalContext.pluginConfig.faviconsEnabled) {
         faviconsLoad();
     } else {
         faviconsUnload();
+    }
+}
+
+export const toggleInheritExtColor = () => {
+    if (globalContext.pluginConfig.inheritExtColor) {
+        setFaviconsColor();
+    } else {
+        removeFaviconsColor();
     }
 }
 

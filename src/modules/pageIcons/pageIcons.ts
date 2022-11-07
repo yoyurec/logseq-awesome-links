@@ -4,10 +4,8 @@ import {
     propsObject, globalContext,
     root, doc, body, tabsPluginIframe,
     stopLinksObserver, stopTabsObserver,
-} from '../internal';
-import {
     getPropsByPageName
-} from './queries';
+} from '../internal';
 import {
     isNeedLowContrastFix, settingsTextToPropsObj
 } from '../utils';
@@ -161,7 +159,8 @@ const setColorToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject)
             linkItem.style.setProperty('--ls-tag-text-color', pageColor);
             linkItem.classList.add('awLi-color');
         }
-        if (globalContext.pluginConfig.fixLowContrast && isNeedLowContrastFix(pageColor)) {
+        const bg = linkItem.classList.contains('tag') ? globalContext.themeColor : globalContext.themeBg
+        if (globalContext.pluginConfig.fixLowContrast && isNeedLowContrastFix(pageColor, bg)) {
             linkItem.classList.add('awLi-stroke');
         }
     } else {
@@ -180,13 +179,16 @@ export const setTagType = () => {
     tag.remove();
     if (tagBg !== 'rgba(0, 0, 0, 0)') {
         body.classList.add('awLi-tagHasBg');
+        globalContext.tagHasBg = true;
 
     } else {
         body.classList.remove('awLi-tagHasBg');
+        globalContext.tagHasBg = false;
     }
 }
 
 const setStrokeColor = () => {
+    globalContext.themeColor = getComputedStyle(root).getPropertyValue('--ls-primary-text-color').trim();
     globalContext.themeBg = getComputedStyle(root).getPropertyValue('--ls-primary-background-color').trim();
 }
 

@@ -5,5 +5,6 @@ export * from './settings/settingsConfig';
 export * from './plugin/plugin';
 export * from './linksObserver/linksObserver';
 export * from './pageIcons/pageIcons';
+export * from './pageIcons/queries';
 export * from './favicons/favIcons';
 export * from './nerdFont/nerdFont';

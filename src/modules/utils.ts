@@ -53,8 +53,8 @@ export const getBase64FromUrl = async (url: string): Promise<string> => {
     });
 }
 
-export const isNeedLowContrastFix = (color: string) => {
-    const readability = tinycolor.readability(color, globalContext.themeBg);
+export const isNeedLowContrastFix = (color: string, bg: string) => {
+    const readability = tinycolor.readability(color, bg);
     return (readability < 1.7) ? true : false;
 }
 

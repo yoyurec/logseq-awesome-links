@@ -23,6 +23,13 @@ export const settingsConfig: SettingSchemaDesc[] = [
         default: true,
     },
     {
+        key: 'inheritExtColor',
+        title: '',
+        description: 'Inherit link color from first inline tag/ref',
+        type: 'boolean',
+        default: true,
+    },
+    {
         key: 'internalHeading',
         title: 'Internal links',
         description: '',
@@ -86,6 +93,20 @@ export const settingsConfig: SettingSchemaDesc[] = [
         description: 'Enable Nerd font with tons of icons (https://www.nerdfonts.com/cheat-sheet)',
         type: 'boolean',
         default: true,
+    },
+    {
+        key: 'otherHeading',
+        title: 'Other',
+        description: '',
+        type: 'heading',
+        default: null,
+    },
+    {
+        key: 'fixLowContrast',
+        title: '',
+        description: '⚠ Experimental: Enable text black/white stroke for low contrast links colors',
+        type: 'boolean',
+        default: false,
     },
     {
         key: 'featureUpdaterEnabled',

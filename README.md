@@ -7,6 +7,7 @@
 
 * Custom **journal icon** <a href="#-journal-icon">🡖</a>
 * **Favicons** for external links (with caching) <a href="#-auto-favicons-for-external-links">🡖</a>
+* **Colors** for external internal links
 * **Pages icons/colors** for internal links & tags (shows in content, sidebar, page title & tabs) <a href="#-page-icons">🡖</a>
     * Common page `icon::`
     * Icon for cases when the page is an alias

@@ -21,6 +21,7 @@ export const globalContext: globalContextType = {
     sidebarLinkSelector: '.nav-contents-container .page-title',
     tabLinkSelector: '.logseq-tab:not(.close-all) .logseq-tab-title',
     tagHasBg: false,
+    themeColor: '',
     themeBg: '',
     favIconsCache: Object.create(null),
     defaultPageProps: Object.create(null),
