@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.11.5...v1.12.0) (2022-11-07)
+
+
+### Features
+
+* **extlinks:** add color inheriting ([3aa81ca](https://github.com/yoyurec/logseq-awesome-links/commit/3aa81ca091dfbb1145bef38291194ff7a9cf0aec))
+
 ## [1.11.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.11.4...v1.11.5) (2022-11-03)
 
 

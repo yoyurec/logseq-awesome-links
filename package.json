@@ -1,7 +1,7 @@
 {
   "name": "logseq-awesome-links",
   "description": "Favicons for external links, page icons for internal",
-  "version": "1.11.5",
+  "version": "1.12.0",
   "author": "yoyurec <yoyurec@gmail.com>",
   "main": "dist/index.html",
   "scripts": {
