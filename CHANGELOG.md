@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.12.0...v1.13.0) (2022-11-08)
+
+
+### Features
+
+* **favicons:** add google docs ([eca5835](https://github.com/yoyurec/logseq-awesome-links/commit/eca583582f65978503a73d6624e3536531b3276c))
+
 # [1.12.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.11.5...v1.12.0) (2022-11-07)
 
 
