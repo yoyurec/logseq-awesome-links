@@ -32,7 +32,7 @@
 
 /* tags magic color/bg */
 body:not(.awLi-tagHasBg) .tag.awLi-color {
-    color: var(---awLi-color) !important;
+    color: var(--awLi-color) !important;
 }
 .awLi-tagHasBg .tag.awLi-color {
     color: var(--ls-primary-background-color);
