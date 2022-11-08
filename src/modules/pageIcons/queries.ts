@@ -3,6 +3,24 @@ import {
     globalContext, propsObject
 } from '../internal';
 
+export const getLinkedPagesNumber = async (title: string): Promise<number> => {
+    let linkedPagesNumber = 0;
+    const linkedQuery = `
+    [
+        :find (pull ?b [:block/page])
+        :where
+            [?b :block/page ?page]
+            [?b :block/refs ?ref-page]
+            [?ref-page :block/name "logseq"]
+    ]
+    `;
+    const linkedPages = await logseq.DB.datascriptQuery(linkedQuery);
+    if (linkedPages.length) {
+        linkedPagesNumber = linkedPages.length;
+    }
+    return linkedPagesNumber;
+}
+
 export const isJournalType = async (title: string): Promise<boolean> => {
     const journalQuery = `
     [
