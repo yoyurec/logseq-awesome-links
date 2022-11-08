@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.13.0...v1.13.1) (2022-11-08)
+
+
+### Bug Fixes
+
+* **tags:** typo in CSS var (bump) ([7baa754](https://github.com/yoyurec/logseq-awesome-links/commit/7baa7544b25a6c50e1a30347f38535612ce15f37))
+
 # [1.13.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.12.0...v1.13.0) (2022-11-08)
 
 
