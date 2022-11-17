@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.13.1...v1.14.0) (2022-11-17)
+
+
+### Features
+
+* **pageicons:** hide title prop ([72c6144](https://github.com/yoyurec/logseq-awesome-links/commit/72c614465d0465c58426b3fd6483a3d7a40a9888))
+
 ## [1.13.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.13.0...v1.13.1) (2022-11-08)
 
 
