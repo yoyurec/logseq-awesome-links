@@ -146,6 +146,14 @@ const setIconToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject, 
         } else {
             linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
         }
+        linkItem.classList.add('awLi-hasIcon');
+        if (pageProps['hidetitle'] && linkItem.classList.contains('page-ref') || linkItem.classList.contains('tag')) {
+            linkItem.classList.add('awLi-hideTitle');
+        } else {
+            linkItem.classList.remove('awLi-hideTitle');
+        }
+    } else {
+        linkItem.classList.remove('awLi-hasIcon');
     }
 }
 

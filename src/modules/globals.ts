@@ -8,6 +8,7 @@ type globalContextType = {
 export interface propsObject {
     icon?: string;
     color?: string;
+    hidetitle?: boolean;
     needStroke?: boolean;
 }
 

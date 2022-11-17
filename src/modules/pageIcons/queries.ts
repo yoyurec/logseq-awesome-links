@@ -11,7 +11,7 @@ export const getLinkedPagesNumber = async (title: string): Promise<number> => {
         :where
             [?b :block/page ?page]
             [?b :block/refs ?ref-page]
-            [?ref-page :block/name "logseq"]
+            [?ref-page :block/name "${title}"]
     ]
     `;
     const linkedPages = await logseq.DB.datascriptQuery(linkedQuery);
@@ -57,6 +57,9 @@ export const getPageProps = async (title: string): Promise<propsObject> => {
         }
         if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].color) {
             pageProps.color = queryResultArr[0][0].color.replaceAll('"', '');
+        }
+        if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].hidetitle) {
+            pageProps.hidetitle = queryResultArr[0][0].hidetitle;
         }
     }
     return pageProps;
