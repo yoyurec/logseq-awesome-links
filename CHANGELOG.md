@@ -1,3 +1,10 @@
+## [1.14.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.1...v1.14.2) (2022-11-18)
+
+
+### Bug Fixes
+
+* **pageicons:** hidetitle JS repalce ([6834ffa](https://github.com/yoyurec/logseq-awesome-links/commit/6834ffa8f0701fb8e6279bf87383908a5099c082))
+
 ## [1.14.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.0...v1.14.1) (2022-11-18)
 
 
