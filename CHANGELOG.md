@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.0...v1.14.1) (2022-11-18)
+
+
+### Bug Fixes
+
+* **pageicons:** hidetitle condition ([f3f74a5](https://github.com/yoyurec/logseq-awesome-links/commit/f3f74a5e3f315bc25f8037273ebb5325b6703fa8))
+
 # [1.14.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.13.1...v1.14.0) (2022-11-17)
 
 
