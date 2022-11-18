@@ -10,12 +10,6 @@
     line-height: 1em;
     width: 1.2em;
 }
-.awLi-hideTitle.awLi-hasIcon {
-    font-size: 0;
-}
-.awLi-hideTitle .awLi-icon {
-    font-size: initial;
-}
 .title .awLi-icon {
     display: inline-block;
     width: 1.4em;
@@ -24,6 +18,9 @@
     text-align: center;
     align-self: end;
     line-height: inherit;
+}
+.awLi-hideTitle .awLi-icon {
+    margin-right: 0;
 }
 
 /* color */

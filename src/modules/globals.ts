@@ -9,6 +9,7 @@ export interface propsObject {
     icon?: string;
     color?: string;
     hidetitle?: boolean;
+    hidetitletext?: string;
     needStroke?: boolean;
 }
 

@@ -120,7 +120,7 @@ export const setStyleToLinkList = (linkList: HTMLElement[], noDefaultIcon?: bool
 export const processLinkItem = async (linkItem: HTMLElement, noDefaultIcon?: boolean) => {
     const linkText = linkItem.textContent;
     if (linkText && !linkText.startsWith(' ')) {
-        const pageTitle = linkItem.getAttribute('data-ref') || linkItem.childNodes[1]?.textContent?.trim().toLowerCase() || linkItem.textContent?.trim().toLowerCase() || '';
+        const pageTitle = linkItem.childNodes[1]?.textContent?.trim() || linkItem.textContent?.trim() || '';
         if (pageTitle) {
             const pageProps = await getPropsByPageName(pageTitle);
             if (pageProps) {
@@ -138,24 +138,22 @@ const setIconToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject, 
     }
     if (pageIcon && pageIcon !== 'none') {
         const oldPageIcon = linkItem.querySelector('.awLi-icon');
-        if (oldPageIcon) {
-            if (oldPageIcon.innerHTML !== pageIcon) {
-                linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
-                oldPageIcon.remove();
-            }
-        } else {
-            linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
-        }
-        linkItem.classList.add('awLi-hasIcon');
-        if (pageProps['hidetitle'] && (linkItem.classList.contains('page-ref') || linkItem.classList.contains('tag'))) {
-            linkItem.classList.add('awLi-hideTitle');
-        } else {
-            linkItem.classList.remove('awLi-hideTitle');
-        }
-    } else {
-        linkItem.classList.remove('awLi-hasIcon');
+        oldPageIcon && oldPageIcon.remove();
+        hideTitle(linkItem, pageProps);
+        linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
     }
 }
+
+const hideTitle = (linkItem: HTMLElement, pageProps: propsObject) => {
+    if (pageProps['hidetitle'] && (linkItem.classList.contains('page-ref') || linkItem.classList.contains('tag'))) {
+        linkItem.classList.add('awLi-hideTitle');
+        const linkText = linkItem.textContent;
+        const titleText = pageProps['hidetitletext'] || '';
+        linkItem.textContent = linkText!.replace(titleText, '');
+    } else {
+        linkItem.classList.remove('awLi-hideTitle');
+    }
+ }
 
 const setColorToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject) => {
     linkItem.classList.remove('awLi-stroke');

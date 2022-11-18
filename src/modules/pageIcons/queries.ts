@@ -4,6 +4,7 @@ import {
 } from '../internal';
 
 export const getLinkedPagesNumber = async (title: string): Promise<number> => {
+    title = title.toLowerCase();
     let linkedPagesNumber = 0;
     const linkedQuery = `
     [
@@ -22,6 +23,7 @@ export const getLinkedPagesNumber = async (title: string): Promise<number> => {
 }
 
 export const isJournalType = async (title: string): Promise<boolean> => {
+    title = title.toLowerCase();
     const journalQuery = `
     [
       :find ?isjournal
@@ -38,6 +40,8 @@ export const isJournalType = async (title: string): Promise<boolean> => {
 }
 
 export const getPageProps = async (title: string): Promise<propsObject> => {
+    const origTitle = title;
+    title = title.toLowerCase();
     let pageProps: propsObject = Object.create(null);
     const iconQuery = `
     [
@@ -60,12 +64,14 @@ export const getPageProps = async (title: string): Promise<propsObject> => {
         }
         if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].hidetitle) {
             pageProps.hidetitle = queryResultArr[0][0].hidetitle;
+            pageProps.hidetitletext = origTitle;
         }
     }
     return pageProps;
 }
 
 export const getInheritedPropsTitle = async (title: string, prop: string): Promise<string> => {
+    title = title.toLowerCase();
     let inheritedPageTitle = '';
     const inheritedTitleQuery = `
     [
@@ -78,12 +84,13 @@ export const getInheritedPropsTitle = async (title: string, prop: string): Promi
     `;
     const titleArr = await logseq.DB.datascriptQuery(inheritedTitleQuery);
     if (titleArr.length) {
-        inheritedPageTitle = titleArr[0][0][0].toLowerCase();
+        inheritedPageTitle = titleArr[0][0][0];
     }
     return inheritedPageTitle;
 }
 
 export const getAliasedPageTitle = async (title: string): Promise<string> => {
+    title = title.toLowerCase();
     let aliasedPageTitle = '';
     const inheritedAliasQuery = `
     [
@@ -96,7 +103,7 @@ export const getAliasedPageTitle = async (title: string): Promise<string> => {
     `;
     const aliasArr = await logseq.DB.datascriptQuery(inheritedAliasQuery);
     if (aliasArr.length) {
-        aliasedPageTitle = aliasArr[0][0].toLowerCase();
+        aliasedPageTitle = aliasArr[0][0];
     }
     return aliasedPageTitle;
 }
