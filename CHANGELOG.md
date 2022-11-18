@@ -1,3 +1,10 @@
+## [1.14.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.2...v1.14.3) (2022-11-18)
+
+
+### Bug Fixes
+
+* **pageicons:** hierarchi hidden title margin ([7ac7da8](https://github.com/yoyurec/logseq-awesome-links/commit/7ac7da8796cf2c88ebbdcc21f46c804f95cf5e2c))
+
 ## [1.14.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.1...v1.14.2) (2022-11-18)
 
 
