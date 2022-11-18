@@ -22,6 +22,9 @@
 .awLi-hideTitle .awLi-icon {
     margin-right: 0;
 }
+.namespaces .awLi-hideTitle .awLi-icon {
+    margin-right: 0.34em;
+}
 
 /* color */
 .awLi-color:is(

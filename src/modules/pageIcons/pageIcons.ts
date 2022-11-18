@@ -120,7 +120,7 @@ export const setStyleToLinkList = (linkList: HTMLElement[], noDefaultIcon?: bool
 export const processLinkItem = async (linkItem: HTMLElement, noDefaultIcon?: boolean) => {
     const linkText = linkItem.textContent;
     if (linkText && !linkText.startsWith(' ')) {
-        const pageTitle = linkItem.childNodes[1]?.textContent?.trim() || linkItem.textContent?.trim() || '';
+        const pageTitle = linkItem.getAttribute('data-ref') || linkItem.childNodes[1]?.textContent?.trim() || linkItem.textContent?.trim() || '';
         if (pageTitle) {
             const pageProps = await getPropsByPageName(pageTitle);
             if (pageProps) {
@@ -149,7 +149,8 @@ const hideTitle = (linkItem: HTMLElement, pageProps: propsObject) => {
         linkItem.classList.add('awLi-hideTitle');
         const linkText = linkItem.textContent;
         const titleText = pageProps['hidetitletext'] || '';
-        linkItem.textContent = linkText!.replace(titleText, '');
+        const regexp = new RegExp(titleText, 'i');
+        linkItem.textContent = linkText!.replace(regexp, '');
     } else {
         linkItem.classList.remove('awLi-hideTitle');
     }
