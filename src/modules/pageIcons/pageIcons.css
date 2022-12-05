@@ -16,7 +16,6 @@
     margin-right: 0.34em;
     font-family: var(--icon-font);
     text-align: center;
-    align-self: center;
     line-height: inherit;
 }
 .awLi-hideTitle .awLi-icon {
