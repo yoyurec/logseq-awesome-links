@@ -1,3 +1,10 @@
+## [1.14.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.3...v1.14.4) (2023-02-14)
+
+
+### Bug Fixes
+
+* **deps:** update npm ([527844a](https://github.com/yoyurec/logseq-awesome-links/commit/527844ac0d70fad9a48215b73998f1b8e181adb3))
+
 ## [1.14.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.2...v1.14.3) (2022-11-18)
 
 
