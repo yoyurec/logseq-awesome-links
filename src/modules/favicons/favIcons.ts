@@ -28,29 +28,40 @@ const setIconToExtItem = async (extLinkItem: HTMLAnchorElement) => {
         oldFav.remove();
     }
     const url = extLinkItem.href;
+    let faviconData = '';
     const { hostname, protocol } = new URL(url);
-    if ((protocol === 'http:') || (protocol === 'https:')) {
-        let faviconData = null;
-        if (globalContext.favIconsCache.has(hostname)) {
-            faviconData = globalContext.favIconsCache.get(hostname);
-        }
-        if (!faviconData) {
-            if (url.includes('docs.google.com/document')) {
-                faviconData = await getBase64FromUrl(`https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico`);
-            } else if (url.includes('docs.google.com/spreadsheets')) {
-                faviconData = await getBase64FromUrl(`https://ssl.gstatic.com/docs/spreadsheets/favicon3.ico`);
-            } else if (url.includes('docs.google.com/presentation')) {
-                faviconData = await getBase64FromUrl(`https://ssl.gstatic.com/docs/presentations/images/favicon5.ico`);
-            } else {
-                faviconData = await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?url=${protocol}${hostname}&size=32&client=social`);
-                globalContext.favIconsCache.set(hostname, faviconData);
-            }
-        }
-        const fav = doc.createElement('img');
-        fav.classList.add('awLi-favicon');
-        fav.src = faviconData;
-        extLinkItem.insertAdjacentElement('afterbegin', fav);
+    if (globalContext.favIconsCache.has(hostname)) {
+        faviconData = globalContext.favIconsCache.get(hostname);
+    } else {
+        faviconData = await getFaviconData(url);
+        globalContext.favIconsCache.set(hostname, faviconData);
     }
+    const fav = doc.createElement('img');
+    fav.classList.add('awLi-favicon');
+    fav.src = faviconData;
+    extLinkItem.insertAdjacentElement('afterbegin', fav);
+}
+
+const getFaviconData = async (url: string): Promise<string> => {
+    let faviconData = '';
+    const { hostname, protocol } = new URL(url);
+    if (protocol === 'logseq:') {
+        faviconData = await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?url=https://logseq.com&size=32&client=SOCIAL&fallback_opts=TYPE,SIZE,UR`);
+    }
+    if (url.includes('docs.google.com/document')) {
+        faviconData =  await getBase64FromUrl(`https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico`);
+    }
+    if (url.includes('docs.google.com/spreadsheets')) {
+         faviconData = await getBase64FromUrl(`https://ssl.gstatic.com/docs/spreadsheets/favicon3.ico`);
+    }
+    if (url.includes('docs.google.com/presentation')) {
+         faviconData = await getBase64FromUrl(`https://ssl.gstatic.com/docs/presentations/images/favicon5.ico`);
+    }
+    if (!faviconData) {
+        faviconData = await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?url=${protocol}${hostname}&size=32&client=SOCIAL&fallback_opts=TYPE,SIZE,UR`);
+    }
+
+    return faviconData;
 }
 
 const setColorToExtItem = async (extLinkItem: HTMLAnchorElement) => {

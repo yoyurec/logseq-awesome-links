@@ -45,7 +45,7 @@ export const runStuff = async () => {
     setTimeout(() => {
         pageIconsLoad();
         faviconsLoad();
-    }, 2000);
+    }, 3000);
     setTimeout(() => {
         if (globalContext.pluginConfig.faviconsEnabled || globalContext.pluginConfig.pageIconsEnabled) {
             initLinksObserver();
