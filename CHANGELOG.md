@@ -1,3 +1,10 @@
+## [1.14.6](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.5...v1.14.6) (2023-02-14)
+
+
+### Bug Fixes
+
+* **favicons:** update API, add youtu.be icon ([7c09391](https://github.com/yoyurec/logseq-awesome-links/commit/7c093912dc368314cc778073d520c47c4c3f8312))
+
 ## [1.14.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.4...v1.14.5) (2023-02-14)
 
 
