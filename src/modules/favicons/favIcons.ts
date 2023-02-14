@@ -43,25 +43,26 @@ const setIconToExtItem = async (extLinkItem: HTMLAnchorElement) => {
 }
 
 const getFaviconData = async (url: string): Promise<string> => {
-    let faviconData = '';
     const { hostname, protocol } = new URL(url);
     if (protocol === 'logseq:') {
-        faviconData = await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?url=https://logseq.com&size=32&client=SOCIAL&fallback_opts=TYPE,SIZE,UR`);
+        return await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://logseq.com&size=32`);
+    }
+    if (hostname === 'youtu.be') {
+        return await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://youtube.com&size=32`);
     }
     if (url.includes('docs.google.com/document')) {
-        faviconData =  await getBase64FromUrl(`https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico`);
+        return await getBase64FromUrl(`https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico`);
     }
     if (url.includes('docs.google.com/spreadsheets')) {
-         faviconData = await getBase64FromUrl(`https://ssl.gstatic.com/docs/spreadsheets/favicon3.ico`);
+         return await getBase64FromUrl(`https://ssl.gstatic.com/docs/spreadsheets/favicon3.ico`);
     }
     if (url.includes('docs.google.com/presentation')) {
-         faviconData = await getBase64FromUrl(`https://ssl.gstatic.com/docs/presentations/images/favicon5.ico`);
+        return await getBase64FromUrl(`https://ssl.gstatic.com/docs/presentations/images/favicon5.ico`);
     }
-    if (!faviconData) {
-        faviconData = await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?url=${protocol}${hostname}&size=32&client=SOCIAL&fallback_opts=TYPE,SIZE,UR`);
+    if (protocol === 'http:' || protocol === 'https:') {
+        return await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${hostname}&size=32`);
     }
-
-    return faviconData;
+    return '';
 }
 
 const setColorToExtItem = async (extLinkItem: HTMLAnchorElement) => {
