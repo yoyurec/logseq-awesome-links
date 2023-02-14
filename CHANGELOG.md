@@ -1,3 +1,10 @@
+## [1.14.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.4...v1.14.5) (2023-02-14)
+
+
+### Bug Fixes
+
+* **favicons:** fix google icons API url, add logseq:// protocol icon ([dcf78ed](https://github.com/yoyurec/logseq-awesome-links/commit/dcf78ed0282b048aad556c01565e33e003b52690))
+
 ## [1.14.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.3...v1.14.4) (2023-02-14)
 
 
