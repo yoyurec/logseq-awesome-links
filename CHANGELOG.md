@@ -1,3 +1,10 @@
+## [1.14.7](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.6...v1.14.7) (2023-02-22)
+
+
+### Bug Fixes
+
+* **favicons:** add email related icons ([371f35f](https://github.com/yoyurec/logseq-awesome-links/commit/371f35f33e3a4538a527793e63e46ae6533c3ffd))
+
 ## [1.14.6](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.5...v1.14.6) (2023-02-14)
 
 
