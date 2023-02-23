@@ -1,3 +1,10 @@
+## [1.14.9](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.8...v1.14.9) (2023-02-23)
+
+
+### Bug Fixes
+
+* **favicons:** googel API fallback to guckGuckGo to default icon, new proptocols ([4983066](https://github.com/yoyurec/logseq-awesome-links/commit/498306611beb82e378752959d83aea5944c92391))
+
 ## [1.14.8](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.7...v1.14.8) (2023-02-23)
 
 
