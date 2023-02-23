@@ -1,5 +1,5 @@
 import { LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
-import { toggleFaviconsFeature, toggleInheritExtColor } from '../modules/favIcons/favIcons';
+import { toggleFaviconsFeature, toggleInheritExtColor } from '../modules/cons/cons';
 import { globalContext } from '../modules/globals';
 import { toggleNerdFonFeature } from '../modules/nerdFont/nerdFont';
 import { toggleIconsFeature } from '../modules/pageIcons/pageIcons';
