@@ -1,3 +1,12 @@
+## [1.14.8](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.7...v1.14.8) (2023-02-23)
+
+
+### Bug Fixes
+
+* **folders:** proper case name ([bd027a4](https://github.com/yoyurec/logseq-awesome-links/commit/bd027a482fffd1b0f253385489fd6bc56b76677c))
+* **folders:** tmp rename ([580f194](https://github.com/yoyurec/logseq-awesome-links/commit/580f1949b1b05f0f04205f2b3e43ba5a46779417))
+* **pageicons:** nerd font ([ebfa08f](https://github.com/yoyurec/logseq-awesome-links/commit/ebfa08fb66699a60d22df58ab0c541802cbaeb2e)), closes [#27](https://github.com/yoyurec/logseq-awesome-links/issues/27)
+
 ## [1.14.7](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.6...v1.14.7) (2023-02-22)
 
 
