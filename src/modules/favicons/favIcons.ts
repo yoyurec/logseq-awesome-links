@@ -1,12 +1,9 @@
-import {
-    doc,
-    getPropsByPageName,
-    globalContext,
-    stopLinksObserver
-} from '../internal';
+import { doc, globalContext } from '../globals';
+// import { stopLinksObserver } from '../linksObserver/linksObserver';
+import { getPropsByPageName } from '../pageIcons/queries';
 import { getBase64FromUrl, isNeedLowContrastFix } from '../utils';
 
-import './favicons.css';
+import './favIcons.css';
 
 // External links favicons
 export const setFavicons = async (extLinkList?: HTMLElement[]) => {
@@ -158,7 +155,7 @@ export const faviconsLoad = async () => {
 export const faviconsUnload = () => {
     globalContext.favIconsCache.clear();
     removeFavicons();
-    if (!globalContext.pluginConfig.pageIconsEnabled && !globalContext.pluginConfig.faviconsEnabled) {
-        stopLinksObserver();
-    }
+    // if (!globalContext.pluginConfig.pageIconsEnabled && !globalContext.pluginConfig.faviconsEnabled) {
+    //     stopLinksObserver();
+    // }
 }

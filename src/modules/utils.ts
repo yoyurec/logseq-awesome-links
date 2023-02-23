@@ -1,7 +1,6 @@
 //@ts-ignore
 import tinycolor from 'tinycolor2';
-
-import { globalContext, propsObject } from './internal';
+import { globalContext, propsObject } from './globals';
 
 export const objectDiff = (orig: object, updated: object) => {
     const difference = Object.keys(orig).filter((key) => {

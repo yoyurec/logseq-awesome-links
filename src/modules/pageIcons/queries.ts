@@ -1,7 +1,5 @@
 import '@logseq/libs';
-import {
-    globalContext, propsObject
-} from '../internal';
+import { propsObject, globalContext } from '../globals';
 
 export const getLinkedPagesNumber = async (title: string): Promise<number> => {
     title = title.toLowerCase();

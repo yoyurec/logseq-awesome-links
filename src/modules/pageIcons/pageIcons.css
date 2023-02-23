@@ -5,7 +5,7 @@
 .awLi-icon {
     display: inline-block;
     margin-right: 0.34em;
-    font-family: var(--icon-font);
+    font-family: 'NerdFont';
     text-align: center;
     line-height: 1em;
     width: 1.2em;
@@ -14,7 +14,7 @@
     display: inline-block;
     width: 1.4em;
     margin-right: 0.34em;
-    font-family: var(--icon-font);
+    font-family: 'NerdFont';
     text-align: center;
     line-height: inherit;
 }
@@ -64,7 +64,7 @@ body:not(.awLi-tagHasBg) .tag.awLi-color {
     top: -2px;
     left: -1px;
     width: 1em;
-    font-family: var(--icon-font);
+    font-family: 'NerdFont';
 }
 
 

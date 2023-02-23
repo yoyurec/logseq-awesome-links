@@ -1,13 +1,13 @@
 import { LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
+import { toggleFaviconsFeature, toggleInheritExtColor } from '../modules/favIcons/favIcons';
+import { globalContext } from '../modules/globals';
+import { toggleNerdFonFeature } from '../modules/nerdFont/nerdFont';
+import { toggleIconsFeature } from '../modules/pageIcons/pageIcons';
 
-import {
-    globalContext,
-    settingsConfig,
-    toggleFaviconsFeature, toggleIconsFeature, toggleInheritExtColor, toggleNerdFonFeature
-} from '../internal';
-import { objectDiff, settingsTextToPropsObj } from '../utils';
+import { objectDiff, settingsTextToPropsObj } from '../modules/utils';
 
 import './settings.css';
+import { settingsConfig } from './settingsConfig';
 
 export const settingsLoad = () => {
     logseq.useSettingsSchema(settingsConfig);

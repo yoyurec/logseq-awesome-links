@@ -1,10 +1,6 @@
 import '@logseq/libs';
-
-import {
-    pluginLoad,
-    settingsLoad,
-} from './modules/internal';
-
+import { pluginLoad } from './plugin/plugin';
+import { settingsLoad } from './plugin/settings';
 
 // Main logseq on ready
 const main = async () => {

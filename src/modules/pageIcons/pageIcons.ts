@@ -1,16 +1,13 @@
 import fastdom from 'fastdom'
 
-import {
-    propsObject, globalContext,
-    root, doc, body, tabsPluginIframe,
-    stopLinksObserver, stopTabsObserver,
-    getPropsByPageName
-} from '../internal';
-import {
-    isNeedLowContrastFix, settingsTextToPropsObj
-} from '../utils';
+import { body, doc, globalContext, propsObject, root } from '../globals';
+// import { stopLinksObserver, stopTabsObserver } from '../linksObserver/linksObserver';
+import { settingsTextToPropsObj, isNeedLowContrastFix } from '../utils';
+import { getPropsByPageName } from './queries';
 
 import pageIconsStyles from  './pageIcons.css?inline';
+
+let tabsPluginIframe: HTMLIFrameElement;
 
 export const toggleIconsFeature = () => {
     pageIconsUnload();
@@ -20,6 +17,7 @@ export const toggleIconsFeature = () => {
 }
 
 export const pageIconsLoad = async () => {
+    tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
     if (!globalContext.pluginConfig.pageIconsEnabled) {
         return;
     }
@@ -58,12 +56,9 @@ export const pageIconsUnload = () => {
     removePageIcons();
     removeTabIcons();
     removeTabsCSS();
-    if (!globalContext.pluginConfig.pageIconsEnabled && !globalContext.pluginConfig.faviconsEnabled) {
-        stopLinksObserver();
-    }
-    if (!globalContext.pluginConfig.pageIconsEnabled) {
-        stopTabsObserver();
-    }
+    // if (!globalContext.pluginConfig.pageIconsEnabled) {
+    //     stopTabsObserver();
+    // }
 }
 
 export const setPageIcons = async (context?: Document | HTMLElement) => {
@@ -236,7 +231,7 @@ const setTabsCSS = () => {
             .awLi-icon {
                 display: inline-block;
                 margin-right: 0.34em;
-                font-family: 'Fira Code Nerd Font', 'Fira Code', 'Fira Sans';
+                font-family: 'NerdFont';
                 text-align: center;
                 line-height: 1em;
                 width: 1.2em;

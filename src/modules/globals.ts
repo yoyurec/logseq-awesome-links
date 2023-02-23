@@ -13,6 +13,10 @@ export interface propsObject {
     needStroke?: boolean;
 }
 
+export const doc = parent.document;
+export const root = doc.documentElement;
+export const body = doc.body;
+
 export const globalContext: globalContextType = {
     pluginID: PL.id,
     pluginConfig: null,
@@ -28,10 +32,5 @@ export const globalContext: globalContextType = {
     favIconsCache: Object.create(null),
     defaultPageProps: Object.create(null),
     defaultJournalProps: Object.create(null),
-    doc: parent.document,
-    root: parent.document.documentElement,
-    body: parent.document.body,
-    appContainer: parent.document.getElementById('app-container'),
-    tabsPluginIframe: parent.document.getElementById('logseq-tabs_iframe')
 };
 

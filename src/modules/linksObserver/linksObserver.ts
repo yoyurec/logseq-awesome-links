@@ -1,8 +1,6 @@
-import {
-    appContainer, tabsPluginIframe,
-    globalContext,
-    setFavicons, setPageIcons, processLinkItem
-} from '../internal';
+import { setFavicons } from '../favIcons/favIcons';
+import { globalContext, doc } from '../globals';
+import { setPageIcons, processLinkItem } from '../pageIcons/pageIcons';
 
 let linksObserver: MutationObserver;
 let linksObserverConfig: MutationObserverInit;
@@ -36,6 +34,7 @@ const linksObserverCallback: MutationCallback = function (mutationsList) {
 };
 
 export const runLinksObserver = () => {
+    const appContainer = doc.getElementById('app-container');
     if (!appContainer) {
         return;
     }
@@ -73,6 +72,7 @@ const tabsObserverCallback: MutationCallback = function (mutationsList) {
 };
 
 export const runTabsObserver = () => {
+    const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
     if (tabsPluginIframe) {
         const tabsContainer = tabsPluginIframe.contentDocument?.querySelector('.logseq-tab-wrapper');
         if (tabsContainer) {

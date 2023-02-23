@@ -1,14 +1,10 @@
-import {
-    globalContext,
-    getDOMContainers,
-    doc, body,
-    pageIconsLoad, pageIconsUnload,
-    nerdFontLoad, nerdFontUnload,
-    faviconsLoad, faviconsUnload,
-    initLinksObserver, stopLinksObserver, runLinksObserver,
-    initTabsObserver, runTabsObserver, stopTabsObserver,
-} from '../internal';
-import { checkUpdate } from '../utils';
+
+import { faviconsLoad, faviconsUnload } from '../modules/favIcons/favIcons';
+import { body, doc, globalContext } from '../modules/globals';
+import { initLinksObserver, runLinksObserver, initTabsObserver, runTabsObserver, stopLinksObserver, stopTabsObserver } from '../modules/linksObserver/linksObserver';
+import { nerdFontLoad, nerdFontUnload } from '../modules/nerdFont/nerdFont';
+import { pageIconsLoad, pageIconsUnload } from '../modules/pageIcons/pageIcons';
+import { checkUpdate } from '../modules/utils';
 
 export const pluginLoad = () => {
     registerPlugin();
@@ -39,7 +35,6 @@ const registerPlugin = async () => {
 }
 
 export const runStuff = async () => {
-    getDOMContainers();
     body.classList.add(globalContext.isPluginEnabled);
     nerdFontLoad();
     setTimeout(() => {

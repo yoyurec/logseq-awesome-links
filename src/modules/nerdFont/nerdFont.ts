@@ -1,10 +1,8 @@
-import {
-    globalContext,
-    doc, body,
-    tabsPluginIframe
-} from '../internal';
+import { body, doc, globalContext } from '../globals';
 
 import nerdFontsStyles from './nerdFont.css?inline';
+
+let tabsPluginIframe: HTMLIFrameElement;
 
 export const toggleNerdFonFeature = () => {
     if (globalContext.pluginConfig.nerdFontEnabled) {
@@ -18,19 +16,28 @@ export const nerdFontLoad = async () => {
     if (!globalContext.pluginConfig.nerdFontEnabled) {
         return;
     }
+    tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
     setTimeout(() => {
+        doc.head.insertAdjacentHTML(
+            'beforeend',
+            `<style id="awLi-nerd-font-css">
+                @font-face {
+                    font-family: "NerdFont";
+                    font-style: normal;
+                    font-weight: 400;
+                    src: url('lsp://logseq.io/${globalContext.pluginID}/dist/fonts/nerd-regular.ttf') format('truetype');
+                }
+            </style>`
+        );
         if (tabsPluginIframe) {
             tabsPluginIframe.contentDocument?.head.insertAdjacentHTML(
                 'beforeend',
                 `<style id="awLi-nerd-font-css">
                     @font-face {
-                        font-family: "Fira Code Nerd Font";
+                        font-family: "NerdFont";
                         font-style: normal;
                         font-weight: 400;
-                        src: url('lsp://logseq.io/${globalContext.pluginID}/dist/fonts/fira-code-nerd-regular.ttf') format('truetype');
-                    }
-                    .logseq-tab .awLi-tab-icon {
-                        font-family: "Fira Code Nerd Font";
+                        src: url('lsp://logseq.io/${globalContext.pluginID}/dist/fonts/nerd-regular.ttf') format('truetype');
                     }
                 </style>`
             );
