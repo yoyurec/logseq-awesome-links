@@ -1,4 +1,4 @@
-import { setFavicons } from '../cons/cons';
+import { setFavicons } from '../favIcons/favIcons';
 import { globalContext, doc } from '../globals';
 import { setPageIcons, processLinkItem } from '../pageIcons/pageIcons';
 

@@ -1,5 +1,5 @@
 
-import { faviconsLoad, faviconsUnload } from '../modules/cons/cons';
+import { faviconsLoad, faviconsUnload } from '../modules/favIcons/favIcons';
 import { body, doc, globalContext } from '../modules/globals';
 import { initLinksObserver, runLinksObserver, initTabsObserver, runTabsObserver, stopLinksObserver, stopTabsObserver } from '../modules/linksObserver/linksObserver';
 import { nerdFontLoad, nerdFontUnload } from '../modules/nerdFont/nerdFont';
