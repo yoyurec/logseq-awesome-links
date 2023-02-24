@@ -1,3 +1,10 @@
+## [1.14.10](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.9...v1.14.10) (2023-02-24)
+
+
+### Bug Fixes
+
+* **favicons:** add JIRA icon ([be3f1ef](https://github.com/yoyurec/logseq-awesome-links/commit/be3f1efe461228c2da6d0fa476a02c09e4747f3b))
+
 ## [1.14.9](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.8...v1.14.9) (2023-02-23)
 
 
