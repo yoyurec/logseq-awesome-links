@@ -120,7 +120,7 @@ const getFaviconData = async (url: string): Promise<favRecord> => {
             src: await getBase64FromUrl(`https://ssl.gstatic.com/docs/presentations/images/favicon5.ico`)
         }
     }
-    if (url.includes('.atlassian.net/jira/')) {
+    if (url.includes('.atlassian.net/jira/') || url.includes('.atlassian.net/browse/')) {
         return favIcon = {
             format: 'svg',
             src: '<svg class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80"><defs><linearGradient id="a" x1="38.1" x2="23.2" y1="18.5" y2="33.5" gradientUnits="userSpaceOnUse"><stop offset=".2" stop-color="#0052cc"/><stop offset="1" stop-color="#2684ff"/></linearGradient><linearGradient xlink:href="#a" id="b" x1="42.1" x2="57" y1="61.5" y2="46.5"/></defs><path d="M74.2 38 43 6.9l-3-3-23.4 23.4L5.9 38a2.9 2.9 0 0 0 0 4l21.4 21.5L40 76.3l23.5-23.5.3-.3L74.2 42a2.9 2.9 0 0 0 0-4.1ZM40 50.8 29.3 40 40 29.4 50.7 40Z" style="fill:#2684ff"/><path d="M40 29.4A18 18 0 0 1 40 4L16.5 27.4 29.3 40 40 29.4Z" style="fill:url(#a)"/><path d="M50.8 40 40 50.8a18 18 0 0 1 0 25.5l23.5-23.5Z" style="fill:url(#b)"/></svg>'
