@@ -4,22 +4,21 @@
 }
 .awLi-icon {
     display: inline-block;
-    margin-right: 0.34em;
-    font-family: 'NerdFont';
+    margin-right: 4px;
+    font-weight: 400;
     text-align: center;
-    line-height: 1em;
-    width: 1.2em;
+    line-height: 1.3em;
+}
+.awLi-icon[data-is-emoji="true"] {
+    margin-right: 4px !important;
+    width: unset !important;
+    font-size: 0.9em !important;
 }
 .title .awLi-icon {
-    display: inline-block;
-    width: 1.4em;
-    margin-right: 0.34em;
-    font-family: 'NerdFont';
-    text-align: center;
     line-height: inherit;
 }
 .awLi-hideTitle .awLi-icon {
-    margin-right: 0.25em;
+    margin-right: 0;
 }
 
 /* color */
@@ -56,17 +55,6 @@ body:not(.awLi-tagHasBg) .tag.awLi-color {
 .journal-title .title::before {
     display: none !important;
 }
-
-.ls-search .search-result .tie-page::before {
-    content: '';
-    display: inline-block;
-    position: relative;
-    top: -2px;
-    left: -1px;
-    width: 1em;
-    font-family: 'NerdFont';
-}
-
 
 /* other */
 .page-ref, .tag {

@@ -17,20 +17,20 @@
   },
   "dependencies": {
     "@logseq/libs": "^0.0.14",
-    "fastdom": "^1.0.11",
-    "tinycolor2": "^1.6.0"
+    "color2k": "^2.0.2",
+    "fastdom": "^1.0.11"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^9.0.2",
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "@typescript-eslint/parser": "^5.53.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
     "conventional-changelog-conventionalcommits": "^5.0.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^8.34.0",
-    "semantic-release": "^20.1.0",
+    "eslint": "^8.35.0",
+    "semantic-release": "^20.1.1",
     "typescript": "^4.9.5",
     "vite": "4.1.4"
   },

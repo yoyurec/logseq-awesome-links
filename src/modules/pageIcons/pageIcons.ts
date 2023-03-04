@@ -1,8 +1,8 @@
 import fastdom from 'fastdom'
 
-import { body, doc, globalContext, propsObject, root } from '../globals';
+import { body, doc, globals, propsObject, root } from '../globals';
 // import { stopLinksObserver, stopTabsObserver } from '../linksObserver/linksObserver';
-import { settingsTextToPropsObj, isNeedLowContrastFix } from '../utils';
+import { settingsTextToPropsObj, isNeedLowContrastFix, isEmoji } from '../utils';
 import { getPropsByPageName } from './queries';
 
 import pageIconsStyles from  './pageIcons.css?inline';
@@ -11,20 +11,20 @@ let tabsPluginIframe: HTMLIFrameElement;
 
 export const toggleIconsFeature = () => {
     pageIconsUnload();
-    if (globalContext.pluginConfig.pageIconsEnabled) {
+    if (globals.pluginConfig.pageIconsEnabled) {
         pageIconsLoad();
     }
 }
 
 export const pageIconsLoad = async () => {
     tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
-    if (!globalContext.pluginConfig.pageIconsEnabled) {
+    if (!globals.pluginConfig.pageIconsEnabled) {
         return;
     }
     body.classList.add('awLi-icons')
     logseq.provideStyle({ key: 'awLi-icon-css', style: pageIconsStyles });
-    globalContext.defaultPageProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultPageProps);
-    globalContext.defaultJournalProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultJournalProps);
+    globals.defaultPageProps = settingsTextToPropsObj(globals.pluginConfig.defaultPageProps);
+    globals.defaultJournalProps = settingsTextToPropsObj(globals.pluginConfig.defaultJournalProps);
     setTabsCSS();
     pageIconsRender();
 
@@ -52,7 +52,7 @@ const pageIconsRender = () => {
 
 export const pageIconsUnload = () => {
     body.classList.remove('awLi-icons');
-    doc.head.querySelector(`style[data-injected-style="awLi-icon-css-${globalContext.pluginID}"]`)?.remove();
+    doc.head.querySelector(`style[data-injected-style="awLi-icon-css-${globals.pluginID}"]`)?.remove();
     removePageIcons();
     removeTabIcons();
     removeTabsCSS();
@@ -65,15 +65,15 @@ export const setPageIcons = async (context?: Document | HTMLElement) => {
     if (!context) {
         context = doc;
     }
-    const titleLinksList = [...context.querySelectorAll(globalContext.titleSelector)];
+    const titleLinksList = [...context.querySelectorAll(globals.titleSelector)];
     if (titleLinksList) {
         setStyleToLinkList(titleLinksList, true);
     }
-    const pageLinksList = [...context.querySelectorAll(globalContext.pageLinksSelector)];
+    const pageLinksList = [...context.querySelectorAll(globals.pageLinksSelector)];
     if (pageLinksList.length) {
         setStyleToLinkList(pageLinksList, true);
     }
-    const sidebarLinksList = [...context.querySelectorAll(globalContext.sidebarLinkSelector)];
+    const sidebarLinksList = [...context.querySelectorAll(globals.sidebarLinkSelector)];
     if (sidebarLinksList) {
         setStyleToLinkList(sidebarLinksList);
     }
@@ -84,7 +84,7 @@ export const setTabIcons = async () => {
         return;
     }
     if (tabsPluginIframe.contentDocument) {
-        const tabLinksList = [...tabsPluginIframe.contentDocument.querySelectorAll(globalContext.tabLinkSelector)];
+        const tabLinksList = [...tabsPluginIframe.contentDocument.querySelectorAll(globals.tabLinkSelector)];
         if (tabLinksList) {
             setStyleToLinkList(tabLinksList);
         }
@@ -128,14 +128,15 @@ export const processLinkItem = async (linkItem: HTMLElement, noDefaultIcon?: boo
 
 const setIconToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject, noDefaultIcon?: boolean) => {
     const pageIcon = pageProps['icon'];
-    if (pageIcon === globalContext.defaultPageProps.icon && noDefaultIcon) {
+    if (pageIcon === globals.defaultPageProps.icon && noDefaultIcon) {
         return;
     }
     if (pageIcon && pageIcon !== 'none') {
+
         const oldPageIcon = linkItem.querySelector('.awLi-icon');
         oldPageIcon && oldPageIcon.remove();
         hideTitle(linkItem, pageProps);
-        linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon">${pageIcon}</span>`);
+        linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon" data-is-emoji="${isEmoji(pageIcon)}">${pageIcon}</span>`);
     }
 }
 
@@ -161,8 +162,8 @@ const setColorToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject)
             linkItem.style.setProperty('--ls-tag-text-color', pageColor);
             linkItem.classList.add('awLi-color');
         }
-        const bg = linkItem.classList.contains('tag') ? globalContext.themeColor : globalContext.themeBg
-        if (globalContext.pluginConfig.fixLowContrast && isNeedLowContrastFix(pageColor, bg)) {
+        const bg = linkItem.classList.contains('tag') ? globals.themeColor : globals.themeBg
+        if (globals.pluginConfig.fixLowContrast && isNeedLowContrastFix(pageColor, bg)) {
             linkItem.classList.add('awLi-stroke');
         }
     } else {
@@ -181,21 +182,21 @@ export const setTagType = () => {
     tag.remove();
     if (tagBg !== 'rgba(0, 0, 0, 0)') {
         body.classList.add('awLi-tagHasBg');
-        globalContext.tagHasBg = true;
+        globals.tagHasBg = true;
 
     } else {
         body.classList.remove('awLi-tagHasBg');
-        globalContext.tagHasBg = false;
+        globals.tagHasBg = false;
     }
 }
 
 const setStrokeColor = () => {
-    globalContext.themeColor = getComputedStyle(root).getPropertyValue('--ls-primary-text-color').trim();
-    globalContext.themeBg = getComputedStyle(root).getPropertyValue('--ls-primary-background-color').trim();
+    globals.themeColor = getComputedStyle(root).getPropertyValue('--ls-primary-text-color').trim();
+    globals.themeBg = getComputedStyle(root).getPropertyValue('--ls-primary-background-color').trim();
 }
 
 const removePageIcons = () => {
-    const linksList = [...doc.querySelectorAll(`${globalContext.pageLinksSelector}, ${globalContext.titleSelector}, ${globalContext.sidebarLinkSelector}`)];
+    const linksList = [...doc.querySelectorAll(`${globals.pageLinksSelector}, ${globals.titleSelector}, ${globals.sidebarLinkSelector}`)];
     removeStyleFromLinkList(linksList);
 }
 
@@ -203,7 +204,7 @@ const removeTabIcons = () => {
     if (!tabsPluginIframe || !tabsPluginIframe.contentDocument) {
         return;
     }
-    const linksList = [...tabsPluginIframe.contentDocument.querySelectorAll(globalContext.tabLinkSelector)];
+    const linksList = [...tabsPluginIframe.contentDocument.querySelectorAll(globals.tabLinkSelector)];
     removeStyleFromLinkList(linksList);
 }
 
@@ -230,10 +231,8 @@ const setTabsCSS = () => {
             }
             .awLi-icon {
                 display: inline-block;
-                margin-right: 0.34em;
-                font-family: 'NerdFont';
+                margin-right: 4px;
                 text-align: center;
-                line-height: 1em;
                 width: 1.2em;
             }
             .light .awLi-stroke {

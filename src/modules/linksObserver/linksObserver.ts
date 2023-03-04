@@ -1,5 +1,5 @@
 import { setFavicons } from '../favIcons/favIcons';
-import { globalContext, doc } from '../globals';
+import { globals, doc } from '../globals';
 import { setPageIcons, processLinkItem } from '../pageIcons/pageIcons';
 
 let linksObserver: MutationObserver;
@@ -19,12 +19,12 @@ const linksObserverCallback: MutationCallback = function (mutationsList) {
         const addedNode = mutationItem.addedNodes[0] as HTMLElement;
         if (addedNode && addedNode.childNodes.length) {
             // page icons
-            if (globalContext.pluginConfig.pageIconsEnabled) {
+            if (globals.pluginConfig.pageIconsEnabled) {
                 setPageIcons(addedNode);
             }
             // favicons
-            if (globalContext.pluginConfig.faviconsEnabled) {
-                const extLinkList = [... addedNode.querySelectorAll(globalContext.extLinksSelector)] as HTMLElement[];
+            if (globals.pluginConfig.faviconsEnabled) {
+                const extLinkList = [... addedNode.querySelectorAll(globals.extLinksSelector)] as HTMLElement[];
                 if (extLinkList.length) {
                     setFavicons(extLinkList);
                 }

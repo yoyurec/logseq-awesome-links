@@ -1,7 +1,7 @@
 import { LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
 import { toggleFaviconsFeature, toggleInheritExtColor } from '../modules/favIcons/favIcons';
-import { globalContext } from '../modules/globals';
-import { toggleNerdFonFeature } from '../modules/nerdFont/nerdFont';
+import { globals } from '../modules/globals';
+import { toggleIconFontFeature } from '../modules/iconFont/iconFont';
 import { toggleIconsFeature } from '../modules/pageIcons/pageIcons';
 
 import { objectDiff, settingsTextToPropsObj } from '../modules/utils';
@@ -11,7 +11,7 @@ import { settingsConfig } from './settingsConfig';
 
 export const settingsLoad = () => {
     logseq.useSettingsSchema(settingsConfig);
-    globalContext.pluginConfig = logseq.settings;
+    globals.pluginConfig = logseq.settings;
 
     logseq.onSettingsChanged((settings, oldSettings) => {
         onSettingsChangedCallback(settings, oldSettings);
@@ -19,11 +19,11 @@ export const settingsLoad = () => {
  }
 
 const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSettings: LSPluginBaseInfo['settings']) => {
-    globalContext.defaultPageProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultPageProps);
-    globalContext.defaultJournalProps = settingsTextToPropsObj(globalContext.pluginConfig.defaultJournalProps);
+    globals.defaultPageProps = settingsTextToPropsObj(globals.pluginConfig.defaultPageProps);
+    globals.defaultJournalProps = settingsTextToPropsObj(globals.pluginConfig.defaultJournalProps);
 
-    globalContext.pluginConfig = { ...settings };
-    const settingsDiff = objectDiff({ ...oldSettings }, globalContext.pluginConfig)
+    globals.pluginConfig = { ...settings };
+    const settingsDiff = objectDiff({ ...oldSettings }, globals.pluginConfig)
     if (settingsDiff.includes('faviconsEnabled')) {
         toggleFaviconsFeature();
     }
@@ -33,7 +33,7 @@ const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSe
     if (settingsDiff.includes('pageIconsEnabled') || settingsDiff.includes('inheritFromHierarchy') || settingsDiff.includes('defaultJournalProps') || settingsDiff.includes('fixLowContrast')) {
         toggleIconsFeature();
     }
-    if (settingsDiff.includes('nerdFontEnabled')) {
-        toggleNerdFonFeature();
+    if (settingsDiff.includes('iconFont')) {
+        toggleIconFontFeature();
     }
 }

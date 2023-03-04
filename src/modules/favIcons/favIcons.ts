@@ -1,4 +1,4 @@
-import { doc, globalContext } from '../globals';
+import { doc, globals } from '../globals';
 // import { stopLinksObserver } from '../linksObserver/linksObserver';
 import { getPropsByPageName } from '../pageIcons/queries';
 import { getBase64FromUrl, isNeedLowContrastFix } from '../utils';
@@ -13,12 +13,12 @@ type favRecord = {
 // External links favicons
 export const setFavicons = async (extLinkList?: HTMLElement[]) => {
     if (!extLinkList) {
-        extLinkList = [...doc.querySelectorAll(globalContext.extLinksSelector)];
+        extLinkList = [...doc.querySelectorAll(globals.extLinksSelector)];
     }
     for (let i = 0; i < extLinkList.length; i++) {
         const extLinkItem = extLinkList[i] as HTMLAnchorElement;
         setIconToExtItem(extLinkItem);
-        if (globalContext.pluginConfig.inheritExtColor) {
+        if (globals.pluginConfig.inheritExtColor) {
             setColorToExtItem(extLinkItem);
         }
     }
@@ -39,13 +39,13 @@ const setIconToExtItem = async (extLinkItem: HTMLAnchorElement) => {
         // skip cache for strange URIs
         faviconData = await getFaviconData(url);
     } else {
-        if (globalContext.favIconsCache.has(hostname)) {
+        if (globals.favIconsCache.has(hostname)) {
             // try from cache
-            faviconData = globalContext.favIconsCache.get(hostname);
+            faviconData = globals.favIconsCache.get(hostname);
         } else {
             // no? get fresh + save to cache
             faviconData = await getFaviconData(url);
-            globalContext.favIconsCache.set(hostname, faviconData);
+            globals.favIconsCache.set(hostname, faviconData);
         }
     }
     if (faviconData.format === 'img') {
@@ -167,7 +167,7 @@ const setColorToExtItem = async (extLinkItem: HTMLAnchorElement) => {
             if (pageColor && pageColor !== 'none') {
                 extLinkItem.style.setProperty('--awLi-color', pageColor);
                 extLinkItem.classList.add('awLi-color');
-                if (globalContext.pluginConfig.fixLowContrast && isNeedLowContrastFix(pageColor, globalContext.themeBg)) {
+                if (globals.pluginConfig.fixLowContrast && isNeedLowContrastFix(pageColor, globals.themeBg)) {
                     extLinkItem.classList.add('awLi-stroke');
                 }
             }
@@ -185,7 +185,7 @@ const removeFavicons = () => {
 }
 
 const setFaviconsColor = () => {
-    const extLinkList = [...doc.querySelectorAll(globalContext.extLinksSelector)];
+    const extLinkList = [...doc.querySelectorAll(globals.extLinksSelector)];
     if (extLinkList.length) {
         for (let i = 0; i < extLinkList.length; i++) {
             setColorToExtItem(extLinkList[i]);
@@ -194,7 +194,7 @@ const setFaviconsColor = () => {
 }
 
 const removeFaviconsColor = () => {
-    const extLinkList = [...doc.querySelectorAll(globalContext.extLinksSelector)];
+    const extLinkList = [...doc.querySelectorAll(globals.extLinksSelector)];
     if (extLinkList.length) {
         for (let i = 0; i < extLinkList.length; i++) {
             const extLinkItem = extLinkList[i] as HTMLAnchorElement;
@@ -205,7 +205,7 @@ const removeFaviconsColor = () => {
 }
 
 export const toggleFaviconsFeature = () => {
-    if (globalContext.pluginConfig.faviconsEnabled) {
+    if (globals.pluginConfig.faviconsEnabled) {
         faviconsLoad();
     } else {
         faviconsUnload();
@@ -213,7 +213,7 @@ export const toggleFaviconsFeature = () => {
 }
 
 export const toggleInheritExtColor = () => {
-    if (globalContext.pluginConfig.inheritExtColor) {
+    if (globals.pluginConfig.inheritExtColor) {
         setFaviconsColor();
     } else {
         removeFaviconsColor();
@@ -221,16 +221,16 @@ export const toggleInheritExtColor = () => {
 }
 
 export const faviconsLoad = async () => {
-    if (globalContext.pluginConfig.faviconsEnabled) {
+    if (globals.pluginConfig.faviconsEnabled) {
         setTimeout(() => {
-            globalContext.favIconsCache = new Map();
+            globals.favIconsCache = new Map();
             setFavicons();
         }, 500);
     }
 }
 
 export const faviconsUnload = () => {
-    globalContext.favIconsCache.clear();
+    globals.favIconsCache.clear();
     removeFavicons();
     // if (!globalContext.pluginConfig.pageIconsEnabled && !globalContext.pluginConfig.faviconsEnabled) {
     //     stopLinksObserver();

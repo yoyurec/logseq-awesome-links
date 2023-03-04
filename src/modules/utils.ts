@@ -1,12 +1,9 @@
 //@ts-ignore
-import tinycolor from 'tinycolor2';
-import { globalContext, propsObject } from './globals';
+import { hasBadContrast } from 'color2k';
+import { globals, propsObject } from './globals';
 
 export const objectDiff = (orig: object, updated: object) => {
     const difference = Object.keys(orig).filter((key) => {
-        if (key === 'presetCustom') {
-            return false
-        }
         // @ts-ignore
         return orig[key] !== updated[key]
     });
@@ -15,7 +12,7 @@ export const objectDiff = (orig: object, updated: object) => {
 
 export const checkUpdate = async () => {
     const response = await fetch(
-        `https://api.github.com/repos/yoyurec/${globalContext.pluginID}/releases/latest`,
+        `https://api.github.com/repos/yoyurec/${globals.pluginID}/releases/latest`,
         { headers: { 'Accept': 'application/vnd.github.v3+json' } }
     );
     if (!response.ok) {
@@ -26,9 +23,9 @@ export const checkUpdate = async () => {
     if (repoInfo) {
         const latestVersion = repoInfo.tag_name.replace('v', '');
         // https://stackoverflow.com/a/65687141
-        const hasUpdate = latestVersion.localeCompare(globalContext.pluginVersion, undefined, { numeric: true, sensitivity: 'base' });
+        const hasUpdate = latestVersion.localeCompare(globals.pluginVersion, undefined, { numeric: true, sensitivity: 'base' });
         if (hasUpdate == 1) {
-            logseq.UI.showMsg(`"${globalContext.pluginID}" new version is available! Please, update!`, 'warning', {timeout: 30000});
+            logseq.UI.showMsg(`"${globals.pluginID}" new version is available! Please, update!`, 'warning', {timeout: 30000});
         }
     }
 }
@@ -53,8 +50,7 @@ export const getBase64FromUrl = async (url: string): Promise<string> => {
 }
 
 export const isNeedLowContrastFix = (color: string, bg: string) => {
-    const readability = tinycolor.readability(color, bg);
-    return (readability < 1.7) ? true : false;
+    return hasBadContrast(color, 'decorative', bg) ? true : false;
 }
 
 export const settingsTextToPropsObj = (settingsText: string): propsObject => {
@@ -79,4 +75,9 @@ export const settingsTextToPropsObj = (settingsText: string): propsObject => {
         }
     }
     return defaultPageProps;
+}
+
+export const isEmoji = (text: string): boolean => {
+    const regex_emoji = /[\p{Extended_Pictographic}\u{1F3FB}-\u{1F3FF}\u{1F9B0}-\u{1F9B3}]/u;
+    return regex_emoji.test(text);
 }

@@ -17,7 +17,7 @@ export const doc = parent.document;
 export const root = doc.documentElement;
 export const body = doc.body;
 
-export const globalContext: globalContextType = {
+export const globals: globalContextType = {
     pluginID: PL.id,
     pluginConfig: null,
     isPluginEnabled: 'is-awLi-enabled',
