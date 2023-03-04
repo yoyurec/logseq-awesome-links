@@ -1,3 +1,10 @@
+## [1.15.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.1...v1.15.2) (2023-03-04)
+
+
+### Bug Fixes
+
+* **fonts:** nerd again chached ([e1b24be](https://github.com/yoyurec/logseq-awesome-links/commit/e1b24be8f4fae20980e0d81beff9f8aee18b0061))
+
 ## [1.15.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.0...v1.15.1) (2023-03-04)
 
 
