@@ -41,7 +41,7 @@ const nerdFontLoad = async () => {
                     font-family: "nerd";
                     font-style: normal;
                     font-weight: 400;
-                    src: url('lsp://logseq.io/${globals.pluginID}/dist/fonts/nerd.ttf') format('truetype');
+                    src: url('lsp://logseq.io/${globals.pluginID}/dist/fonts/nerd.ttf?v=2') format('truetype');
                 }
             </style>`
         );
@@ -55,7 +55,7 @@ const nerdFontLoad = async () => {
                         font-family: "nerd";
                         font-style: normal;
                         font-weight: 400;
-                        src: url('lsp://logseq.io/${globals.pluginID}/dist/fonts/nerd.ttf') format('truetype');
+                        src: url('lsp://logseq.io/${globals.pluginID}/dist/fonts/nerd.ttf?v=2') format('truetype');
                     }
                     .awLi-icon {
                         font-family: "nerd";
