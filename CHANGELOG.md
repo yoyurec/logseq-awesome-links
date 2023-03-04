@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.11...v1.15.0) (2023-03-04)
+
+
+### Features
+
+* **icon-font:** add Tabler support ([3d2172f](https://github.com/yoyurec/logseq-awesome-links/commit/3d2172fa22156af183100b958abd5db05288f56d))
+
 ## [1.14.11](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.10...v1.14.11) (2023-02-24)
 
 
