@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.0...v1.15.1) (2023-03-04)
+
+
+### Bug Fixes
+
+* **fonts:** invalidate Nerd font from cache ([17599b8](https://github.com/yoyurec/logseq-awesome-links/commit/17599b8ef319da7b9695854ac2d5e867a64c84c1))
+
 # [1.15.0](https://github.com/yoyurec/logseq-awesome-links/compare/v1.14.11...v1.15.0) (2023-03-04)
 
 
