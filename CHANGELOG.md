@@ -1,3 +1,10 @@
+## [1.15.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.2...v1.15.3) (2023-03-06)
+
+
+### Bug Fixes
+
+* **fonts:** update font family ([bc1cfd9](https://github.com/yoyurec/logseq-awesome-links/commit/bc1cfd945e55239e277c9a9489a0bd86921a32bf))
+
 ## [1.15.2](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.1...v1.15.2) (2023-03-04)
 
 
