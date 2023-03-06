@@ -1,51 +1,50 @@
 /*
-  >>> BEGIN: Nerd icons
+  >>> BEGIN: Font icons
 */
 body[data-awli-icon-font="nerd"] :is(
   .page-icon,
   .awLi-icon,
   .is-icon-active .page>.relative>.flex-row>.flex-1::before
 ) {
-    font-family: "nerd";
+    font-family: var(--ls-font-family), 'nerd', 'tabler-icons';
     width: 1.2em;
 }
 
-body[data-awli-icon-font="nerd"] :is(
-  .desc-item[data-key="defaultPageProps"] .form-input,
-  .desc-item[data-key="defaultJournalProps"] .form-input,
-) {
-    font-family: "nerd";
-}
-
 body[data-awli-icon-font="tabler-icons"] :is(
   .page-icon,
   .awLi-icon,
   .is-icon-active .page>.relative>.flex-row>.flex-1::before
 ) {
-    font-family: "tabler-icons";
+  font-family: var(--ls-font-family), 'tabler-icons';
     font-size: 1.1em;
+}
+
+body[data-awli-icon-font="nerd"] :is(
+  .desc-item[data-key="defaultPageProps"] .form-input,
+  .desc-item[data-key="defaultJournalProps"] .form-input,
+) {
+    font-family: var(--ls-font-family), 'nerd', 'tabler-icons', sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, 'Noto Sans', serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol !important;
 }
 
 body[data-awli-icon-font="tabler-icons"] :is(
   .desc-item[data-key="defaultPageProps"] .form-input,
   .desc-item[data-key="defaultJournalProps"] .form-input,
 ) {
-    font-family: "tabler-icons";
+    font-family: var(--ls-font-family), 'tabler-icons', sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, 'Noto Sans', serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol !important;
+}
+
+.editor-inner textarea {
+  font-family: var(--ls-font-family), 'tabler-icons', 'nerd', sans-serif, system-ui,
+  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+  Arial, 'Noto Sans', serif, Apple Color Emoji, Segoe UI Emoji,
+  Segoe UI Symbol !important;
 }
 /*
-<<<< END: Nerd icons
-*/
-
-
-/*
->>> BEGIN: Props
-*/
-/* .pre-block > .flex-row .editor-wrapper textarea {
-    font-family: var(--icon-font);
-    font-size: 0.96rem;
-    letter-spacing: -1px;
-    word-spacing: -1px;
-} */
-/*
-<<<< END: Props
+<<<< END: Font icons
 */
