@@ -1,3 +1,10 @@
+## [1.15.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.3...v1.15.4) (2023-03-06)
+
+
+### Bug Fixes
+
+* **links:** transition back ([30e4e0e](https://github.com/yoyurec/logseq-awesome-links/commit/30e4e0e488260c720a64e9d02283fa65bdfd82b7))
+
 ## [1.15.3](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.2...v1.15.3) (2023-03-06)
 
 
