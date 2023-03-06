@@ -1,7 +1,14 @@
+## Other my plugins/themes
+* ✨ [Tabler picker](https://github.com/yoyurec/logseq-tabler-picker)
+* 🪓 [Awesome UI](https://github.com/yoyurec/logseq-awesome-ui)
+* 🎨 [Awesome Styler](https://github.com/yoyurec/logseq-awesome-styler)
+* 📋 [Awesome Props](https://github.com/yoyurec/logseq-awesome-props)
+* 📰 [Banners](https://github.com/yoyurec/logseq-banners-plugin)
+* 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers) experimental
+
 ## If you ❤ what i'm doing - you can support my work! ☕
-<p>
-    <a href="https://www.buymeacoffee.com/yoyurec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=yoyurec&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
-</p>
+
+<a href="https://www.buymeacoffee.com/yoyurec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=yoyurec&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 <h1 align="center">"Awesome Links" plugin for Logseq</h1>
 <p align="center">
@@ -29,12 +36,6 @@
 From Logseq store - `Plugins -> Marketplace`
 
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/market.png)
-
-## Recommended plugins/themes
-* 🐱‍👤 [Awesome Styler](https://github.com/yoyurec/logseq-awesome-styler) theme
-* ⚡ [Awesome UI](https://github.com/yoyurec/logseq-awesome-ui)
-* 📰 [Banners](https://github.com/yoyurec/logseq-banners-plugin)
-* 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
 
 ## Features
 
@@ -92,24 +93,34 @@ To customize link color, add property _(to page or to inherited page)_ `color::`
 
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/tag-colors.png)
 
-### ✨ Custom page icons
+### 📄 Custom page icons
+
+#### Nerd font
 
 3600+ icons combined from popular sets (Font Awesome, Material Design, SetiUI, etc...)!
 Native Logseq props `icon::` extended with Nerd icons font:
 * Search in collection ([Icons Cheat Sheet](https://www.nerdfonts.com/cheat-sheet)),
 * select
 * press "Copy icon",
-* paste to `icon::` props
+* paste to `icon::` page property
 
 Banners & Tabs plugin support included 😎
-Feature can be disabled.
 
 <img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/nerd-icons.png" width="640">
 
 <img src="https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/nerd.png" width="640">
 
 
-### ✨ Journal icon
+#### Tabler icons
+2800+ icons
+Native Logseq props `icon::` extended with Nerd icons font:
+* Install ✨ [Tabler picker](https://github.com/yoyurec/logseq-tabler-picker) plugin
+* Search and click on icon to copy,
+* paste to `icon::` page property
+
+![](https://github.com//yoyurec/logseq-tabler-picker/raw/main/screenshots/screen.png)
+
+### 📆 Journal icon
 
 Can be customized in settings.
 Delete value to disable feature.
