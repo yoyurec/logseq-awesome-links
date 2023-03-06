@@ -55,8 +55,3 @@ body:not(.awLi-tagHasBg) .tag.awLi-color {
 .journal-title .title::before {
     display: none !important;
 }
-
-/* other */
-.page-ref, .tag {
-    transition: none;
-}
