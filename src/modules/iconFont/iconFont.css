@@ -15,8 +15,7 @@ body[data-awli-icon-font="tabler-icons"] :is(
   .awLi-icon,
   .is-icon-active .page>.relative>.flex-row>.flex-1::before
 ) {
-  font-family: var(--ls-font-family), 'tabler-icons';
-    font-size: 1.1em;
+    font-family: var(--ls-font-family), 'tabler-icons';
 }
 
 body[data-awli-icon-font="nerd"] :is(
