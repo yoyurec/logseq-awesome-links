@@ -1,3 +1,10 @@
+## [1.15.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.4...v1.15.5) (2023-03-09)
+
+
+### Bug Fixes
+
+* **favicons:** add missed file protocol ([5e8f273](https://github.com/yoyurec/logseq-awesome-links/commit/5e8f2739de1355f771df7d00f19ee676b5bf0d7b))
+
 ## [1.15.4](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.3...v1.15.4) (2023-03-06)
 
 
