@@ -1,3 +1,10 @@
+## [1.15.6](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.5...v1.15.6) (2023-03-09)
+
+
+### Bug Fixes
+
+* **pageicons:** position and sizes ([9d919b1](https://github.com/yoyurec/logseq-awesome-links/commit/9d919b1eb2114009f36c159ebb3d872f50e31d96))
+
 ## [1.15.5](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.4...v1.15.5) (2023-03-09)
 
 
