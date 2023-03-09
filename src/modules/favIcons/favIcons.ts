@@ -89,6 +89,13 @@ const getFaviconData = async (url: string): Promise<favRecord> => {
             src: await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://logseq.com&size=32`)
         };
     }
+    // local
+    if (protocol === 'file:') {
+        return favIcon = {
+            format: 'svg',
+            src: '<svg class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2"/></svg>'
+        };
+    }
     // http - custom
     if (hostname === 'youtu.be') {
         return favIcon = {
@@ -232,7 +239,4 @@ export const faviconsLoad = async () => {
 export const faviconsUnload = () => {
     globals.favIconsCache.clear();
     removeFavicons();
-    // if (!globalContext.pluginConfig.pageIconsEnabled && !globalContext.pluginConfig.faviconsEnabled) {
-    //     stopLinksObserver();
-    // }
 }
