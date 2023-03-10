@@ -1,3 +1,10 @@
+## [1.15.8](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.7...v1.15.8) (2023-03-10)
+
+
+### Bug Fixes
+
+* **page-icons:** alight and size ([0e3e327](https://github.com/yoyurec/logseq-awesome-links/commit/0e3e32799cd3999ed1d96f7f80766b27d071f7d5))
+
 ## [1.15.7](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.6...v1.15.7) (2023-03-10)
 
 
