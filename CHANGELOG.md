@@ -1,3 +1,10 @@
+## [1.15.9](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.8...v1.15.9) (2023-03-10)
+
+
+### Bug Fixes
+
+* **page-icons:** tabs & titles ([26b6bf5](https://github.com/yoyurec/logseq-awesome-links/commit/26b6bf51096016ec323e8538fcfe863c9ab9902d))
+
 ## [1.15.8](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.7...v1.15.8) (2023-03-10)
 
 
