@@ -1,0 +1,28 @@
+.logseq-tab-title {
+    color: var(--awLi-color) !important;
+}
+.awLi-icon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.26em;
+    font-weight: 400;
+}
+.awLi-icon[data-is-emoji="true"] {
+    top: 0;
+    font-size: 0.9em !important;
+}
+.light .awLi-stroke {
+    -webkit-text-stroke: 0.3px #00000088;
+}
+.dark .awLi-stroke {
+    -webkit-text-stroke: 0.3px #ffffff88;
+}
+.logseq-tab .text-xs {
+    display: none;
+}

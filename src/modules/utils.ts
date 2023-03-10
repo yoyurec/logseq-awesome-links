@@ -1,6 +1,6 @@
 //@ts-ignore
 import { hasBadContrast } from 'color2k';
-import { globals, propsObject } from './globals';
+import { doc, globals, propsObject } from './globals';
 
 export const objectDiff = (orig: object, updated: object) => {
     const difference = Object.keys(orig).filter((key) => {
@@ -80,4 +80,26 @@ export const settingsTextToPropsObj = (settingsText: string): propsObject => {
 export const isEmoji = (text: string): boolean => {
     const regex_emoji = /[\p{Extended_Pictographic}\u{1F3FB}-\u{1F3FF}\u{1F9B0}-\u{1F9B3}]/u;
     return regex_emoji.test(text);
+}
+
+export const injectPluginCSS = (iframeId: string, label: string, cssContent: string) => {
+    const pluginIframe = doc.getElementById(iframeId) as HTMLIFrameElement;
+    if (!pluginIframe) {
+        return
+    }
+    ejectPluginCSS(iframeId, label);
+    pluginIframe.contentDocument?.head.insertAdjacentHTML(
+        'beforeend',
+        `<style id='${label}'>
+            ${cssContent}
+        </style>`
+    );
+}
+
+export const ejectPluginCSS = (iframeId: string, label: string) => {
+    const pluginIframe = doc.getElementById(iframeId) as HTMLIFrameElement;
+    if (!pluginIframe) {
+        return;
+    }
+    pluginIframe.contentDocument?.getElementById(label)?.remove();
 }

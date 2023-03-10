@@ -1,11 +1,11 @@
 import fastdom from 'fastdom'
 
 import { body, doc, globals, propsObject, root } from '../globals';
-// import { stopLinksObserver, stopTabsObserver } from '../linksObserver/linksObserver';
-import { settingsTextToPropsObj, isNeedLowContrastFix, isEmoji } from '../utils';
+import { settingsTextToPropsObj, isNeedLowContrastFix, isEmoji, injectPluginCSS, ejectPluginCSS } from '../utils';
 import { getPropsByPageName } from './queries';
 
 import pageIconsStyles from  './pageIcons.css?inline';
+import tabsIframeStyles from  './tabsIframe.css?inline';
 
 let tabsPluginIframe: HTMLIFrameElement;
 
@@ -56,9 +56,6 @@ export const pageIconsUnload = () => {
     removePageIcons();
     removeTabIcons();
     removeTabsCSS();
-    // if (!globalContext.pluginConfig.pageIconsEnabled) {
-    //     stopTabsObserver();
-    // }
 }
 
 export const setPageIcons = async (context?: Document | HTMLElement) => {
@@ -220,37 +217,10 @@ const removeStyleFromLinkList = (linkList: Element[]) => {
 }
 
 const setTabsCSS = () => {
-    if (!tabsPluginIframe) {
-        return;
-    }
-    tabsPluginIframe.contentDocument?.head.insertAdjacentHTML(
-        'beforeend',
-        `<style id="awLi-tab-css">
-            .logseq-tab-title {
-                color: var(--awLi-color) !important;
-            }
-            .awLi-icon {
-                display: inline-block;
-                margin-right: 4px;
-                text-align: center;
-                width: 1.2em;
-            }
-            .light .awLi-stroke {
-                -webkit-text-stroke: 0.3px #00000088;
-            }
-            .dark .awLi-stroke {
-                -webkit-text-stroke: 0.3px #ffffff88;
-            }
-            .logseq-tab .text-xs {
-                display: none;
-            }
-        </style>`
-    );
+    injectPluginCSS('logseq-tabs_iframe', 'awLi-tabs-styles', tabsIframeStyles);
+
 }
 
 const removeTabsCSS = () => {
-    if (!tabsPluginIframe) {
-        return;
-    }
-    tabsPluginIframe.contentDocument?.getElementById('awLi-tab-css')?.remove();
+    ejectPluginCSS('logseq-tabs_iframe', 'awLi-tabs-styles');
 }
