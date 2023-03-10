@@ -38,6 +38,10 @@ From Logseq store - `Plugins -> Marketplace`
 
 ![](https://github.com/yoyurec/logseq-awesome-links/raw/main/screenshots/market.png)
 
+### Recommended plugin
+
+* ✨ [Tabler picker](https://github.com/yoyurec/logseq-tabler-picker)
+
 ## Features
 
 ### ⭐ Auto favicons for external links

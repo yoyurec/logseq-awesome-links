@@ -20,12 +20,13 @@
 }
 .title .awLi-icon {
     top: 0;
-    width: 1.3em;
-    height: 1.3em;
+    width: 1em;
+    height: 1em;
     line-height: inherit;
 }
 .title .awLi-icon[data-is-emoji="true"] {
     line-height: 1.7em;
+    margin-right: 0.6em;
 }
 .awLi-hideTitle .awLi-icon {
     margin-right: 0;
