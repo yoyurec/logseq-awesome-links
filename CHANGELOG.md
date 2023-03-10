@@ -1,3 +1,11 @@
+## [1.15.7](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.6...v1.15.7) (2023-03-10)
+
+
+### Bug Fixes
+
+* **page-icons:** tabler by default + icons glyphs update ([07c2465](https://github.com/yoyurec/logseq-awesome-links/commit/07c24651a18e0a5e3bd0bbeb36089ee4389b01af))
+* **page-iicons:** tabler by default + icons glyphs update ([f7eee0a](https://github.com/yoyurec/logseq-awesome-links/commit/f7eee0aa2df93f6a0f2c7720b15c626c4c3c63cc))
+
 ## [1.15.6](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.5...v1.15.6) (2023-03-09)
 
 
