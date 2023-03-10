@@ -3,20 +3,25 @@
     display: none !important;
 }
 .awLi-icon {
+    position: relative;
+    top: 2px;
     display: inline-block;
     margin-right: 5px;
     width: 16px;
     height: 16px;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1.26em;
     font-weight: 400;
 }
 .awLi-icon[data-is-emoji="true"] {
+    top: 0;
     font-size: 0.9em !important;
 }
 .title .awLi-icon {
+    top: 0;
     width: 1em;
+    height: 1.2em;
     line-height: inherit;
 }
 .awLi-hideTitle .awLi-icon {
