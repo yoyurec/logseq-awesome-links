@@ -101,7 +101,7 @@ export const settingsConfig: SettingSchemaDesc[] = [
         type: 'enum',
         enumPicker: 'radio',
         enumChoices: ['none', 'nerd', 'tabler-icons'],
-        default: 'nerd',
+        default: 'tabler-icons',
     },
     {
         key: 'otherHeading',
