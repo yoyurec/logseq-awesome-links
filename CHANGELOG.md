@@ -1,3 +1,10 @@
+## [1.15.10](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.9...v1.15.10) (2023-03-10)
+
+
+### Bug Fixes
+
+* **page-icons:** title emoji ([76efdcc](https://github.com/yoyurec/logseq-awesome-links/commit/76efdcc8eb4c24be89f2b14165a27ed3786c99ae))
+
 ## [1.15.9](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.8...v1.15.9) (2023-03-10)
 
 
