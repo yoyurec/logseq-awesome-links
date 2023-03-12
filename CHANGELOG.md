@@ -1,3 +1,10 @@
+## [1.15.12](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.11...v1.15.12) (2023-03-12)
+
+
+### Bug Fixes
+
+* **icons:** settings defaults to Tabler ([fb870db](https://github.com/yoyurec/logseq-awesome-links/commit/fb870dbfc314166142a05d8ef0fa6b2a7b373cbc))
+
 ## [1.15.11](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.10...v1.15.11) (2023-03-12)
 
 
