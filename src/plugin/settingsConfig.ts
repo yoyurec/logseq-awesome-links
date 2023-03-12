@@ -85,7 +85,7 @@ export const settingsConfig: SettingSchemaDesc[] = [
         description: 'Journal pages default props: icon (emoji or Nerd icon) and color. (Delete to disable)',
         type: 'string',
         inputAs: 'textarea',
-        default: 'icon::\ncolor::',
+        default: 'icon::\ncolor::',
     },
     {
         key: 'iconsFontHeading',
