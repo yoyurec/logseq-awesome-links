@@ -1,5 +1,5 @@
 /* icons */
-.is-awLi-enabled .page-icon {
+.is-awLi-enabled .page-icon:not(.whiteboard-page .page-icon) {
     display: none !important;
 }
 .awLi-icon {
