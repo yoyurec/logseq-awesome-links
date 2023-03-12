@@ -1,3 +1,10 @@
+## [1.15.11](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.10...v1.15.11) (2023-03-12)
+
+
+### Bug Fixes
+
+* **page-icons:** whiteboard title icon ([d4289ed](https://github.com/yoyurec/logseq-awesome-links/commit/d4289ed3a0dcc0a3f33ad03facb03607814ca5a4))
+
 ## [1.15.10](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.9...v1.15.10) (2023-03-10)
 
 
