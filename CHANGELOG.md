@@ -1,3 +1,10 @@
+## [1.15.16](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.15...v1.15.16) (2023-03-13)
+
+
+### Bug Fixes
+
+* **logseq:** png to svg ([477eeae](https://github.com/yoyurec/logseq-awesome-links/commit/477eeaee1315114a3ad3e0c2b821ce611760594d))
+
 ## [1.15.15](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.14...v1.15.15) (2023-03-13)
 
 
