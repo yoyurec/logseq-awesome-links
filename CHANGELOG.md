@@ -1,3 +1,10 @@
+## [1.15.15](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.14...v1.15.15) (2023-03-13)
+
+
+### Bug Fixes
+
+* **favicons:** jira size ([e711dd1](https://github.com/yoyurec/logseq-awesome-links/commit/e711dd1d751d376d4e91d9fecfbe0845f02d4c48))
+
 ## [1.15.14](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.13...v1.15.14) (2023-03-13)
 
 
