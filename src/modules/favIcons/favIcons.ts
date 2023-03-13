@@ -85,15 +85,15 @@ const getFaviconData = async (url: string): Promise<favRecord> => {
     // logseq
     if (protocol === 'logseq:') {
         return favIcon = {
-            format: 'img',
-            src: await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://logseq.com&size=32`)
+            format: 'svg',
+            src: '<svg class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 80 80"><rect width="64" height="64" x="8" y="8" fill="#002B34" rx="12"/><path fill="#86C8C8" d="M18.6 18.3c-2 .6-3.2 1.7-4 3.5-2.5 5 1.7 11.8 7.7 12.5 2.4.3 4.1-.3 5.7-2 2.4-2.4 2.7-5.4 1-8.8-1.9-4-6.8-6.4-10.4-5.2ZM41 34.9c-3 .6-4.1 1-7 2.5-6 3-9.4 8.9-8.5 14.4.7 4 4 8.5 8.1 11a26.1 26.1 0 0 0 22 1.4c4.2-1.8 7.8-5 9.4-8.5 1.7-3.6 1.5-8-.6-11.7-1.2-2-4.6-5.2-7-6.5A27.2 27.2 0 0 0 41 34.9Z"/><ellipse cx="44.1" cy="22.1" fill="#86C8C8" rx="8.8" ry="5.5" transform="rotate(-15 44 22)"/></svg>'
         };
     }
     // zotero
     if (protocol === 'zotero:') {
         return favIcon = {
             format: 'svg',
-            src: '<svg  class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 31"><path fill="#cc2936" d="M15.5 8.4 4 23.4h12V26H0v-2L11.5 8.9H.5V6.3h15Z"/></svg>'
+            src: '<svg class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 31"><path fill="#cc2936" d="M15.5 8.4 4 23.4h12V26H0v-2L11.5 8.9H.5V6.3h15Z"/></svg>'
         };
     }
     // local
