@@ -1,3 +1,10 @@
+## [1.15.14](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.13...v1.15.14) (2023-03-13)
+
+
+### Bug Fixes
+
+* **zotero:** size/position ([cc86cea](https://github.com/yoyurec/logseq-awesome-links/commit/cc86ceaf59cc54f3c587b5ce679da77bb05f635b))
+
 ## [1.15.13](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.12...v1.15.13) (2023-03-13)
 
 
