@@ -79,7 +79,7 @@ const getFaviconData = async (url: string): Promise<favRecord> => {
     if (protocol === 'tel:') {
         return favIcon = {
             format: 'svg',
-            src: '<svg class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icon-tabler-phone" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>'
+            src: '<svg class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>'
         };
     }
     // logseq
@@ -87,6 +87,13 @@ const getFaviconData = async (url: string): Promise<favRecord> => {
         return favIcon = {
             format: 'img',
             src: await getBase64FromUrl(`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://logseq.com&size=32`)
+        };
+    }
+    // zotero
+    if (protocol === 'zotero:') {
+        return favIcon = {
+            format: 'svg',
+            src: '<svg  class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 29"><path fill="#cc2936" d="M15.5 8.4 4 23.4h12V26H0v-2L11.5 8.9H.5V6.3h15Z"/></svg>'
         };
     }
     // local
@@ -130,7 +137,7 @@ const getFaviconData = async (url: string): Promise<favRecord> => {
     if (url.includes('.atlassian.net/jira/') || url.includes('.atlassian.net/browse/')) {
         return favIcon = {
             format: 'svg',
-            src: '<svg class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80"><defs><linearGradient id="a" x1="38.1" x2="23.2" y1="18.5" y2="33.5" gradientUnits="userSpaceOnUse"><stop offset=".2" stop-color="#0052cc"/><stop offset="1" stop-color="#2684ff"/></linearGradient><linearGradient xlink:href="#a" id="b" x1="42.1" x2="57" y1="61.5" y2="46.5"/></defs><path d="M74.2 38 43 6.9l-3-3-23.4 23.4L5.9 38a2.9 2.9 0 0 0 0 4l21.4 21.5L40 76.3l23.5-23.5.3-.3L74.2 42a2.9 2.9 0 0 0 0-4.1ZM40 50.8 29.3 40 40 29.4 50.7 40Z" style="fill:#2684ff"/><path d="M40 29.4A18 18 0 0 1 40 4L16.5 27.4 29.3 40 40 29.4Z" style="fill:url(#a)"/><path d="M50.8 40 40 50.8a18 18 0 0 1 0 25.5l23.5-23.5Z" style="fill:url(#b)"/></svg>'
+            src: '<svg class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><defs><linearGradient id="a" x1="38.1" x2="23.2" y1="18.5" y2="33.5" gradientUnits="userSpaceOnUse"><stop offset=".2" stop-color="#0052cc"/><stop offset="1" stop-color="#2684ff"/></linearGradient><linearGradient xlink:href="#a" id="b" x1="42.1" x2="57" y1="61.5" y2="46.5"/></defs><path d="M74.2 38 43 6.9l-3-3-23.4 23.4L5.9 38a2.9 2.9 0 0 0 0 4l21.4 21.5L40 76.3l23.5-23.5.3-.3L74.2 42a2.9 2.9 0 0 0 0-4.1ZM40 50.8 29.3 40 40 29.4 50.7 40Z" style="fill:#2684ff"/><path d="M40 29.4A18 18 0 0 1 40 4L16.5 27.4 29.3 40 40 29.4Z" style="fill:url(#a)"/><path d="M50.8 40 40 50.8a18 18 0 0 1 0 25.5l23.5-23.5Z" style="fill:url(#b)"/></svg>'
         };
     }
     // http - common
