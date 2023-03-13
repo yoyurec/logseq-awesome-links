@@ -1,3 +1,10 @@
+## [1.15.13](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.12...v1.15.13) (2023-03-13)
+
+
+### Bug Fixes
+
+* **favicons:** missed Zotero icon ([c46e1d4](https://github.com/yoyurec/logseq-awesome-links/commit/c46e1d487ca861b949b7626baa7592a6662281d6))
+
 ## [1.15.12](https://github.com/yoyurec/logseq-awesome-links/compare/v1.15.11...v1.15.12) (2023-03-12)
 
 
