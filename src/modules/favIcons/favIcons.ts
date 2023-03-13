@@ -93,7 +93,7 @@ const getFaviconData = async (url: string): Promise<favRecord> => {
     if (protocol === 'zotero:') {
         return favIcon = {
             format: 'svg',
-            src: '<svg  class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 29"><path fill="#cc2936" d="M15.5 8.4 4 23.4h12V26H0v-2L11.5 8.9H.5V6.3h15Z"/></svg>'
+            src: '<svg  class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 31"><path fill="#cc2936" d="M15.5 8.4 4 23.4h12V26H0v-2L11.5 8.9H.5V6.3h15Z"/></svg>'
         };
     }
     // local
