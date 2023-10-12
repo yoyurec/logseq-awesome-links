@@ -23,7 +23,7 @@ export const globals: globalContextType = {
     isPluginEnabled: 'is-awLi-enabled',
     extLinksSelector: '.external-link',
     pageLinksSelector: '.page-ref:not(.page-property-key), .tag, .references li a',
-    titleSelector: '.page-title, .journal-title .title',
+    titleSelector: '.page-title .title, .journal-title .title',
     sidebarLinkSelector: '.nav-contents-container .page-title',
     tabLinkSelector: '.logseq-tab:not(.close-all) .logseq-tab-title',
     tagHasBg: false,
@@ -33,4 +33,3 @@ export const globals: globalContextType = {
     defaultPageProps: Object.create(null),
     defaultJournalProps: Object.create(null),
 };
-
