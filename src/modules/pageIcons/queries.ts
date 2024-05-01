@@ -96,6 +96,7 @@ export const getAliasedPageTitle = async (title: string): Promise<string> => {
         :where
             [?id :block/name "${title}"]
             [?origid :block/alias ?id]
+            [?origid :block/properties ?props]
             [?origid :block/name ?origtitle]
     ]
     `;
