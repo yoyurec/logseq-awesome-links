@@ -30,6 +30,15 @@ export const checkUpdate = async () => {
     }
 }
 
+export const getBase64FromUrlWithCache = async (url: string): Promise<string> => {
+    if (globals.favIconsCache[url]) {
+        return globals.favIconsCache[url];
+    }
+    const favicon = await getBase64FromUrl(url);
+    globals.favIconsCache[url] = favicon;
+    return favicon;
+}
+
 // Generate Base64 from image URL
 export const getBase64FromUrl = async (url: string): Promise<string> => {
     let data;
