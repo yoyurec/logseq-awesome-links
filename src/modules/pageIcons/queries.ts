@@ -57,6 +57,9 @@ export const getPageProps = async (title: string): Promise<propsObject> => {
         if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].icon) {
             pageProps.icon = queryResultArr[0][0].icon;
         }
+        if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0]['icon-font']) {
+            pageProps.iconFont = queryResultArr[0][0]['icon-font'];
+        }
         if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].color) {
             pageProps.color = queryResultArr[0][0].color.replaceAll('"', '');
         }

@@ -66,8 +66,8 @@ const nerdFontLoad = async () => {
     }, 1000);
 }
 
-const nerdFontUnload = () => {
-}
+// eslint-disable-next-line
+const nerdFontUnload = () => {}
 
 const tablerFontLoad = () => {
     tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
@@ -90,5 +90,5 @@ const tablerFontLoad = () => {
     }
 }
 
-const tablerFontUnload = () => {
-}
+// eslint-disable-next-line
+const tablerFontUnload = () => {}
