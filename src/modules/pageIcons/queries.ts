@@ -57,6 +57,9 @@ export const getPageProps = async (title: string): Promise<propsObject> => {
         if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].icon) {
             pageProps.icon = queryResultArr[0][0].icon;
         }
+        if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0]['icon-font']) {
+            pageProps.iconFont = queryResultArr[0][0]['icon-font'];
+        }
         if (queryResultArr[0] && queryResultArr[0][0] && queryResultArr[0][0].color) {
             pageProps.color = queryResultArr[0][0].color.replaceAll('"', '');
         }
@@ -119,7 +122,7 @@ export const getPropsByPageName = async (pageTitle: string): Promise<propsObject
         if (pageProps) {
             resultedPageProps = { ...pageProps, ...resultedPageProps };
         }
-        if ((!resultedPageProps['icon'] || !resultedPageProps['color']) && globals.pluginConfig.inheritFromProp) {
+        if (globals.pluginConfig.inheritFromProp && (!resultedPageProps['icon'] || !resultedPageProps['color'])) {
             // inherited from page props, when props linked to page
             pageProps = await getInheritedPropsProps(pageTitle);
             if (pageProps) {
@@ -134,7 +137,7 @@ export const getPropsByPageName = async (pageTitle: string): Promise<propsObject
             }
         }
         if (globals.pluginConfig.inheritFromHierarchy && pageTitle.includes('/') && (!resultedPageProps['icon'] || !resultedPageProps['color'])) {
-            // inherit from hierarchy root
+            // inherit from hierarchy pages
             pageProps = await getHierarchyPageProps(pageTitle);
             resultedPageProps = { ...pageProps, ...resultedPageProps };
         }
@@ -146,13 +149,25 @@ export const getPropsByPageName = async (pageTitle: string): Promise<propsObject
 }
 
 export const getHierarchyPageProps = async (pageTitle: string): Promise<propsObject> => {
-    let pageProps: propsObject = Object.create(null);
-    pageTitle = pageTitle.split('/')[0];
-    pageProps = await getPageProps(pageTitle);
-    let resultedPageProps = { ...pageProps };
-    if (!pageProps['icon'] || !pageProps['color']) {
-        pageProps = await getInheritedPropsProps(pageTitle);
+    const titles = pageTitle.split('/');
+    const pageTitles = titles.slice(0, -1).reduce(
+        (r) => r.concat(titles.slice(0, r.length + 1).join('/')),
+        [] as Array<string>
+    ).reverse()
+
+    let resultedPageProps: propsObject = Object.create(null);
+    for (const pageTitle of pageTitles) {
+        let pageProps = await getPageProps(pageTitle);
         resultedPageProps = { ...pageProps, ...resultedPageProps };
+        if (resultedPageProps['icon'] && resultedPageProps['color'])
+            break
+
+        if (globals.pluginConfig.inheritFromProp) {
+            pageProps = await getInheritedPropsProps(pageTitle);
+            resultedPageProps = { ...pageProps, ...resultedPageProps };
+            if (resultedPageProps['icon'] && resultedPageProps['color'])
+                break
+        }
     }
     return resultedPageProps;
 }

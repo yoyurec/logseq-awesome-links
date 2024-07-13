@@ -1,7 +1,7 @@
 import fastdom from 'fastdom'
 
 import { body, doc, globals, propsObject, root } from '../globals';
-import { settingsTextToPropsObj, isNeedLowContrastFix, isEmoji, injectPluginCSS, ejectPluginCSS } from '../utils';
+import { settingsTextToPropsObj, isNeedLowContrastFix, isEmoji, injectPluginCSS, ejectPluginCSS, htmlToElement } from '../utils';
 import { getPropsByPageName } from './queries';
 
 import pageIconsStyles from  './pageIcons.css?inline';
@@ -129,11 +129,15 @@ const setIconToLinkItem = async (linkItem: HTMLElement, pageProps: propsObject, 
         return;
     }
     if (pageIcon && pageIcon !== 'none') {
-
         const oldPageIcon = linkItem.querySelector('.awLi-icon');
         oldPageIcon && oldPageIcon.remove();
         hideTitle(linkItem, pageProps);
-        linkItem.insertAdjacentHTML('afterbegin', `<span class="awLi-icon" data-is-emoji="${isEmoji(pageIcon)}">${pageIcon}</span>`);
+
+        const icontFont = (pageProps.iconFont ?? '').toLowerCase();
+        const iconMeta = icontFont === 'tabler' ? ' force-tabler-icons' : ''
+        const iconNode = htmlToElement(`<span class="awLi-icon${iconMeta}" data-is-emoji="${isEmoji(pageIcon)}">${pageIcon}</span>`);
+        const lastNode = linkItem.childNodes[linkItem.childNodes.length - 1];
+        linkItem.insertBefore(iconNode, lastNode);
     }
 }
 
