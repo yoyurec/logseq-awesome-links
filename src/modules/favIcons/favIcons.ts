@@ -140,6 +140,12 @@ const getFaviconData = async (url: string): Promise<favRecord> => {
             src: '<svg class="awLi-favicon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80"><defs><linearGradient id="a" x1="38.1" x2="23.2" y1="18.5" y2="33.5" gradientUnits="userSpaceOnUse"><stop offset=".2" stop-color="#0052cc"/><stop offset="1" stop-color="#2684ff"/></linearGradient><linearGradient xlink:href="#a" id="b" x1="42.1" x2="57" y1="61.5" y2="46.5"/></defs><path d="M74.2 38 43 6.9l-3-3-23.4 23.4L5.9 38a2.9 2.9 0 0 0 0 4l21.4 21.5L40 76.3l23.5-23.5.3-.3L74.2 42a2.9 2.9 0 0 0 0-4.1ZM40 50.8 29.3 40 40 29.4 50.7 40Z" style="fill:#2684ff"/><path d="M40 29.4A18 18 0 0 1 40 4L16.5 27.4 29.3 40 40 29.4Z" style="fill:url(#a)"/><path d="M50.8 40 40 50.8a18 18 0 0 1 0 25.5l23.5-23.5Z" style="fill:url(#b)"/></svg>'
         };
     }
+    if (url.includes('.slack.com/archives')) {
+        return favIcon = {
+            format: 'svg',
+            src: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M94.1 315.1c0 25.9-21.2 47.1-47.1 47.1S0 341 0 315.1c0-25.9 21.2-47.1 47.1-47.1h47.1v47.1zm23.7 0c0-25.9 21.2-47.1 47.1-47.1s47.1 21.2 47.1 47.1v117.8c0 25.9-21.2 47.1-47.1 47.1s-47.1-21.2-47.1-47.1V315.1zm47.1-189c-25.9 0-47.1-21.2-47.1-47.1S139 32 164.9 32s47.1 21.2 47.1 47.1v47.1H164.9zm0 23.7c25.9 0 47.1 21.2 47.1 47.1s-21.2 47.1-47.1 47.1H47.1C21.2 244 0 222.8 0 196.9s21.2-47.1 47.1-47.1H164.9zm189 47.1c0-25.9 21.2-47.1 47.1-47.1 25.9 0 47.1 21.2 47.1 47.1s-21.2 47.1-47.1 47.1h-47.1V196.9zm-23.7 0c0 25.9-21.2 47.1-47.1 47.1-25.9 0-47.1-21.2-47.1-47.1V79.1c0-25.9 21.2-47.1 47.1-47.1 25.9 0 47.1 21.2 47.1 47.1V196.9zM283.1 385.9c25.9 0 47.1 21.2 47.1 47.1 0 25.9-21.2 47.1-47.1 47.1-25.9 0-47.1-21.2-47.1-47.1v-47.1h47.1zm0-23.7c-25.9 0-47.1-21.2-47.1-47.1 0-25.9 21.2-47.1 47.1-47.1h117.8c25.9 0 47.1 21.2 47.1 47.1 0 25.9-21.2 47.1-47.1 47.1H283.1z"/></svg>'
+        };
+    }
     // http - common
     if (protocol === 'http:' || protocol === 'https:') {
         favIcon = {
